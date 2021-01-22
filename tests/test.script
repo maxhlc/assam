@@ -1,0 +1,115 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-02-28 12:34:13
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft DefaultSC;
+GMAT DefaultSC.DateFormat = UTCModJulian;
+GMAT DefaultSC.Epoch = '22000';
+GMAT DefaultSC.CoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultSC.DisplayStateType = ModifiedKeplerian;
+GMAT DefaultSC.RadPer = 8000.000000000001;
+GMAT DefaultSC.RadApo = 8000.000000000004;
+GMAT DefaultSC.INC = 24.99999999999999;
+GMAT DefaultSC.RAAN = 0;
+GMAT DefaultSC.AOP = 0;
+GMAT DefaultSC.TA = 0;
+GMAT DefaultSC.DryMass = 850;
+GMAT DefaultSC.Cd = 2.2;
+GMAT DefaultSC.Cr = 1.8;
+GMAT DefaultSC.DragArea = 15;
+GMAT DefaultSC.SRPArea = 1;
+GMAT DefaultSC.NAIFId = -10000001;
+GMAT DefaultSC.NAIFIdReferenceFrame = -9000001;
+GMAT DefaultSC.OrbitColor = Red;
+GMAT DefaultSC.TargetColor = Teal;
+GMAT DefaultSC.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT DefaultSC.CdSigma = 1e+070;
+GMAT DefaultSC.CrSigma = 1e+070;
+GMAT DefaultSC.Id = 'SatId';
+GMAT DefaultSC.Attitude = CoordinateSystemFixed;
+GMAT DefaultSC.SPADSRPScaleFactor = 1;
+GMAT DefaultSC.ModelFile = 'aura.3ds';
+GMAT DefaultSC.ModelOffsetX = 0;
+GMAT DefaultSC.ModelOffsetY = 0;
+GMAT DefaultSC.ModelOffsetZ = 0;
+GMAT DefaultSC.ModelRotationX = 0;
+GMAT DefaultSC.ModelRotationY = 0;
+GMAT DefaultSC.ModelRotationZ = 0;
+GMAT DefaultSC.ModelScale = 1;
+GMAT DefaultSC.AttitudeDisplayStateType = 'Quaternion';
+GMAT DefaultSC.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT DefaultSC.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultSC.EulerAngleSequence = '321';
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PrimaryBodies = {Earth};
+GMAT DefaultProp_ForceModel.PointMasses = {Luna, Sun};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = On;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Degree = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Order = 4;
+GMAT DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+GMAT DefaultProp_ForceModel.SRP.Flux = 1367;
+GMAT DefaultProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT DefaultProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 60;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-012;
+GMAT DefaultProp.MinStep = 0.001;
+GMAT DefaultProp.MaxStep = 2700;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create ReportFile ReportFile1;
+GMAT ReportFile1.SolverIterations = Current;
+GMAT ReportFile1.UpperLeft = [ 0.04631828978622328 0.09466019417475728 ];
+GMAT ReportFile1.Size = [ 0.5991686460807602 0.7985436893203883 ];
+GMAT ReportFile1.RelativeZOrder = 10;
+GMAT ReportFile1.Maximized = true;
+GMAT ReportFile1.Filename = 'ReportFile1.txt';
+GMAT ReportFile1.Precision = 16;
+GMAT ReportFile1.Add = {DefaultSC.UTCModJulian, DefaultSC.Earth.Latitude, DefaultSC.Earth.Longitude};
+GMAT ReportFile1.WriteHeaders = true;
+GMAT ReportFile1.LeftJustify = On;
+GMAT ReportFile1.ZeroFill = Off;
+GMAT ReportFile1.FixedWidth = true;
+GMAT ReportFile1.Delimiter = ' ';
+GMAT ReportFile1.ColumnWidth = 23;
+GMAT ReportFile1.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(DefaultSC) {DefaultSC.ElapsedDays = 7};
