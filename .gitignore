@@ -130,3 +130,7 @@ dmypy.json
 
 # Prototyping folder
 prototyping/
+
+# Modified GMAT scripts and output
+GMAT_modified.script
+GMAT_output.dat

@@ -1,0 +1,161 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2021-01-22 15:04:08
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Spacecraft;
+GMAT Spacecraft.DateFormat = UTCModJulian;
+GMAT Spacecraft.Epoch = '21544.5';
+GMAT Spacecraft.CoordinateSystem = EarthMJ2000Eq;
+GMAT Spacecraft.DisplayStateType = Keplerian;
+GMAT Spacecraft.SMA = 8000.000000000003;
+GMAT Spacecraft.ECC = 2.852150321103345e-16;
+GMAT Spacecraft.INC = 0;
+GMAT Spacecraft.RAAN = 0;
+GMAT Spacecraft.AOP = 0;
+GMAT Spacecraft.TA = 0;
+GMAT Spacecraft.DryMass = 850;
+GMAT Spacecraft.Cd = 2.2;
+GMAT Spacecraft.Cr = 1.8;
+GMAT Spacecraft.DragArea = 15;
+GMAT Spacecraft.SRPArea = 1;
+GMAT Spacecraft.SPADDragScaleFactor = 1;
+GMAT Spacecraft.SPADSRPScaleFactor = 1;
+GMAT Spacecraft.NAIFId = -10000001;
+GMAT Spacecraft.NAIFIdReferenceFrame = -9000001;
+GMAT Spacecraft.OrbitColor = Red;
+GMAT Spacecraft.TargetColor = Teal;
+GMAT Spacecraft.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT Spacecraft.CdSigma = 1e+70;
+GMAT Spacecraft.CrSigma = 1e+70;
+GMAT Spacecraft.Id = 'SatId';
+GMAT Spacecraft.Attitude = CoordinateSystemFixed;
+GMAT Spacecraft.SPADSRPInterpolationMethod = Bilinear;
+GMAT Spacecraft.SPADSRPScaleFactorSigma = 1e+70;
+GMAT Spacecraft.SPADDragInterpolationMethod = Bilinear;
+GMAT Spacecraft.SPADDragScaleFactorSigma = 1e+70;
+GMAT Spacecraft.ModelFile = 'aura.3ds';
+GMAT Spacecraft.ModelOffsetX = 0;
+GMAT Spacecraft.ModelOffsetY = 0;
+GMAT Spacecraft.ModelOffsetZ = 0;
+GMAT Spacecraft.ModelRotationX = 0;
+GMAT Spacecraft.ModelRotationY = 0;
+GMAT Spacecraft.ModelRotationZ = 0;
+GMAT Spacecraft.ModelScale = 1;
+GMAT Spacecraft.AttitudeDisplayStateType = 'Quaternion';
+GMAT Spacecraft.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Spacecraft.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Spacecraft.EulerAngleSequence = '321';
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel SpacecraftProp_ForceModel;
+GMAT SpacecraftProp_ForceModel.CentralBody = Earth;
+GMAT SpacecraftProp_ForceModel.PrimaryBodies = {Earth};
+GMAT SpacecraftProp_ForceModel.Drag = None;
+GMAT SpacecraftProp_ForceModel.SRP = Off;
+GMAT SpacecraftProp_ForceModel.RelativisticCorrection = Off;
+GMAT SpacecraftProp_ForceModel.ErrorControl = RSSStep;
+GMAT SpacecraftProp_ForceModel.GravityField.Earth.Degree = 4;
+GMAT SpacecraftProp_ForceModel.GravityField.Earth.Order = 4;
+GMAT SpacecraftProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT SpacecraftProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT SpacecraftProp_ForceModel.GravityField.Earth.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator SpacecraftProp;
+GMAT SpacecraftProp.FM = SpacecraftProp_ForceModel;
+GMAT SpacecraftProp.Type = RungeKutta89;
+GMAT SpacecraftProp.InitialStepSize = 60;
+GMAT SpacecraftProp.Accuracy = 9.999999999999999e-12;
+GMAT SpacecraftProp.MinStep = 0.001;
+GMAT SpacecraftProp.MaxStep = 2700;
+GMAT SpacecraftProp.MaxStepAttempts = 50;
+GMAT SpacecraftProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create GroundTrackPlot SpacecraftGroundTrack;
+GMAT SpacecraftGroundTrack.SolverIterations = Current;
+GMAT SpacecraftGroundTrack.UpperLeft = [ 0.0008547008547008547 0.4508333333333333 ];
+GMAT SpacecraftGroundTrack.Size = [ 0.5 0.45 ];
+GMAT SpacecraftGroundTrack.RelativeZOrder = 50;
+GMAT SpacecraftGroundTrack.Maximized = false;
+GMAT SpacecraftGroundTrack.Add = {Spacecraft};
+GMAT SpacecraftGroundTrack.DataCollectFrequency = 1;
+GMAT SpacecraftGroundTrack.UpdatePlotFrequency = 50;
+GMAT SpacecraftGroundTrack.NumPointsToRedraw = 0;
+GMAT SpacecraftGroundTrack.ShowPlot = true;
+GMAT SpacecraftGroundTrack.MaxPlotPoints = 20000;
+GMAT SpacecraftGroundTrack.CentralBody = Earth;
+GMAT SpacecraftGroundTrack.TextureMap = 'ModifiedBlueMarble.jpg';
+
+Create OrbitView SpacecraftOrbitView;
+GMAT SpacecraftOrbitView.SolverIterations = Current;
+GMAT SpacecraftOrbitView.UpperLeft = [ 0.001709401709401709 0 ];
+GMAT SpacecraftOrbitView.Size = [ 0.5 0.45 ];
+GMAT SpacecraftOrbitView.RelativeZOrder = 37;
+GMAT SpacecraftOrbitView.Maximized = false;
+GMAT SpacecraftOrbitView.Add = {Spacecraft, Earth};
+GMAT SpacecraftOrbitView.CoordinateSystem = EarthMJ2000Eq;
+GMAT SpacecraftOrbitView.DrawObject = [ true true ];
+GMAT SpacecraftOrbitView.DataCollectFrequency = 1;
+GMAT SpacecraftOrbitView.UpdatePlotFrequency = 50;
+GMAT SpacecraftOrbitView.NumPointsToRedraw = 0;
+GMAT SpacecraftOrbitView.ShowPlot = true;
+GMAT SpacecraftOrbitView.MaxPlotPoints = 20000;
+GMAT SpacecraftOrbitView.ShowLabels = true;
+GMAT SpacecraftOrbitView.ViewPointReference = Earth;
+GMAT SpacecraftOrbitView.ViewPointVector = [ 0 0 30000 ];
+GMAT SpacecraftOrbitView.ViewDirection = Earth;
+GMAT SpacecraftOrbitView.ViewScaleFactor = 1;
+GMAT SpacecraftOrbitView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT SpacecraftOrbitView.ViewUpAxis = Z;
+GMAT SpacecraftOrbitView.EclipticPlane = Off;
+GMAT SpacecraftOrbitView.XYPlane = On;
+GMAT SpacecraftOrbitView.WireFrame = Off;
+GMAT SpacecraftOrbitView.Axes = On;
+GMAT SpacecraftOrbitView.Grid = Off;
+GMAT SpacecraftOrbitView.SunLine = Off;
+GMAT SpacecraftOrbitView.UseInitialView = On;
+GMAT SpacecraftOrbitView.StarCount = 7000;
+GMAT SpacecraftOrbitView.EnableStars = On;
+GMAT SpacecraftOrbitView.EnableConstellations = On;
+
+Create ReportFile SpacecraftReport;
+GMAT SpacecraftReport.SolverIterations = Current;
+GMAT SpacecraftReport.UpperLeft = [ 0 0 ];
+GMAT SpacecraftReport.Size = [ 0 0 ];
+GMAT SpacecraftReport.RelativeZOrder = 0;
+GMAT SpacecraftReport.Maximized = false;
+GMAT SpacecraftReport.Filename = 'C:\Users\Max\Google Drive\UCL\SPCE0014\ASSAM\prototyping\GMAT_output.dat';
+GMAT SpacecraftReport.Precision = 16;
+GMAT SpacecraftReport.Add = {Spacecraft.UTCModJulian, Spacecraft.EarthMJ2000Eq.X, Spacecraft.EarthMJ2000Eq.Y, Spacecraft.EarthMJ2000Eq.Z, Spacecraft.EarthMJ2000Eq.VX, Spacecraft.EarthMJ2000Eq.VY, Spacecraft.EarthMJ2000Eq.VZ};
+GMAT SpacecraftReport.WriteHeaders = true;
+GMAT SpacecraftReport.LeftJustify = On;
+GMAT SpacecraftReport.ZeroFill = Off;
+GMAT SpacecraftReport.FixedWidth = true;
+GMAT SpacecraftReport.Delimiter = ' ';
+GMAT SpacecraftReport.ColumnWidth = 23;
+GMAT SpacecraftReport.WriteReport = true;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate 'SpacecraftPropagate' SpacecraftProp(Spacecraft) {Spacecraft.UTCModJulian = 21545.5};
