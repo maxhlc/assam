@@ -117,7 +117,6 @@ def run_gmat(start_time,end_time,keplerian_elements):
         output = QTable([jd, x, y, z, vx, vy, vz],
                         names=('JD','X','Y','Z','VX','VY','VZ'))
         
-        # Return astropy QTable
         return output
     
     
