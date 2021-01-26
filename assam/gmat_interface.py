@@ -8,18 +8,28 @@ from astropy.table import QTable
 
 def run_gmat(start_time,end_time,keplerian_elements):
     """
-    Function to run GMAT
+    Function to run GMAT.
 
-        Returns
-        -------
-        QTable
-            GMAT output with astropy units.
+    Parameters
+    ----------
+    start_time : astropy.time.core.Time
+        Mission start time.
+    end_time : astropy.time.core.Time
+        Mission end time.
+    keplerian_elements : dict
+        Earth-centered Keplerian elements of the satellite.
+
+    Returns
+    -------
+    output : astropy.table.table.QTable
+        Table with satellite state in Cartesian form in the
+        MJ2000Eq reference frame.
 
     """
     
     def generate_script():
         """
-        Function to generate script file for GMAT
+        Function to generate script for GMAT.
 
         Returns
         -------
@@ -67,7 +77,7 @@ def run_gmat(start_time,end_time,keplerian_elements):
     
     def execute_script():
         """
-        Function to execute script with GMAT
+        Function to execute script with GMAT.
 
         Returns
         -------
@@ -89,12 +99,13 @@ def run_gmat(start_time,end_time,keplerian_elements):
     
     def load_output():
         """
-        Function to load output from GMAT
+        Function to load output from GMAT.
 
         Returns
         -------
-        QTable
-            GMAT output with astropy units.
+        output : astropy.table.table.QTable
+            Table with satellite state in Cartesian form in the
+            MJ2000Eq reference frame.
 
         """
         
