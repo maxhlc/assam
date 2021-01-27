@@ -26,6 +26,8 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
 
     Returns
     -------
+    satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
+        Satellite state in the GCRS reference frame.
     satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
         Satellite reference frame relative to the Earth's centre of mass
         with the same orientation as BCRS/ICRS.
@@ -47,6 +49,13 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
         VY = np.reshape(satellite_state_table["VY"],(1,-1))
         VZ = np.reshape(satellite_state_table["VZ"],(1,-1))
         
+        # Generate satellite state in the GCRS frame
+        satellite_state = GCRS(representation_type="cartesian",
+                               obstime=satellite_obstime,
+                               x=X,
+                               y=Y,
+                               z=Z)
+        
         # Convert satellite state to required observer format
         satellite_obsgeoloc = np.concatenate((X, Y, Z),axis=0)
         satellite_obsgeovel = np.concatenate((VX, VY, VZ),axis=0)
@@ -62,4 +71,4 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
         # Raise error if propagator not available
         raise ValueError("Invalid propagator")
     
-    return satellite_frame
+    return satellite_state, satellite_frame

@@ -47,7 +47,7 @@ def run_gmat(start_time,end_time,keplerian_elements):
         end_time_GMAT = end_time.jd - GMAT_MJD_OFFSET
         
         # Load script template
-        with open(template_path,'r') as templatescript:
+        with open(template_path,"r") as templatescript:
             script = templatescript.readlines()
             
         # Update script by iterating through the lines
@@ -69,7 +69,7 @@ def run_gmat(start_time,end_time,keplerian_elements):
                 script[iline] = f"{output_keyword} = '{output_path}';\n"
                 
         # Output modified script
-        with open(modified_path,'w') as modifiedscript:
+        with open(modified_path,"w") as modifiedscript:
             modifiedscript.writelines(script)
 
         return None
@@ -127,7 +127,7 @@ def run_gmat(start_time,end_time,keplerian_elements):
         
         # Combine into astropy QTable       
         satellite_state = QTable([jd, x, y, z, vx, vy, vz],
-                        names=('JD','X','Y','Z','VX','VY','VZ'))
+                        names=("JD","X","Y","Z","VX","VY","VZ"))
         
         return satellite_state
     
