@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
-from astropy.coordinates import GCRS
+import astropy
 import gmat_interface
 
 def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
@@ -50,11 +50,12 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
         VZ = np.reshape(satellite_state_table["VZ"],(1,-1))
         
         # Generate satellite state in the GCRS frame
-        satellite_state = GCRS(representation_type="cartesian",
-                               obstime=satellite_obstime,
-                               x=X,
-                               y=Y,
-                               z=Z)
+        satellite_state = astropy.coordinates.GCRS(
+            representation_type="cartesian",
+            obstime=satellite_obstime,
+            x=X,
+            y=Y,
+            z=Z)
         
         # Convert satellite state to required observer format
         satellite_obsgeoloc = np.concatenate((X, Y, Z),axis=0)
@@ -62,10 +63,11 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
         
         # Generate satellite reference frame assuming that the EarthMJ2000Eq
         # reference frame is equivalent to GCRS
-        satellite_frame = GCRS(representation_type="cartesian",
-                               obstime=satellite_obstime,
-                               obsgeoloc=satellite_obsgeoloc,
-                               obsgeovel=satellite_obsgeovel)
+        satellite_frame = astropy.coordinates.GCRS(
+            representation_type="cartesian",
+            obstime=satellite_obstime,
+            obsgeoloc=satellite_obsgeoloc,
+            obsgeovel=satellite_obsgeovel)
         
     else:
         # Raise error if propagator not available

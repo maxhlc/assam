@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
+import astropy
 import propagator_interface
-from astropy.time import Time
 
 # Set parameters
-start_time = Time("2021-01-23 12:30")
-end_time = Time("2021-01-24 12:30")
+start_time = astropy.time.Time("2021-01-23 12:30")
+end_time = astropy.time.Time("2021-01-23 13:30")
 keplerian_elements = {"SMA": 7000,
                       "ECC": 0,
                       "INC": 98.6,

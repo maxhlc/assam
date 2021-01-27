@@ -2,9 +2,7 @@
 
 import os
 import pandas as pd
-from astropy.time import Time
-from astropy import units as u
-from astropy.table import QTable
+import astropy
 
 def run_gmat(start_time,end_time,keplerian_elements):
     """
@@ -114,19 +112,19 @@ def run_gmat(start_time,end_time,keplerian_elements):
         
         # Extract Modified Julian Dates, convert to Julian Dates,
         # and convert to astropy time
-        jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values 
+        jd = astropy.time.Time(output_GMAT["Spacecraft.UTCModJulian"].values 
                   + GMAT_MJD_OFFSET,format='jd')
         
         # Add astropy units to position and velocity
-        x = output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values * u.km
-        y = output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values * u.km
-        z = output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values * u.km
-        vx = output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values * u.km / u.s
-        vy = output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values * u.km / u.s
-        vz = output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * u.km / u.s
+        x = output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values * astropy.units.km
+        y = output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values * astropy.units.km
+        z = output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values * astropy.units.km
+        vx = output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values * astropy.units.km / astropy.units.s
+        vy = output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values * astropy.units.km / astropy.units.s
+        vz = output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * astropy.units.km / astropy.units.s
         
         # Combine into astropy QTable       
-        satellite_state = QTable([jd, x, y, z, vx, vy, vz],
+        satellite_state = astropy.table.QTable([jd, x, y, z, vx, vy, vz],
                         names=("JD","X","Y","Z","VX","VY","VZ"))
         
         return satellite_state
