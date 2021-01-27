@@ -8,15 +8,15 @@
 
 Create Spacecraft Spacecraft;
 GMAT Spacecraft.DateFormat = UTCModJulian;
-GMAT Spacecraft.Epoch = ;
+GMAT Spacecraft.Epoch = 21544.5;
 GMAT Spacecraft.CoordinateSystem = EarthMJ2000Eq;
 GMAT Spacecraft.DisplayStateType = Keplerian;
-GMAT Spacecraft.SMA = ;
-GMAT Spacecraft.ECC = ;
-GMAT Spacecraft.INC = ;
-GMAT Spacecraft.RAAN = ;
-GMAT Spacecraft.AOP = ;
-GMAT Spacecraft.TA = ;
+GMAT Spacecraft.SMA = 7000;
+GMAT Spacecraft.ECC = 0;
+GMAT Spacecraft.INC = 0;
+GMAT Spacecraft.RAAN = 0;
+GMAT Spacecraft.AOP = 0;
+GMAT Spacecraft.TA = 0;
 GMAT Spacecraft.DryMass = 850;
 GMAT Spacecraft.Cd = 2.2;
 GMAT Spacecraft.Cr = 1.8;
@@ -141,7 +141,7 @@ GMAT SpacecraftReport.UpperLeft = [ 0 0 ];
 GMAT SpacecraftReport.Size = [ 0 0 ];
 GMAT SpacecraftReport.RelativeZOrder = 0;
 GMAT SpacecraftReport.Maximized = false;
-GMAT SpacecraftReport.Filename = ;
+GMAT SpacecraftReport.Filename = GMAT_output.dat;
 GMAT SpacecraftReport.Precision = 16;
 GMAT SpacecraftReport.Add = {Spacecraft.UTCModJulian, Spacecraft.EarthMJ2000Eq.X, Spacecraft.EarthMJ2000Eq.Y, Spacecraft.EarthMJ2000Eq.Z, Spacecraft.EarthMJ2000Eq.VX, Spacecraft.EarthMJ2000Eq.VY, Spacecraft.EarthMJ2000Eq.VZ};
 GMAT SpacecraftReport.WriteHeaders = true;
@@ -158,4 +158,4 @@ GMAT SpacecraftReport.WriteReport = true;
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate 'SpacecraftPropagate' SpacecraftProp(Spacecraft) {Spacecraft.UTCModJulian = };
+Propagate 'SpacecraftPropagate' SpacecraftProp(Spacecraft) {Spacecraft.UTCModJulian = 21544.5};
