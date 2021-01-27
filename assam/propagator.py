@@ -2,9 +2,11 @@
 
 import numpy as np
 import astropy
+
 import gmat_interface
 
-def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
+
+def propagate(start_time, end_time, keplerian_elements, propagator="gmat"):
     """
     Function to handle propagators for satellite frame generation.
 
@@ -33,22 +35,22 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
         with the same orientation as BCRS/ICRS.
 
     """
-    
+
     # Select propagator
     if propagator == "gmat":
         # Propagate using GMAT
         satellite_state_table = gmat_interface.run_gmat(start_time, end_time,
-                                          keplerian_elements)
-        
+                                                        keplerian_elements)
+
         # Extract satellite state
-        satellite_obstime = satellite_state_table["JD"]  
-        X = np.reshape(satellite_state_table["X"],(1,-1))
-        Y = np.reshape(satellite_state_table["Y"],(1,-1))
-        Z = np.reshape(satellite_state_table["Z"],(1,-1))       
-        VX = np.reshape(satellite_state_table["VX"],(1,-1))
-        VY = np.reshape(satellite_state_table["VY"],(1,-1))
-        VZ = np.reshape(satellite_state_table["VZ"],(1,-1))
-        
+        satellite_obstime = satellite_state_table["JD"]
+        X = np.reshape(satellite_state_table["X"], (1, -1))
+        Y = np.reshape(satellite_state_table["Y"], (1, -1))
+        Z = np.reshape(satellite_state_table["Z"], (1, -1))
+        VX = np.reshape(satellite_state_table["VX"], (1, -1))
+        VY = np.reshape(satellite_state_table["VY"], (1, -1))
+        VZ = np.reshape(satellite_state_table["VZ"], (1, -1))
+
         # Generate satellite state in the GCRS frame
         satellite_state = astropy.coordinates.GCRS(
             representation_type="cartesian",
@@ -56,11 +58,11 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
             x=X,
             y=Y,
             z=Z)
-        
+
         # Convert satellite state to required observer format
-        satellite_obsgeoloc = np.concatenate((X, Y, Z),axis=0)
-        satellite_obsgeovel = np.concatenate((VX, VY, VZ),axis=0)
-        
+        satellite_obsgeoloc = np.concatenate((X, Y, Z), axis=0)
+        satellite_obsgeovel = np.concatenate((VX, VY, VZ), axis=0)
+
         # Generate satellite reference frame assuming that the EarthMJ2000Eq
         # reference frame is equivalent to GCRS
         satellite_frame = astropy.coordinates.GCRS(
@@ -68,9 +70,9 @@ def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
             obstime=satellite_obstime,
             obsgeoloc=satellite_obsgeoloc,
             obsgeovel=satellite_obsgeovel)
-        
+
     else:
         # Raise error if propagator not available
         raise ValueError("Invalid propagator")
-    
+
     return satellite_state, satellite_frame
