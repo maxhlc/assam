@@ -21,7 +21,7 @@ def run_gmat(start_time,end_time,keplerian_elements):
 
     Returns
     -------
-    output : astropy.table.table.QTable
+    satellite_state : astropy.table.table.QTable
         Table with satellite state in Cartesian form in the
         MJ2000Eq reference frame.
 
@@ -112,7 +112,8 @@ def run_gmat(start_time,end_time,keplerian_elements):
         # Import GMAT output
         output_GMAT = pd.read_fwf(output_path)
         
-        # Extract Modified Julian Dates, convert to Julian Dates, and convert to astropy time
+        # Extract Modified Julian Dates, convert to Julian Dates,
+        # and convert to astropy time
         jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values 
                   + GMAT_MJD_OFFSET,format='jd')
         
@@ -125,10 +126,10 @@ def run_gmat(start_time,end_time,keplerian_elements):
         vz = output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * u.km / u.s
         
         # Combine into astropy QTable       
-        output = QTable([jd, x, y, z, vx, vy, vz],
+        satellite_state = QTable([jd, x, y, z, vx, vy, vz],
                         names=('JD','X','Y','Z','VX','VY','VZ'))
         
-        return output
+        return satellite_state
     
     
     # Define offset for Modified Julian Dates
@@ -145,6 +146,6 @@ def run_gmat(start_time,end_time,keplerian_elements):
     # Generate script, execute, and load output
     generate_script()
     execute_script()
-    output = load_output()
+    satellite_state = load_output()
     
-    return output
+    return satellite_state
