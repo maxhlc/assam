@@ -6,7 +6,7 @@ import gmat_interface
 
 def propagate(start_time,end_time,keplerian_elements,propagator="gmat"):
     """
-    
+    Function to handle propagators for satellite frame generation.
 
     Parameters
     ----------
