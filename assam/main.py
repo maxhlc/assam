@@ -3,6 +3,7 @@
 from astropy.time import Time
 
 import propagator
+import visibility
 
 # Set parameters
 start_time = Time("2021-01-23 12:30")
@@ -19,3 +20,4 @@ satellite_state, satellite_frame = propagator.propagate(
     start_time, end_time, keplerian_elements)
 
 # Calculate target visibility
+visibility.visible(satellite_frame)
