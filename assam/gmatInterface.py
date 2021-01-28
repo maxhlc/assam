@@ -44,6 +44,8 @@ class gmatInterface:
         # Define offset for Modified Julian Dates
         # GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000
         self.GMAT_MJD_OFFSET = 2430000.0
+        
+        return None
 
     def generate_script(self):
         """
