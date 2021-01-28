@@ -35,13 +35,14 @@ def propagate(start_time, end_time, keplerian_elements, propagator="gmat"):
 
     # Select propagator
     if propagator == "gmat":
-        # Propagate using GMAT
+        # Create GMAT interface object
         gmat = gmatInterface.gmatInterface(
             start_time, end_time, keplerian_elements)
+        # Propagate using GMAT
         gmat.generate_script()
         gmat.execute_script()
         gmat.load_state()
-
+        # Generate satellite state and frame
         satellite_state, satellite_frame = gmat.generate_frames()
 
     else:
