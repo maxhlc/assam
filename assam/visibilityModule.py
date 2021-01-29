@@ -3,9 +3,16 @@
 from astropy.coordinates import solar_system_ephemeris, get_body
 
 
-def visible(satellite_frame):
+class visiblityModule():
+    
+    def __init__(self,satellite_frame):
+        
+        self.satellite_frame = satellite_frame
+        
+        pass
+        return None
 
-    def get_solar_bodies():
+    def get_solar_bodies(self):
         """
         Function to get the coordinates of solar bodies.
 
@@ -41,17 +48,14 @@ def visible(satellite_frame):
         # Get coordinates for solar system bodies
         bodies_coord = {}
         for body in bodies:
-            bodies_coord[body] = get_body(body, satellite_frame.obstime)
+            bodies_coord[body] = get_body(body, self.satellite_frame.obstime)
 
         return bodies_coord
 
-    def get_targets():
+    def get_targets(self):
         pass
         return None
 
-    def calculate_separation():
+    def calculate_separation(self):
         pass
         return None
-
-    get_solar_bodies()
-    return None
