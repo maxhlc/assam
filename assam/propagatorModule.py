@@ -41,9 +41,8 @@ def propagate(start_time, end_time, keplerian_elements, propagator="gmat"):
         # Propagate using GMAT
         gmat.generate_script()
         gmat.execute_script()
-        gmat.load_state()
-        # Generate satellite state and frame
-        satellite_state, satellite_frame = gmat.generate_frames()
+        # Load state
+        satellite_state, satellite_frame = gmat.load_state()
 
     else:
         # Raise error if propagator not available
