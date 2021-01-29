@@ -44,7 +44,7 @@ class gmatInterface:
         # Define offset for Modified Julian Dates
         # GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000
         self.GMAT_MJD_OFFSET = 2430000.0
-        
+
         return None
 
     def generate_script(self):
@@ -121,51 +121,6 @@ class gmatInterface:
 
         Returns
         -------
-        x : astropy.units.quantity.Quantity
-            Satellite x coordinate in the EarthMJ2000Eq reference frame.
-        y : astropy.units.quantity.Quantity
-            Satellite y coordinate in the EarthMJ2000Eq reference frame.
-        z : astropy.units.quantity.Quantity
-            Satellite z coordinate in the EarthMJ2000Eq reference frame.
-        vx : astropy.units.quantity.Quantity
-            Satellite x velocity in the EarthMJ2000Eq reference frame.
-        vy : astropy.units.quantity.Quantity
-            Satellite y velocity in the EarthMJ2000Eq reference frame.
-        vz : astropy.units.quantity.Quantity
-            Satellite z velocity in the EarthMJ2000Eq reference frame.
-
-        """
-
-        # Import GMAT output
-        output_GMAT = pd.read_fwf(self.output_path)
-
-        # Extract Modified Julian Dates, convert to Julian Dates,
-        # and convert to astropy time
-        self.jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                       + self.GMAT_MJD_OFFSET, format='jd')
-
-        # Add astropy units to position and velocity
-        self.x = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values * u.km, (1, -1))
-        self.y = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values * u.km, (1, -1))
-        self.z = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values * u.km, (1, -1))
-        self.vx = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values * u.km / u.s, (1, -1))
-        self.vy = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values * u.km / u.s, (1, -1))
-        self.vz = np.reshape(
-            output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * u.km / u.s, (1, -1))
-
-        return self.x, self.y, self.z, self.vx, self.vy, self.vz
-
-    def generate_frames(self):
-        """
-        Function to generate frames from the spacecraft state.
-
-        Returns
-        -------
         satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
             Satellite state in the GCRS reference frame.
         satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
@@ -174,25 +129,41 @@ class gmatInterface:
 
         """
 
+        # Import GMAT output
+        output_GMAT = pd.read_fwf(self.output_path)
+
+        # Extract Modified Julian Dates, convert to Julian Dates,
+        # and convert to astropy time
+        jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values
+                       + self.GMAT_MJD_OFFSET, format='jd')
+
+        # Add astropy units to position and velocity
+        x = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values * u.km, (1, -1))
+        y = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values * u.km, (1, -1))
+        z = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values * u.km, (1, -1))
+        vx = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values * u.km / u.s, (1, -1))
+        vy = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values * u.km / u.s, (1, -1))
+        vz = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * u.km / u.s, (1, -1))
+
         # Convert satellite state to required observer format
-        satellite_obsgeoloc = np.concatenate((self.x, self.y, self.z), axis=0)
+        satellite_obsgeoloc = np.concatenate((x, y, z), axis=0)
         satellite_obsgeovel = np.concatenate(
-            (self.vx, self.vy, self.vz), axis=0)
+            (vx, vy, vz), axis=0)
 
         # Generate satellite state in the GCRS frame
-        self.satellite_state = GCRS(
+        satellite_state = GCRS(
             representation_type="cartesian",
-            obstime=self.jd,
-            x=self.x,
-            y=self.y,
-            z=self.z)
+            obstime=jd,
+            x=x,
+            y=y,
+            z=z)
 
         # Generate satellite reference frame assuming that the EarthMJ2000Eq
         # reference frame is equivalent to GCRS
-        self.satellite_frame = GCRS(
+        satellite_frame = GCRS(
             representation_type="cartesian",
-            obstime=self.jd,
+            obstime=jd,
             obsgeoloc=satellite_obsgeoloc,
             obsgeovel=satellite_obsgeovel)
 
-        return self.satellite_state, self.satellite_frame
+        return satellite_state, satellite_frame        
