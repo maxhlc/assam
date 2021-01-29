@@ -2,10 +2,9 @@
 
 import os
 import pandas as pd
-import numpy as np
 from astropy.time import Time
 from astropy import units as u
-from astropy.coordinates import GCRS
+from astropy.coordinates import GCRS, CartesianRepresentation
 
 
 class gmatInterface:
@@ -138,39 +137,32 @@ class gmatInterface:
                   + self.GMAT_MJD_OFFSET, format='jd')
 
         # Add astropy units to position and velocity
-        x = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values
-                       * u.km, (1, -1))
-        y = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values
-                       * u.km, (1, -1))
-        z = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values
-                       * u.km, (1, -1))
-        vx = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values
-                        * u.km / u.s, (1, -1))
-        vy = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values
-                        * u.km / u.s, (1, -1))
-        vz = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values
-                        * u.km / u.s, (1, -1))
-
-        # Convert satellite state to required observer format
-        satellite_obsgeoloc = np.concatenate((x, y, z), axis=0)
-        satellite_obsgeovel = np.concatenate(
-            (vx, vy, vz), axis=0)
+        satellite_position = CartesianRepresentation(
+            x=output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values,
+            y=output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values,
+            z=output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values,
+            unit=u.km)
+        satellite_velocity = CartesianRepresentation(
+            x=output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values,
+            y=output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values,
+            z=output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values,
+            unit=u.km/u.s)
 
         # Generate satellite state in the GCRS frame
         satellite_state = GCRS(
             representation_type="cartesian",
             obstime=jd,
-            x=x,
-            y=y,
-            z=z)
+            x=satellite_position.x,
+            y=satellite_position.y,
+            z=satellite_position.z)
 
         # Generate satellite reference frame assuming that the EarthMJ2000Eq
         # reference frame is equivalent to GCRS
         satellite_frame = GCRS(
             representation_type="cartesian",
             obstime=jd,
-            obsgeoloc=satellite_obsgeoloc,
-            obsgeovel=satellite_obsgeovel)
+            obsgeoloc=satellite_position,
+            obsgeovel=satellite_velocity)
 
         # Store outputs
         self.satellite_state = satellite_state
