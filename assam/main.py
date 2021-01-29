@@ -2,8 +2,8 @@
 
 from astropy.time import Time
 
-import propagator
-import visibility
+from gmatInterface import gmatInterface
+from visibilityModule import visiblityModule
 
 # Set parameters
 start_time = Time("2021-01-23 12:30")
@@ -16,8 +16,11 @@ keplerian_elements = {"SMA": 7000,
                       "TA": 0}
 
 # Run orbit propagation
-satellite_state, satellite_frame = propagator.propagate(
-    start_time, end_time, keplerian_elements)
+gmat = gmatInterface(start_time, end_time, keplerian_elements)
+gmat.generate_script()
+gmat.execute_script()
+gmat.load_state()
 
 # Calculate target visibility
-visibility.visible(satellite_frame)
+visibility = visiblityModule(gmat.satellite_frame)
+visibility.get_solar_bodies()

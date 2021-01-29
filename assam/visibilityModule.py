@@ -6,10 +6,24 @@ from astropy.coordinates import solar_system_ephemeris, get_body
 class visiblityModule():
     
     def __init__(self,satellite_frame):
+        """
+        Initialisation function for the visibility module.
+
+        Parameters
+        ----------
+        satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Satellite reference frame relative to the Earth's centre of mass
+            with the same orientation as BCRS/ICRS.
+
+        Returns
+        -------
+        None.
+
+        """
         
+        # Load satellite reference frame
         self.satellite_frame = satellite_frame
         
-        pass
         return None
 
     def get_solar_bodies(self):
@@ -19,7 +33,7 @@ class visiblityModule():
         Returns
         -------
         bodies_coord : dict
-            Solar bodies and their coordinates in GCRS.
+            Solar system bodies and their coordinates in the satellite frame.
 
         """
 
@@ -45,10 +59,15 @@ class visiblityModule():
             "neptune"
         ]
 
-        # Get coordinates for solar system bodies
+        # Get coordinates for solar system bodies in the satellite frame 
+        # at the satellite frame observation times and store in a dictionary
         bodies_coord = {}
         for body in bodies:
-            bodies_coord[body] = get_body(body, self.satellite_frame.obstime)
+            body_coord = get_body(body, self.satellite_frame.obstime)
+            bodies_coord[body] = body_coord.transform_to(self.satellite_frame)
+
+        # Store output            
+        self.bodies_coord = bodies_coord
 
         return bodies_coord
 

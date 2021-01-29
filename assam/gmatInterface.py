@@ -135,15 +135,21 @@ class gmatInterface:
         # Extract Modified Julian Dates, convert to Julian Dates,
         # and convert to astropy time
         jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                       + self.GMAT_MJD_OFFSET, format='jd')
+                  + self.GMAT_MJD_OFFSET, format='jd')
 
         # Add astropy units to position and velocity
-        x = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values * u.km, (1, -1))
-        y = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values * u.km, (1, -1))
-        z = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values * u.km, (1, -1))
-        vx = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values * u.km / u.s, (1, -1))
-        vy = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values * u.km / u.s, (1, -1))
-        vz = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values * u.km / u.s, (1, -1))
+        x = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values
+                       * u.km, (1, -1))
+        y = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values
+                       * u.km, (1, -1))
+        z = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values
+                       * u.km, (1, -1))
+        vx = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values
+                        * u.km / u.s, (1, -1))
+        vy = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values
+                        * u.km / u.s, (1, -1))
+        vz = np.reshape(output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values
+                        * u.km / u.s, (1, -1))
 
         # Convert satellite state to required observer format
         satellite_obsgeoloc = np.concatenate((x, y, z), axis=0)
@@ -166,4 +172,8 @@ class gmatInterface:
             obsgeoloc=satellite_obsgeoloc,
             obsgeovel=satellite_obsgeovel)
 
-        return satellite_state, satellite_frame        
+        # Store outputs
+        self.satellite_state = satellite_state
+        self.satellite_frame = satellite_frame
+
+        return satellite_state, satellite_frame
