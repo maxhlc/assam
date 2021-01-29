@@ -133,8 +133,8 @@ class gmatInterface:
 
         # Extract Modified Julian Dates, convert to Julian Dates,
         # and convert to astropy time
-        jd = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                  + self.GMAT_MJD_OFFSET, format='jd')
+        satellite_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
+                              + self.GMAT_MJD_OFFSET, format='jd')
 
         # Add astropy units to position and velocity
         satellite_position = CartesianRepresentation(
@@ -151,7 +151,7 @@ class gmatInterface:
         # Generate satellite state in the GCRS frame
         satellite_state = GCRS(
             representation_type="cartesian",
-            obstime=jd,
+            obstime=satellite_time,
             x=satellite_position.x,
             y=satellite_position.y,
             z=satellite_position.z)
@@ -160,7 +160,7 @@ class gmatInterface:
         # reference frame is equivalent to GCRS
         satellite_frame = GCRS(
             representation_type="cartesian",
-            obstime=jd,
+            obstime=satellite_time,
             obsgeoloc=satellite_position,
             obsgeovel=satellite_velocity)
 
