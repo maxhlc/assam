@@ -35,7 +35,7 @@ class gmatInterface:
 
         # Retrieve current directory path
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        # Define paths for GMAT files
+        # Define paths for GMAT files as GMAT requires absolute paths
         self.template_path = f"{dir_path}\GMAT\\GMAT_template.script"
         self.modified_path = f"{dir_path}\GMAT\\GMAT_modified.script"
         self.output_path = f"{dir_path}\GMAT\\GMAT_output.dat"
@@ -148,7 +148,8 @@ class gmatInterface:
             z=output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values,
             unit=u.km/u.s)
 
-        # Generate satellite state in the GCRS frame
+        # Generate satellite state assuming that the EarthMJ2000Eq
+        # reference frame is equivalent to GCRS
         satellite_state = GCRS(
             representation_type="cartesian",
             obstime=satellite_time,
