@@ -1,0 +1,30 @@
+sun:
+    included: True
+    radius: 696340000
+mercury:
+    included: True
+    radius: 2439700
+venus:
+    included: True
+    radius: 6051800
+earth:
+    included: True
+    radius: 6371000
+moon:
+    included: True
+    radius: 1737100
+mars:
+    included: True
+    radius: 3389500
+jupiter:
+    included: True
+    radius: 69911000
+saturn:
+    included: True
+    radius: 58232000
+uranus:
+    included: True
+    radius: 25362000
+neptune:
+    included: True
+    radius: 24622000 

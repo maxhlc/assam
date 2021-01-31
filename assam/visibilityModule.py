@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 from astropy.coordinates import solar_system_ephemeris, get_body
+import yaml
 
 
 class visiblityModule():
-    
-    def __init__(self,satellite_frame):
+
+    def __init__(self, satellite_frame):
         """
         Initialisation function for the visibility module.
 
@@ -20,10 +21,10 @@ class visiblityModule():
         None.
 
         """
-        
+
         # Load satellite reference frame
         self.satellite_frame = satellite_frame
-        
+
         return None
 
     def get_solar_bodies(self):
@@ -45,31 +46,27 @@ class visiblityModule():
             solar_system_ephemeris.set("builtin")
 
         # Set solar bodies of interest
-        # TODO: implement selection of which solar bodies to include
-        bodies = [
-            "sun",
-            "mercury",
-            "venus",
-            "earth",
-            "mars",
-            "moon",
-            "jupiter",
-            "saturn",
-            "uranus",
-            "neptune"
-        ]
+        with open("../data/solar_bodies.yml", "r") as solar_bodies_file:
+            solar_bodies = yaml.safe_load(solar_bodies_file)
 
-        # Get coordinates for solar system bodies in the satellite frame 
-        # at the satellite frame observation times and store in a dictionary
-        bodies_coord = {}
-        for body in bodies:
-            body_coord = get_body(body, self.satellite_frame.obstime)
-            bodies_coord[body] = body_coord.transform_to(self.satellite_frame)
+        # Get coordinates for solar system bodies in the satellite frame
+        solar_bodies_coords = {}
+        for solar_body, solar_body_info in solar_bodies.items():
+            # Continue to following solar body if current one not included
+            if not solar_body_info["included"]:
+                continue
 
-        # Store output            
-        self.bodies_coord = bodies_coord
+            # Calculate solar body coordinates from ephemeris data
+            solar_body_coords = get_body(solar_body,
+                                         self.satellite_frame.obstime)
+            # Store solar bodies coordinates in the satellite frame
+            solar_bodies_coords[solar_body] = solar_body_coords.transform_to(
+                self.satellite_frame)
 
-        return bodies_coord
+        # Store output
+        self.solar_bodies_coords = solar_bodies_coords
+
+        return solar_bodies_coords
 
     def get_targets(self):
         pass
