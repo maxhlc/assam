@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 
 from astropy.coordinates import solar_system_ephemeris, get_body
+from astropy import units as u
 import yaml
+import numpy as np
 
 
 class visiblityModule():
 
-    def __init__(self, satellite_frame):
+    def __init__(self, satellite_state, satellite_frame):
         """
         Initialisation function for the visibility module.
 
         Parameters
         ----------
+        satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Satellite state in the GCRS reference frame.       
         satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
             Satellite reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
@@ -23,6 +27,7 @@ class visiblityModule():
         """
 
         # Load satellite reference frame
+        self.satellite_state = satellite_state
         self.satellite_frame = satellite_frame
 
         return None
@@ -33,8 +38,8 @@ class visiblityModule():
 
         Returns
         -------
-        bodies_coord : dict
-            Solar system bodies and their coordinates in the satellite frame.
+        solar_bodies : dict
+            Solar system bodies and their properties.
 
         """
 
@@ -45,13 +50,13 @@ class visiblityModule():
         except:
             solar_system_ephemeris.set("builtin")
 
-        # Set solar bodies of interest
+        # Load solar bodies of interest from config file
         with open("../data/solar_bodies.yml", "r") as solar_bodies_file:
-            solar_bodies = yaml.safe_load(solar_bodies_file)
+            solar_bodies_dump = yaml.safe_load(solar_bodies_file)
 
-        # Get coordinates for solar system bodies in the satellite frame
-        solar_bodies_coords = {}
-        for solar_body, solar_body_info in solar_bodies.items():
+        # Generate solar body objects
+        solar_bodies = {}
+        for solar_body, solar_body_info in solar_bodies_dump.items():
             # Continue to following solar body if current one not included
             if not solar_body_info["included"]:
                 continue
@@ -59,14 +64,29 @@ class visiblityModule():
             # Calculate solar body coordinates from ephemeris data
             solar_body_coords = get_body(solar_body,
                                          self.satellite_frame.obstime)
-            # Store solar bodies coordinates in the satellite frame
-            solar_bodies_coords[solar_body] = solar_body_coords.transform_to(
+
+            # Convert to satellite frame coordinates
+            solar_body_coords = solar_body_coords.transform_to(
                 self.satellite_frame)
 
-        # Store output
-        self.solar_bodies_coords = solar_bodies_coords
+            # Find slant range between satellite and solar body
+            slant_range = solar_body_coords.separation_3d(self.satellite_state)
 
-        return solar_bodies_coords
+            # Calculate solar body angular radius
+            solar_body_radius = solar_body_info["radius"] * u.m
+            solar_body_angular_radius = np.arctan(
+                solar_body_radius / slant_range)
+
+            # Store solar body objects
+            solar_bodies[solar_body] = solarBody(solar_body,
+                                                 solar_body_coords,
+                                                 solar_body_radius,
+                                                 solar_body_angular_radius)
+
+        # Store output
+        self.solar_bodies = solar_bodies
+
+        return solar_bodies
 
     def get_targets(self):
         pass
@@ -74,4 +94,36 @@ class visiblityModule():
 
     def calculate_separation(self):
         pass
+        return None
+
+
+class solarBody():
+
+    def __init__(self, name, coordinates, radius, angular_radius):
+        """
+        Initialisation function for solar body objects.
+
+        Parameters
+        ----------
+        name : str
+            Solar body name.
+        coordinates : astropy.coordinates.sky_coordinate.SkyCoord
+            Solar body coordinates in the satellite frame.
+        radius : astropy.units.quantity.Quantity
+            Solar body radius.
+        angular_radius : astropy.units.quantity.Quantity
+            Solar body angular radius from the viewpoint of the satellite.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Load body properties
+        self.name = name
+        self.coordinates = coordinates
+        self.radius = radius
+        self.angular_radius = angular_radius
+
         return None
