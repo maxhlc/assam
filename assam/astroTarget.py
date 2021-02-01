@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 class astroTarget():
 
     def __init__(self, target_name, target_priority, target_category):
@@ -18,12 +20,12 @@ class astroTarget():
         None.
 
         """
-        
+
         # Load target properties
         self.target_name = target_name
         self.target_priority = target_priority
         self.target_category = target_category
-        
+
         # Create empty dictionary for subtargets
         self.subtargets = {}
 
@@ -64,7 +66,7 @@ class astroTarget():
         -------
         None.
 
-        """        
+        """
 
         # Remove subtarget from target
         self.subtargets.pop(subtarget_name)

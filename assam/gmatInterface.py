@@ -108,10 +108,10 @@ class gmatInterface:
         # Define flags when running GMAT
         # (-r: run script, -m: run minimised, -x: exit when finished)
         GMAT_flags = "-r -m -x"
-
+        
         # Run GMAT
         os.system(f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
-
+    
         return None
 
     def load_state(self):

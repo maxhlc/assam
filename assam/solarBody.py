@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 class solarBody():
 
     def __init__(self, name, coordinates, radius, angular_radius):
