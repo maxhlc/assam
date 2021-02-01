@@ -134,3 +134,6 @@ prototyping/
 # Modified GMAT scripts and output
 GMAT_modified.script
 GMAT_output.dat
+
+# pylint files
+.pylint.d
