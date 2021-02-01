@@ -7,7 +7,7 @@ from astropy import units as u
 from astropy.coordinates import GCRS, CartesianRepresentation
 
 
-class gmatInterface:
+class gmatInterface():
 
     def __init__(self, start_time, end_time, keplerian_elements):
         """
@@ -36,9 +36,9 @@ class gmatInterface:
         # Retrieve current directory path
         dir_path = os.path.dirname(os.path.realpath(__file__))
         # Define paths for GMAT files as GMAT requires absolute paths
-        self.template_path = f"{dir_path}\GMAT\\GMAT_template.script"
-        self.modified_path = f"{dir_path}\GMAT\\GMAT_modified.script"
-        self.output_path = f"{dir_path}\GMAT\\GMAT_output.dat"
+        self.template_path = f"{dir_path}\\GMAT\\GMAT_template.script"
+        self.modified_path = f"{dir_path}\\GMAT\\GMAT_modified.script"
+        self.output_path = f"{dir_path}\\GMAT\\GMAT_output.dat"
 
         # Define offset for Modified Julian Dates
         # GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000
@@ -70,6 +70,7 @@ class gmatInterface:
             script = templatescript.readlines()
 
         # Update script by iterating through the lines
+        # TODO: write more elegant solution
         for iline, line in enumerate(script):
             # Update start and end time
             if spacecraft_keyword + "Epoch" in line:
