@@ -6,7 +6,7 @@ import yaml
 import numpy as np
 
 
-class visiblityModule():
+class visibilityModule():
 
     def __init__(self, satellite_state, satellite_frame):
         """
@@ -152,10 +152,12 @@ class astroTarget():
 
         """
         
+        # Load target properties
         self.target_name = target_name
         self.target_priority = target_priority
         self.target_category = target_category
-
+        
+        # Create empty dictionary for subtargets
         self.subtargets = {}
 
         return None
