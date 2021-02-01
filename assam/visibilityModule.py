@@ -73,6 +73,8 @@ class visiblityModule():
             slant_range = solar_body_coords.separation_3d(self.satellite_state)
 
             # Calculate solar body angular radius
+            # TODO: implement more accurate calculation for close bodies
+            #       such as the Earth
             solar_body_radius = solar_body_info["radius"] * u.m
             solar_body_angular_radius = np.arctan(
                 solar_body_radius / slant_range)
@@ -126,4 +128,83 @@ class solarBody():
         self.radius = radius
         self.angular_radius = angular_radius
 
+        return None
+
+
+class astroTarget():
+
+    def __init__(self, target_name, target_priority, target_category):
+        """
+        Initialisation function for astronomical targets
+
+        Parameters
+        ----------
+        target_name : str
+            Name of the target.
+        target_priority : int
+            Priority of the target.
+        target_category : str
+            Category of the target.
+
+        Returns
+        -------
+        None.
+
+        """
+        
+        self.target_name = target_name
+        self.target_priority = target_priority
+        self.target_category = target_category
+
+        self.subtargets = {}
+
+        return None
+
+    def add_subtarget(self, subtarget_name, subtarget):
+        """
+        Function to add subtarget to the target.
+
+        Parameters
+        ----------
+        subtarget_name : str
+            Name of the subtarget.
+        subtarget : astroSubtarget
+            Subtarget object.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Add subtarget to dictionary
+        self.subtargets[subtarget_name] = subtarget
+
+        return None
+
+    def remove_subtarget(self, subtarget_name):
+        """
+        Function to remove subtarget from target.
+
+        Parameters
+        ----------
+        subtarget_name : str
+            Name of the subtarget.
+
+        Returns
+        -------
+        None.
+
+        """        
+
+        # Remove subtarget from target
+        self.subtargets.pop(subtarget_name)
+
+        return None
+
+
+class astroSubtarget():
+
+    def __init__(self):
+        pass
         return None
