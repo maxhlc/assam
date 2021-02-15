@@ -1,30 +1,40 @@
 sun:
     included: True
     radius: 696340000
+    soft_radius: [[0,45],[135,180]]
 mercury:
     included: True
     radius: 2439700
+    soft_radius: []
 venus:
     included: True
     radius: 6051800
+    soft_radius: []
 earth:
     included: True
     radius: 6371000
+    soft_radius: []
 moon:
     included: True
     radius: 1737100
+    soft_radius: []
 mars:
     included: True
     radius: 3389500
+    soft_radius: []
 jupiter:
     included: True
     radius: 69911000
+    soft_radius: []
 saturn:
     included: True
     radius: 58232000
+    soft_radius: []
 uranus:
     included: True
     radius: 25362000
+    soft_radius: []
 neptune:
     included: True
-    radius: 24622000 
+    radius: 24622000
+    soft_radius: []

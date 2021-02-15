@@ -58,7 +58,7 @@ class visibilityModule():
             solar_bodies_dump = yaml.safe_load(solar_bodies_file)
 
         # Generate solar body objects
-        solar_bodies = {}
+        solar_bodies = dict()
         for solar_body, solar_body_info in solar_bodies_dump.items():
             # Continue to following solar body if current one not included
             if not solar_body_info["included"]:
@@ -81,12 +81,16 @@ class visibilityModule():
             solar_body_radius = solar_body_info["radius"] * u.m
             solar_body_angular_radius = np.arctan(
                 solar_body_radius / slant_range)
+            
+            # Load soft radius constraints
+            solar_body_soft_radius = solar_body_info["soft_radius"] * u.deg
 
-            # Store solar body objects
+            # Create solar body object and store in dictionary
             solar_bodies[solar_body] = solarBody(solar_body,
                                                  solar_body_coords,
                                                  solar_body_radius,
-                                                 solar_body_angular_radius)
+                                                 solar_body_angular_radius,
+                                                 solar_body_soft_radius)
 
         # Store output
         self.solar_bodies = solar_bodies
