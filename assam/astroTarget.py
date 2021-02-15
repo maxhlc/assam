@@ -27,7 +27,7 @@ class astroTarget():
         self.target_category = target_category
 
         # Create empty dictionary for subtargets
-        self.subtargets = {}
+        self.subtargets = dict()
 
         return None
 
