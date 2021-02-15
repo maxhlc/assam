@@ -39,6 +39,11 @@ class visibilityModule():
         """
         Function to get the coordinates of solar bodies.
 
+        Raises
+        ------
+        ValueError
+            Error if solar bodies file is empty.
+
         Returns
         -------
         solar_bodies : dict
@@ -56,6 +61,10 @@ class visibilityModule():
         # Load solar bodies of interest from config file
         with open("../data/solar_bodies.yml", "r") as solar_bodies_file:
             solar_bodies_dump = yaml.safe_load(solar_bodies_file)
+
+        # Check for empty solar bodies file
+        if solar_bodies_dump is None:
+            raise ValueError("Empty solar bodies file")
 
         # Generate solar body objects
         # TODO: value checking
@@ -99,6 +108,20 @@ class visibilityModule():
         return solar_bodies
 
     def get_targets(self):
+        """
+        Function to import targets and their subtargets.
+
+        Raises
+        ------
+        ValueError
+            Error if targets file is empty, or if subtarget shape is invalid.
+
+        Returns
+        -------
+        targets : dict
+            Targets and their properties.
+
+        """
 
         # Load targets from config file
         with open("../data/targets.yml", "r") as targets_file:
