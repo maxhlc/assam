@@ -139,18 +139,19 @@ class gmatInterface():
 
         # Add astropy units to position and velocity
         satellite_position = CartesianRepresentation(
-            x=output_GMAT["Spacecraft.EarthMJ2000Eq.X"].values,
-            y=output_GMAT["Spacecraft.EarthMJ2000Eq.Y"].values,
-            z=output_GMAT["Spacecraft.EarthMJ2000Eq.Z"].values,
+            x=output_GMAT["Spacecraft.EarthICRF.X"].values,
+            y=output_GMAT["Spacecraft.EarthICRF.Y"].values,
+            z=output_GMAT["Spacecraft.EarthICRF.Z"].values,
             unit=u.km)
         satellite_velocity = CartesianRepresentation(
-            x=output_GMAT["Spacecraft.EarthMJ2000Eq.VX"].values,
-            y=output_GMAT["Spacecraft.EarthMJ2000Eq.VY"].values,
-            z=output_GMAT["Spacecraft.EarthMJ2000Eq.VZ"].values,
+            x=output_GMAT["Spacecraft.EarthICRF.VX"].values,
+            y=output_GMAT["Spacecraft.EarthICRF.VY"].values,
+            z=output_GMAT["Spacecraft.EarthICRF.VZ"].values,
             unit=u.km/u.s)
 
-        # Generate satellite state assuming that the EarthMJ2000Eq
-        # reference frame is equivalent to GCRS
+        # Generate satellite state assuming that the EarthICRF reference frame
+        # is equivalent to GCRS
+        # TODO: address error between astropy and GMAT frames
         satellite_state = GCRS(
             representation_type="cartesian",
             obstime=satellite_time,
@@ -158,7 +159,7 @@ class gmatInterface():
             y=satellite_position.y,
             z=satellite_position.z)
 
-        # Generate satellite reference frame assuming that the EarthMJ2000Eq
+        # Generate satellite reference frame assuming that the EarthICRF
         # reference frame is equivalent to GCRS
         satellite_frame = GCRS(
             representation_type="cartesian",
