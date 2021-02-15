@@ -24,3 +24,4 @@ gmat.load_state()
 # Calculate target visibility
 visibility = visibilityModule(gmat.satellite_state, gmat.satellite_frame)
 visibility.get_solar_bodies()
+visibility.get_targets()

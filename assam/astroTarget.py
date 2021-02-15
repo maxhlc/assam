@@ -2,17 +2,17 @@
 
 class astroTarget():
 
-    def __init__(self, target_name, target_priority, target_category):
+    def __init__(self, name, priority, category):
         """
         Initialisation function for astronomical targets.
 
         Parameters
         ----------
-        target_name : str
+        name : str
             Name of the target.
-        target_priority : int
+        priority : int
             Priority of the target.
-        target_category : str
+        category : str
             Category of the target.
 
         Returns
@@ -22,9 +22,9 @@ class astroTarget():
         """
 
         # Load target properties
-        self.target_name = target_name
-        self.target_priority = target_priority
-        self.target_category = target_category
+        self.name = name
+        self.priority = priority
+        self.category = category
 
         # Create empty dictionary for subtargets
         self.subtargets = dict()
@@ -76,6 +76,43 @@ class astroTarget():
 
 class astroSubtarget():
 
-    def __init__(self):
-        pass
+    def __init__(self, name, frame, centre, shape, width, height, angular_radius, coordinates):
+        """
+        Initialisation function for astronomical subtargets.
+
+        Parameters
+        ----------
+        name : str
+            Name of the subtarget.
+        frame : str
+            Subtarget reference frame.
+        centre : astropy.units.quantity.Quantity
+            Subtarget centre coordinates.
+        shape : str
+            Subtarget shape.
+        width : astropy.units.quantity.Quantity
+            Subtarget width.
+        height : astropy.units.quantity.Quantity
+            Subtarget height.
+        angular_radius : astropy.units.quantity.Quantity
+            Subtarget angular radius.
+        coordinates : astropy.coordinates.sky_coordinate.SkyCoord
+            Subtarget centre coordinates.
+
+        Returns
+        -------
+        None.
+
+        """
+        
+        # Load subtarget properties
+        self.name = name
+        self.frame = frame
+        self.centre = centre
+        self.shape = shape
+        self.width = width
+        self.height = height
+        self.angular_radius = angular_radius
+        self.coordinates = coordinates
+        
         return None

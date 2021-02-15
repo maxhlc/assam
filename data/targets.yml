@@ -1,0 +1,18 @@
+# example_target:
+#     category: examples
+#     priority: 1
+#     subtargets:
+#         subtarget_a:
+#             frame: icrs
+#             centre: [5, 5]
+#             shape: rectangular
+#             width: 5
+#             height: 5
+#             angular_radius:
+#         subtarget_b:
+#             frame: icrs
+#             centre: [10, 3]
+#             shape: circular
+#             width:
+#             height:
+#             angular_radius: 5
