@@ -104,7 +104,7 @@ class astroSubtarget():
         None.
 
         """
-        
+
         # Load subtarget properties
         self.name = name
         self.frame = frame
@@ -114,5 +114,5 @@ class astroSubtarget():
         self.height = height
         self.angular_radius = angular_radius
         self.coordinates = coordinates
-        
+
         return None

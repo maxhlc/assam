@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from solarBodyInterface import solarBodyInterface
-from astroTargetInterface import astroTargetInterface
+import solarBodyInterface
+import astroTargetInterface
 
 class visibilityModule():
 
@@ -12,7 +12,7 @@ class visibilityModule():
         Parameters
         ----------
         satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite state in the GCRS reference frame.       
+            Satellite state in the GCRS reference frame.
         satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
             Satellite reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
@@ -39,7 +39,7 @@ class visibilityModule():
             Solar system bodies and their properties.
 
         """
-        
+
         # Load solar bodies
         solar_bodies = solarBodyInterface.load(self.satellite_state,
                                                self.satellite_frame)
@@ -59,7 +59,7 @@ class visibilityModule():
             Targets and their properties.
 
         """
-        
+
         # Load targets
         targets = astroTargetInterface.load()
 
