@@ -3,11 +3,11 @@
 from astropy.time import Time
 
 from gmatInterface import gmatInterface
-from visibilityModule import visiblityModule
+from visibilityModule import visibilityModule
 
 # Set parameters
 start_time = Time("2021-01-23 12:30")
-end_time = Time("2021-01-23 13:30")
+end_time = Time("2021-01-24 12:30")
 keplerian_elements = {"SMA": 7000,
                       "ECC": 0,
                       "INC": 98.6,
@@ -22,5 +22,5 @@ gmat.execute_script()
 gmat.load_state()
 
 # Calculate target visibility
-visibility = visiblityModule(gmat.satellite_frame)
+visibility = visibilityModule(gmat.satellite_state, gmat.satellite_frame)
 visibility.get_solar_bodies()
