@@ -1,14 +1,7 @@
 #!/usr/bin/env python
 
-from astropy.coordinates import SkyCoord
-from astropy import units as u
-import yaml
-import numpy as np
-
-from astroTarget import astroTarget, astroSubtarget
 from solarBodyInterface import solarBodyInterface
 from astroTargetInterface import astroTargetInterface
-
 
 class visibilityModule():
 
