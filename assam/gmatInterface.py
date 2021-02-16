@@ -5,7 +5,7 @@ import pandas as pd
 from astropy.time import Time
 from astropy import units as u
 from astropy.coordinates import GCRS, CartesianRepresentation
-
+from tqdm import tqdm
 
 class gmatInterface():
 
@@ -103,16 +103,20 @@ class gmatInterface():
         None.
 
         """
-
+        
         # Define command to run GMAT
         GMAT_command = "GMAT"
         # Define flags when running GMAT
         # (-r: run script, -m: run minimised, -x: exit when finished)
         GMAT_flags = "-r -m -x"
         
-        # Run GMAT
-        os.system(f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
-    
+        # Display progress bar in terminal
+        with tqdm(total=1, desc="GMAT Exectution") as pbar:
+            # Run GMAT
+            os.system(f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
+            # Update progress bar
+            pbar.update(1)
+        
         return None
 
     def load_state(self):
