@@ -4,6 +4,7 @@ from astropy.coordinates import SkyCoord
 from astropy import units as u
 import yaml
 import numpy as np
+from tqdm import tqdm
 
 from astroTarget import astroTarget, astroSubtarget
 
@@ -32,10 +33,10 @@ def load():
     if targets_dump is None:
         raise ValueError("Empty target file")
 
-    targets = dict()
     # Generate target objects
     # TODO: value checking
-    for target_name, target_info in targets_dump.items():
+    targets = []
+    for target_name, target_info in tqdm(targets_dump.items(), desc="Target Generation"):
         # Extract general properties
         target_priority = target_info["priority"]
         target_category = target_info["category"]
@@ -77,9 +78,14 @@ def load():
                                        coordinates)
 
             # Add subtarget to target object
-            target.add_subtarget(subtarget_name, subtarget)
+            target.add_subtarget(subtarget)
 
         # Store in target dictionary
-        targets[target_name] = target
+        targets.append(target)
 
     return targets
+
+def save():
+    # TODO: implement method to save targets to file
+    pass
+    return None
