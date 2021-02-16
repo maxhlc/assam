@@ -4,20 +4,21 @@ from astropy.coordinates import solar_system_ephemeris, get_body
 from astropy import units as u
 import yaml
 import numpy as np
+from tqdm import tqdm
 
 from solarBody import solarBody
 
-def load(satellite_state, satellite_frame):
+def load(satellite_frame, ephem="jpl"):
     """
     Function to get the coordinates of solar bodies.
 
     Parameters
     ----------
-    satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
-        Satellite state in the GCRS reference frame.
     satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
         Satellite reference frame relative to the Earth's centre of mass
         with the same orientation as BCRS/ICRS.
+    ephem : str, optional
+        Ephemeris selection.
 
     Raises
     ------
@@ -31,12 +32,8 @@ def load(satellite_state, satellite_frame):
 
     """
 
-    # Attempt to use JPL ephemeris data (requires jplephem package),
-    # if not use the default ephemeris data
-    try:
-        solar_system_ephemeris.set("jpl")
-    except:
-        solar_system_ephemeris.set("builtin")
+    # Set ephemeris data
+    solar_system_ephemeris.set(ephem)
 
     # Load solar bodies of interest from config
     # TODO: implement default and optional paths
@@ -48,21 +45,21 @@ def load(satellite_state, satellite_frame):
         raise ValueError("Empty solar bodies file")
 
     # Generate solar body objects
-    # TODO: value checking
-    solar_bodies = dict()
-    for solar_body, solar_body_info in solar_bodies_dump.items():
+    # TODO: value checking, parallel processing
+    solar_bodies = []
+    for solar_body, solar_body_info in tqdm(solar_bodies_dump.items(), desc="Solar Body Generation"):
         # Continue to following solar body if current one not included
         if not solar_body_info["included"]:
             continue
 
         # Calculate solar body coordinates from ephemeris data
-        solar_body_coords = get_body(solar_body,satellite_frame.obstime)
+        solar_body_coords = get_body(solar_body, satellite_frame.obstime)
 
         # Convert to satellite frame coordinates
         solar_body_coords = solar_body_coords.transform_to(satellite_frame)
 
         # Find slant range between satellite and solar body
-        slant_range = solar_body_coords.separation_3d(satellite_state)
+        slant_range = solar_body_coords.distance
 
         # Calculate solar body angular radius
         # TODO: implement more accurate calculation for close bodies
@@ -75,10 +72,10 @@ def load(satellite_state, satellite_frame):
         solar_body_soft_radius = solar_body_info["soft_radius"] * u.deg
 
         # Create solar body object and store in dictionary
-        solar_bodies[solar_body] = solarBody(solar_body,
-                                             solar_body_coords,
-                                             solar_body_radius,
-                                             solar_body_angular_radius,
-                                             solar_body_soft_radius)
+        solar_bodies.append(solarBody(solar_body,
+                                      solar_body_coords,
+                                      solar_body_radius,
+                                      solar_body_angular_radius,
+                                      solar_body_soft_radius))
 
     return solar_bodies

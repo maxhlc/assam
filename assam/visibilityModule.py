@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
+from tqdm import tqdm
+
 import solarBodyInterface
 import astroTargetInterface
 
 class visibilityModule():
 
-    def __init__(self, satellite_state, satellite_frame):
+    def __init__(self, satellite_frame):
         """
         Initialisation function for the visibility module.
 
         Parameters
         ----------
-        satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite state in the GCRS reference frame.
         satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
             Satellite reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
@@ -24,7 +24,6 @@ class visibilityModule():
         """
 
         # Load satellite reference frame
-        self.satellite_state = satellite_state
         self.satellite_frame = satellite_frame
 
         return None
@@ -41,8 +40,7 @@ class visibilityModule():
         """
 
         # Load solar bodies
-        solar_bodies = solarBodyInterface.load(self.satellite_state,
-                                               self.satellite_frame)
+        solar_bodies = solarBodyInterface.load(self.satellite_frame)
 
         # Store output
         self.solar_bodies = solar_bodies
@@ -68,6 +66,12 @@ class visibilityModule():
 
         return targets
 
-    def calculate_separation(self):
-        pass
+    def calculate_visibility(self):
+        # TODO: add docstring
+        
+        # Iterate through targets to calculate visibility
+        for target in tqdm(self.targets, desc="Target Visibility"):
+            target.calculate_visibility(self.solar_bodies)
+            
         return None
+
