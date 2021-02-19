@@ -41,7 +41,7 @@ class visibilityModule():
 
         # Load solar bodies
         solar_bodies = solarBodyInterface.load(self.satellite_frame)
-
+        
         # Store output
         self.solar_bodies = solar_bodies
 
