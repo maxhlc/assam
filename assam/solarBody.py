@@ -31,5 +31,3 @@ class solarBody():
         self.radius = radius
         self.angular_radius = angular_radius
         self.soft_radius = soft_radius
-
-        return None

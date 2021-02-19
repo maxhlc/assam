@@ -7,6 +7,7 @@ from astropy import units as u
 from astropy.coordinates import GCRS, CartesianRepresentation
 from tqdm import tqdm
 
+
 class gmatInterface():
 
     def __init__(self, start_time, end_time, keplerian_elements):
@@ -43,8 +44,6 @@ class gmatInterface():
         # Define offset for Modified Julian Dates
         # GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000
         self.GMAT_MJD_OFFSET = 2430000.0
-
-        return None
 
     def generate_script(self):
         """
@@ -92,8 +91,6 @@ class gmatInterface():
         with open(self.modified_path, "w") as modifiedscript:
             modifiedscript.writelines(script)
 
-        return None
-
     def execute_script(self):
         """
         Function to execute script with GMAT.
@@ -103,21 +100,20 @@ class gmatInterface():
         None.
 
         """
-        
+
         # Define command to run GMAT
         GMAT_command = "GMAT"
         # Define flags when running GMAT
         # (-r: run script, -m: run minimised, -x: exit when finished)
         GMAT_flags = "-r -m -x"
-        
+
         # Display progress bar in terminal
         with tqdm(total=1, desc="GMAT Exectution") as pbar:
             # Run GMAT
-            os.system(f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
+            os.system(
+                f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
             # Update progress bar
             pbar.update(1)
-        
-        return None
 
     def load_state(self):
         """

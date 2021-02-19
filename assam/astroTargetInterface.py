@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from astroTarget import astroTarget, astroSubtarget
 
+
 def load():
     """
     Function to import targets and their subtargets.
@@ -19,7 +20,7 @@ def load():
 
     Returns
     -------
-    targets : dict
+    targets : list
         Targets and their properties.
 
     """
@@ -53,7 +54,7 @@ def load():
 
             # Calculate subtarget geometry
             shape = subtarget_info["shape"]
-            if  shape == "rectangular":
+            if shape == "rectangular":
                 # Assign width and height
                 width = subtarget_info["width"] * u.deg
                 height = subtarget_info["height"] * u.deg
@@ -66,7 +67,8 @@ def load():
                 # Assign angular
                 angular_radius = subtarget_info["angular_radius"] * u.deg
             else:
-                raise ValueError(f"Invalid subtarget shape: {target_name}, {subtarget_name}")
+                raise ValueError(
+                    f"Invalid subtarget shape: {target_name}, {subtarget_name}")
 
             # Create subtarget object
             subtarget = astroSubtarget(subtarget_name,
@@ -80,12 +82,12 @@ def load():
             # Add subtarget to target object
             target.add_subtarget(subtarget)
 
-        # Store in target dictionary
+        # Store in target list
         targets.append(target)
 
     return targets
 
+
 def save():
     # TODO: implement method to save targets to file
     pass
-    return None

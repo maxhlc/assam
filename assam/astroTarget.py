@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 class astroTarget():
 
     def __init__(self, name, priority, category):
@@ -31,8 +32,6 @@ class astroTarget():
         # Create empty list for subtargets
         self.subtargets = []
 
-        return None
-
     def add_subtarget(self, subtarget):
         """
         Function to add subtarget to the target.
@@ -50,8 +49,6 @@ class astroTarget():
 
         # Add subtarget to dictionary
         self.subtargets.append(subtarget)
-
-        return None
 
     def remove_subtarget(self, subtarget):
         """
@@ -71,32 +68,43 @@ class astroTarget():
         # Remove subtarget from target
         self.subtargets.remove(subtarget)
 
-        return None
-    
     def calculate_visibility(self, solar_bodies):
-        # TODO: docstring
-        
+        """
+        Function to calculate target visibility.
+
+        Parameters
+        ----------
+        solar_bodies : list
+            Solar system bodies and their properties.
+
+        Returns
+        -------
+        visibility : numpy.ndarray
+            Array of booleans, true when target is visible.
+
+        """
+
         # TODO: implement storage of visibility per subtarget and solar body
-        
+
         # Declare visibility list
         visibility = []
-       
+
         # Iterate through subtargets and solar bodies to calculate visibility
         for subtarget in self.subtargets:
             for solar_body in solar_bodies:
                 # Calculate visibility
                 sub_visibility, _ = subtarget.calculate_visibility(solar_body)
                 visibility.append(sub_visibility)
-            
+
         # Convert visibility list to array
-        visibility = np.array(visibility)  
-        
+        visibility = np.array(visibility)
+
         # Flatten array into vector
         visibility = np.all(visibility, axis=0)
-        
+
         # Store visibility
         self.visibility = visibility
-        
+
         return visibility
 
 
@@ -141,14 +149,27 @@ class astroSubtarget():
         self.angular_radius = angular_radius
         self.coordinates = coordinates
 
-        return None
-
     def calculate_visibility(self, solar_body):
-        # TODO: docstring
-        
+        """
+        Function to calculate subtarget visibility.
+
+        Parameters
+        ----------
+        solar_body : solarBody
+            Solar body object to calculate visibility.
+
+        Returns
+        -------
+        visibility : numpy.ndarray
+            Array of booleans, true when subtarget is visible.
+        angular_separation : astropy.coordinates.angles.Angle
+            Array of angular separation between subtarget and solar body.
+
+        """
+
         # Declare visibility list
         visibility = []
-        
+
         # Calculate angular separation
         angular_separation = solar_body.coordinates.separation(
             self.coordinates)
@@ -157,30 +178,30 @@ class astroSubtarget():
         visibility.append((angular_separation
                            - self.angular_radius
                            - solar_body.angular_radius) >= 0)
-        
+
         # Calculate soft radius restrictions
         for radius_inner, radius_outer in solar_body.soft_radius:
             # Inner visibility (true if violating)
             visibility_inner = (angular_separation
-                               - self.angular_radius
-                               - radius_inner) >= 0
+                                - self.angular_radius
+                                - radius_inner) >= 0
             # Outer visibility (true if violating)
             visibility_outer = (angular_separation
-                               + self.angular_radius
-                               - radius_outer) <= 0
-            
+                                + self.angular_radius
+                                - radius_outer) <= 0
+
             # Combine and invert, append to visibility list
             visibility_soft = np.logical_not(
                 np.logical_and(visibility_inner, visibility_outer))
             visibility.append(visibility_soft)
-                 
-        # Calculate arbritary geometry 
+
+        # Calculate arbitrary geometry
         # TODO: implement
 
         # Convert visibility list to array
-        visibility = np.array(visibility)  
-        
+        visibility = np.array(visibility)
+
         # Flatten array into vector
         visibility = np.all(visibility, axis=0)
-        
+
         return visibility, angular_separation

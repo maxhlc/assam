@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
+import multiprocessing
 from astropy.coordinates import solar_system_ephemeris, get_body
 from astropy import units as u
 import yaml
 import numpy as np
 from tqdm import tqdm
-import multiprocessing
 
 from solarBody import solarBody
+
 
 def load(satellite_frame, ephem="jpl", num_workers=None):
     """
@@ -46,23 +47,29 @@ def load(satellite_frame, ephem="jpl", num_workers=None):
     # Check for empty solar bodies file
     if solar_bodies_dump is None:
         raise ValueError("Empty solar bodies file")
-    
+
     # Create list of included solar bodies to supply to multiprocessing
     solar_bodies_list = [(solar_body_name, solar_body_info, satellite_frame)
                          for solar_body_name, solar_body_info
                          in solar_bodies_dump.items()
                          if solar_body_info["included"]]
-    
+
     # Generate solar body objects
-    # TODO: value checking    
-    solar_bodies = []  
+    # TODO: value checking
+    solar_bodies = []
+    # Create worker pool
     with multiprocessing.Pool(num_workers) as p:
+        # Create progress bar
         with tqdm(total=len(solar_bodies_list), desc="Solar Body Generation") as pbar:
+            # Iterate through solar bodies
             for solar_body_object in p.imap(load_worker, solar_bodies_list):
+                # Add solar body object to list
                 solar_bodies.append(solar_body_object)
+                # Update progress bar
                 pbar.update()
-        
+
     return solar_bodies
+
 
 def load_worker(worker_params):
     """
@@ -80,10 +87,10 @@ def load_worker(worker_params):
         Solar body object.
 
     """
-    
-    # Unpack solar body tuple
+
+    # Unpack worker parameter tuple
     solar_body_name, solar_body_info, satellite_frame = worker_params
-    
+
     # Calculate solar body coordinates from ephemeris data
     solar_body_coords = get_body(solar_body_name, satellite_frame.obstime)
 
