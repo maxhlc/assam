@@ -9,9 +9,15 @@ from tqdm import tqdm
 from astroTarget import astroTarget, astroSubtarget
 
 
-def load():
+def load(satellite_frame):
     """
     Function to import targets and their subtargets.
+
+    Parameters
+    ----------    
+    satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+        Satellite reference frame relative to the Earth's centre of mass
+        with the same orientation as BCRS/ICRS.
 
     Raises
     ------
@@ -51,6 +57,7 @@ def load():
             frame = subtarget_info["frame"]
             centre = subtarget_info["centre"] * u.deg
             coordinates = SkyCoord(centre[0], centre[1], frame=frame)
+            coordinates = coordinates.transform_to(satellite_frame)
 
             # Calculate subtarget geometry
             shape = subtarget_info["shape"]

@@ -58,7 +58,7 @@ class visibilityModule():
         """
 
         # Load targets
-        targets = astroTargetInterface.load()
+        targets = astroTargetInterface.load(self.satellite_frame)
 
         # Store output
         self.targets = targets
