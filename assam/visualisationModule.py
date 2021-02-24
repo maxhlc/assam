@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
 
 
-class visualModule():
+class visualisationModule():
 
     def __init__(self, satellite_frame, solar_bodies, targets, npix=(1441, 721)):
         # TODO: docstring

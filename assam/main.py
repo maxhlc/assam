@@ -5,7 +5,7 @@ import inspect
 
 from gmatInterface import gmatInterface
 from visibilityModule import visibilityModule
-from visualModule import visualModule
+from visualisationModule import visualisationModule
 
 # Dictionary to store variables from main function
 # (allows viewing through the variable explorer)
@@ -37,11 +37,11 @@ def main():
     visibility.calculate_visibility()
 
     # Plot telescope visibility
-    visual = visualModule(gmat.satellite_frame,
-                          visibility.solar_bodies,
-                          visibility.targets)
-    visual.generate_bitmaps()
-    visual.plot_bitmaps()
+    visualisation = visualisationModule(gmat.satellite_frame,
+                                        visibility.solar_bodies,
+                                        visibility.targets)
+    visualisation.generate_bitmaps()
+    visualisation.plot_bitmaps()
 
     # Store local variables
     global local_vars
