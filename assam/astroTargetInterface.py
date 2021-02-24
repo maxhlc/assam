@@ -14,7 +14,7 @@ def load(satellite_frame):
     Function to import targets and their subtargets.
 
     Parameters
-    ----------    
+    ----------
     satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
         Satellite reference frame relative to the Earth's centre of mass
         with the same orientation as BCRS/ICRS.
