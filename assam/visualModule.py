@@ -3,12 +3,14 @@
 import numpy as np
 from astropy import units as u
 from astropy.coordinates import SkyCoord
+from tqdm import tqdm
 from matplotlib import pyplot as plt
+from matplotlib.colors import ListedColormap
 
 
 class visualModule():
 
-    def __init__(self, satellite_frame, solar_bodies, targets, ntheta=1441, nphi=721):
+    def __init__(self, satellite_frame, solar_bodies, targets, npix=(1441, 721)):
         # TODO: docstring
 
         # Import satellite frame, solar bodies, and targets
@@ -17,13 +19,13 @@ class visualModule():
         self.targets = targets
 
         # Create angle vectors and mesh
-        self.theta = np.linspace(-180, 180, ntheta) * u.deg
-        self.phi = np.linspace(-90, 90, nphi) * u.deg
+        self.theta = np.linspace(-180, 180, npix[0]) * u.deg
+        self.phi = np.linspace(-90, 90, npix[1]) * u.deg
         self.theta_grid, self.phi_grid = np.meshgrid(self.theta, self.phi)
 
-    def generate_bitmap(self, index=0):
+    def __generate_bitmap(self, index=0):
         # TODO: docstring
-        
+
         # TODO: change behaviour: calculate all bitmaps together then plot separately
 
         # Generate coordinate grid at index time
@@ -36,7 +38,7 @@ class visualModule():
         # Generate bitmap array (all pixels false initially)
         solar_bitmap = np.empty(self.theta_grid.shape)
         solar_bitmap.fill(False)
-        
+
         target_bitmap = np.empty(self.theta_grid.shape)
         target_bitmap.fill(False)
 
@@ -78,47 +80,71 @@ class visualModule():
             for subtarget in target.subtargets:
                 # Extract target coordinates
                 subtarget_coordinates = subtarget.coordinates[index]
-                
+
                 # Calculate separation vector
                 separation = subtarget_coordinates.separation(coordinates_grid)
-                
+
                 # Reshape to separation array
                 separation_array = separation.reshape(self.theta_grid.shape)
-                
+
                 # Calculate subtarget array
                 subtarget_array = separation_array <= subtarget.angular_radius
-                
+
                 # Update overall target bitmap array
                 target_bitmap = np.logical_or(target_bitmap, subtarget_array)
-        
-        # Store bitmaps
-        self.solar_bitmap = solar_bitmap
-        self.target_bitmap = target_bitmap
 
-    def plot_bitmap(self, index=0):
+        # Return bitmaps
+        return solar_bitmap, target_bitmap
+
+    def generate_bitmaps(self):
+        # TODO: docstring
+
+        # Declare bitmap lists
+        # TODO: consider numpy arrays
+        solar_bitmaps = []
+        target_bitmaps = []
+
+        # Find number of timesteps
+        nindex = len(self.satellite_frame.obstime)
+
+        # Iterate through timesteps
+        # TODO: make parallel
+        for index in tqdm(range(nindex), desc="Bitmap Generation"):
+            # Calculate bitmaps
+            solar_bitmap, target_bitmap = self.__generate_bitmap(index)
+
+            # Store bitmaps
+            solar_bitmaps.append(solar_bitmap)
+            target_bitmaps.append(target_bitmap)
+
+        # Store bitmaps
+        self.solar_bitmaps = solar_bitmaps
+        self.target_bitmaps = target_bitmaps
+
+    def __plot_bitmap(self, obstime, solar_bitmap, target_bitmap):
         # TODO: docstring
 
         # Create figure
         plt.figure(figsize=((5.5, 4)),
                    dpi=300)
-        
+
         # Define colourmaps
-        cmap_target = None
-        cmap_solar = None
-        
+        cmap_target = ListedColormap(["white", "green"])
+        cmap_solar = ListedColormap(["white", "red"])
+
         # Plot target bitmap
-        plt.contourf(self.theta_grid, self.phi_grid, self.target_bitmap,
-                     cmap="Greens")       
+        plt.contourf(self.theta_grid, self.phi_grid, target_bitmap,
+                     cmap=cmap_target)
 
         # Plot solar bitmap
-        plt.contourf(self.theta_grid, self.phi_grid, self.solar_bitmap,
-                     cmap="Reds",
+        plt.contourf(self.theta_grid, self.phi_grid, solar_bitmap,
+                     cmap=cmap_solar,
                      alpha=0.5)
 
         # Reverse axes
         ax = plt.gca()
         ax.invert_xaxis()
-        
+
         # Set square aspect
         ax.set_aspect(aspect=1)
 
@@ -126,11 +152,15 @@ class visualModule():
         plt.xlabel("RA [deg]")
         plt.ylabel("DEC [deg]")
 
+        # Set ticks
+        plt.xticks(np.arange(-180, 240, step=60))
+        plt.yticks(np.arange(-90, 120, step=30))
+
         # Add grid
-        plt.grid()
-        
+        plt.grid(alpha=0.25)
+
         # Add datetime in text box
-        textstr = self.satellite_frame.obstime[index].fits
+        textstr = obstime.fits
         props = dict(boxstyle="round", facecolor="white", alpha=0.75)
         ax.text(0.975, 0.95,
                 textstr,
@@ -139,3 +169,22 @@ class visualModule():
                 verticalalignment="top",
                 horizontalalignment="right",
                 bbox=props)
+
+    def plot_bitmaps(self):
+        # TODO: docstring
+
+        # TODO: date range input
+
+        # Find number of timesteps
+        nindex = len(self.satellite_frame.obstime)
+
+        # Iterate through timesteps
+        # TODO: make parallel
+        for index in tqdm(range(nindex), desc="Bitmap Plotting"):
+            # Extract observation time and bitmaps
+            obstime = self.satellite_frame.obstime[index]
+            solar_bitmap = self.solar_bitmaps[index]
+            target_bitmap = self.target_bitmaps[index]
+
+            # Plot bitmaps
+            self.__plot_bitmap(obstime, solar_bitmap, target_bitmap)
