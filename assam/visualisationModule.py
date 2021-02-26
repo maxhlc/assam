@@ -6,12 +6,53 @@ from astropy.coordinates import SkyCoord
 from tqdm import tqdm
 from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
+import multiprocessing
+
+
+def unwrap_generate_bitmap(arg, **kwarg):
+    """
+    Wrapper function to enable multiprocessing of the generate_bitmap method,
+    as found at http://www.rueckstiess.net/research/snippets/show/ca1d7d90
+
+    Parameters
+    ----------
+    arg :
+        Arguments.
+    **kwarg :
+        Keyword arguments.
+
+    Returns
+    -------
+    function
+        Unwrapped generate bitmap function.
+
+    """
+    return visualisationModule.generate_bitmap(*arg, **kwarg)
 
 
 class visualisationModule():
 
-    def __init__(self, satellite_frame, solar_bodies, targets, npix=(1441, 721)):
-        # TODO: docstring
+    def __init__(self, satellite_frame, solar_bodies, targets, npix=(721, 361)):
+        """
+        Initialisation function for the visualisation module.
+
+        Parameters
+        ----------
+        satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Satellite reference frame relative to the Earth's centre of mass
+            with the same orientation as BCRS/ICRS.
+        solar_bodies : list
+            Solar system bodies and their properties.
+        targets : list
+            Targets and their properties.
+        npix : tuple, optional
+            Number of sample points in RA and DEC. The default is (721, 361).
+
+        Returns
+        -------
+        None.
+
+        """
 
         # Import satellite frame, solar bodies, and targets
         self.satellite_frame = satellite_frame
@@ -23,10 +64,23 @@ class visualisationModule():
         self.phi = np.linspace(-90, 90, npix[1]) * u.deg
         self.theta_grid, self.phi_grid = np.meshgrid(self.theta, self.phi)
 
-    def __generate_bitmap(self, index=0):
-        # TODO: docstring
+    def generate_bitmap(self, index=0):
+        """
+        Function to generate visual bitmap.
 
-        # TODO: change behaviour: calculate all bitmaps together then plot separately
+        Parameters
+        ----------
+        index : int, optional
+            Index for the generated timestep. The default is 0.
+
+        Returns
+        -------
+        solar_bitmap : numpy.ndarray
+            Boolean array of solar body visibility.
+        target_bitmap : numpy.ndarray
+            Boolean array of target visibility.
+
+        """
 
         # Generate coordinate grid at index time
         frame = self.satellite_frame[index]
@@ -96,8 +150,20 @@ class visualisationModule():
         # Return bitmaps
         return solar_bitmap, target_bitmap
 
-    def generate_bitmaps(self):
-        # TODO: docstring
+    def generate_bitmaps(self, num_workers=None):
+        """
+        Function to generate multiple bitmaps in one call.
+
+        Parameters
+        ----------
+        num_workers : int, optional
+            Number of workers for the multiprocessing pool. The default is None.
+
+        Returns
+        -------
+        None.
+
+        """
 
         # Declare bitmap lists
         # TODO: consider numpy arrays
@@ -107,22 +173,42 @@ class visualisationModule():
         # Find number of timesteps
         nindex = len(self.satellite_frame.obstime)
 
-        # Iterate through timesteps
-        # TODO: make parallel
-        for index in tqdm(range(nindex), desc="Bitmap Generation"):
-            # Calculate bitmaps
-            solar_bitmap, target_bitmap = self.__generate_bitmap(index)
-
-            # Store bitmaps
-            solar_bitmaps.append(solar_bitmap)
-            target_bitmaps.append(target_bitmap)
+        # Generate bitmaps
+        with multiprocessing.Pool(num_workers) as p:
+            # Create progress bar
+            with tqdm(total=nindex, desc="Bitmap Generation") as pbar:
+                # Iterate through timesteps
+                # TODO: find a more acceptable way to make this loop parallel
+                for solar_bitmap, target_bitmap in p.imap(unwrap_generate_bitmap, zip([self]*nindex, range(nindex))):
+                    # Store bitmaps
+                    solar_bitmaps.append(solar_bitmap)
+                    target_bitmaps.append(target_bitmap)
+                    # Update progress bar
+                    pbar.update()
 
         # Store bitmaps
         self.solar_bitmaps = solar_bitmaps
         self.target_bitmaps = target_bitmaps
 
-    def __plot_bitmap(self, obstime, solar_bitmap, target_bitmap):
-        # TODO: docstring
+    def __plot_bitmap(self, index=0):
+        """
+        Function to generate bitmap plot.
+
+        Parameters
+        ----------
+        index : int, optional
+            Index for the plotted timestep. The default is 0.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Extract observation time and bitmaps
+        obstime = self.satellite_frame.obstime[index]
+        solar_bitmap = self.solar_bitmaps[index]
+        target_bitmap = self.target_bitmaps[index]
 
         # Create figure
         plt.figure(figsize=((5.5, 4)),
@@ -171,7 +257,14 @@ class visualisationModule():
                 bbox=props)
 
     def plot_bitmaps(self):
-        # TODO: docstring
+        """
+        Function to plot multiple bitmaps in one call.
+
+        Returns
+        -------
+        None.
+
+        """
 
         # TODO: date range input
 
@@ -181,10 +274,5 @@ class visualisationModule():
         # Iterate through timesteps
         # TODO: make parallel
         for index in tqdm(range(nindex), desc="Bitmap Plotting"):
-            # Extract observation time and bitmaps
-            obstime = self.satellite_frame.obstime[index]
-            solar_bitmap = self.solar_bitmaps[index]
-            target_bitmap = self.target_bitmaps[index]
-
             # Plot bitmaps
-            self.__plot_bitmap(obstime, solar_bitmap, target_bitmap)
+            self.__plot_bitmap(index)

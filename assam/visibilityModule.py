@@ -33,7 +33,7 @@ class visibilityModule():
 
         Returns
         -------
-        solar_bodies : dict
+        solar_bodies : list
             Solar system bodies and their properties.
 
         """
@@ -52,7 +52,7 @@ class visibilityModule():
 
         Returns
         -------
-        targets : dict
+        targets : list
             Targets and their properties.
 
         """
