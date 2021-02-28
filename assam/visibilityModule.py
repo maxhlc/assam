@@ -2,13 +2,12 @@
 
 from tqdm import tqdm
 
-import solarBodyInterface
 import astroTargetInterface
 
 
 class visibilityModule():
 
-    def __init__(self, satellite_frame):
+    def __init__(self, satellite_frame, solar_bodies):
         """
         Initialisation function for the visibility module.
 
@@ -17,6 +16,8 @@ class visibilityModule():
         satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
             Satellite reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
+        solar_bodies : list
+            Solar system bodies and their properties.
 
         Returns
         -------
@@ -24,27 +25,9 @@ class visibilityModule():
 
         """
 
-        # Load satellite reference frame
+        # Load satellite reference frame and solar bodies
         self.satellite_frame = satellite_frame
-
-    def get_solar_bodies(self):
-        """
-        Function to get the import solar bodies.
-
-        Returns
-        -------
-        solar_bodies : list
-            Solar system bodies and their properties.
-
-        """
-
-        # Load solar bodies
-        solar_bodies = solarBodyInterface.load(self.satellite_frame)
-
-        # Store output
         self.solar_bodies = solar_bodies
-
-        return solar_bodies
 
     def get_targets(self):
         """

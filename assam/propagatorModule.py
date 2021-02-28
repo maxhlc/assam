@@ -1,51 +1,91 @@
 #!/usr/bin/env python
 
-import gmatInterface
+from gmatInterface import gmatInterface
+import solarBodyInterface
 
 
-def propagate(start_time, end_time, keplerian_elements, propagator="gmat"):
-    """
-    Function to handle propagators for satellite frame generation.
+class propagatorModule():
 
-    Parameters
-    ----------
-    start_time : astropy.time.core.Time
-        Mission start time.
-    end_time : astropy.time.core.Time
-        Mission end time.
-    keplerian_elements : dict
-        Earth-centered Keplerian elements of the satellite.
-    propagator : str, optional
-        Propagator option. The default is "gmat".
+    def __init__(self, start_time, end_time, keplerian_elements, propagator="gmat"):
+        """
+        Initialisation function for propagator module.
 
-    Raises
-    ------
-    ValueError
-        Error if specified propagator option is not available.
+        Parameters
+        ----------
+        start_time : astropy.time.core.Time
+            Mission start time.
+        end_time : astropy.time.core.Time
+            Mission end time.
+        keplerian_elements : dict
+            Earth-centered Keplerian elements of the satellite.
+        propagator : str, optional
+            Propagator option. The default is "gmat".
 
-    Returns
-    -------
-    satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
-        Satellite state in the GCRS reference frame.
-    satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-        Satellite reference frame relative to the Earth's centre of mass
-        with the same orientation as BCRS/ICRS.
+        Returns
+        -------
+        None.
 
-    """
+        """
 
-    # Select propagator
-    if propagator == "gmat":
-        # Create GMAT interface object
-        gmat = gmatInterface.gmatInterface(
-            start_time, end_time, keplerian_elements)
-        # Propagate using GMAT
-        gmat.generate_script()
-        gmat.execute_script()
-        # Load state
-        satellite_state, satellite_frame = gmat.load_state()
+        # Load parameters
+        self.start_time = start_time
+        self.end_time = end_time
+        self.keplerian_elements = keplerian_elements
+        self.propagator = propagator
 
-    else:
-        # Raise error if propagator not available
-        raise ValueError("Invalid propagator")
+    def propagate_spacecraft(self):
+        """
+        Function to handle propagators for satellite frame generation.
 
-    return satellite_state, satellite_frame
+        Raises
+        ------
+        ValueError
+            Error if specified propagator option is not available.
+
+        Returns
+        -------
+        spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Spacecraft reference frame relative to the Earth's centre of mass
+            with the same orientation as BCRS/ICRS.
+
+        """
+
+        # Propagate spacecraft
+        if self.propagator == "gmat":
+            # Run orbit propagation
+            gmat = gmatInterface(self.start_time,
+                                 self.end_time,
+                                 self.keplerian_elements)
+            gmat.generate_script()
+            gmat.execute_script()
+            gmat.load_state()
+
+            # Extract satellite frame
+            spacecraft_frame = gmat.satellite_frame
+        else:
+            # Raise error if propagator not available
+            raise ValueError("Invalid propagator")
+
+        # Store satellite frame
+        self.spacecraft_frame = spacecraft_frame
+
+        return spacecraft_frame
+
+    def get_solar_bodies(self):
+        """
+        Function to get the import solar bodies.
+
+        Returns
+        -------
+        solar_bodies : list
+            Solar system bodies and their properties.
+
+        """
+
+        # Load solar bodies
+        solar_bodies = solarBodyInterface.load(self.spacecraft_frame)
+
+        # Store output
+        self.solar_bodies = solar_bodies
+
+        return solar_bodies

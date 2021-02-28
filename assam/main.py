@@ -3,7 +3,7 @@
 from astropy.time import Time
 import inspect
 
-from gmatInterface import gmatInterface
+from propagatorModule import propagatorModule
 from visibilityModule import visibilityModule
 from visualisationModule import visualisationModule
 
@@ -25,19 +25,18 @@ def main():
                           "TA": 0}
 
     # Run orbit propagation
-    gmat = gmatInterface(start_time, end_time, keplerian_elements)
-    gmat.generate_script()
-    gmat.execute_script()
-    gmat.load_state()
+    propagator = propagatorModule(start_time, end_time, keplerian_elements)
+    propagator.propagate_spacecraft()
+    propagator.get_solar_bodies()
 
     # Calculate target visibility
-    visibility = visibilityModule(gmat.satellite_frame)
-    visibility.get_solar_bodies()
+    visibility = visibilityModule(propagator.spacecraft_frame,
+                                  propagator.solar_bodies)
     visibility.get_targets()
     visibility.calculate_visibility()
 
     # Plot telescope visibility
-    visualisation = visualisationModule(gmat.satellite_frame,
+    visualisation = visualisationModule(propagator.spacecraft_frame,
                                         visibility.solar_bodies,
                                         visibility.targets)
     visualisation.generate_bitmaps()
