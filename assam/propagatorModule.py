@@ -60,8 +60,8 @@ class propagatorModule():
             gmat.execute_script()
             gmat.load_state()
 
-            # Extract satellite frame
-            spacecraft_frame = gmat.satellite_frame
+            # Extract spacecraft frame
+            spacecraft_frame = gmat.spacecraft_frame
         else:
             # Raise error if propagator not available
             raise ValueError("Invalid propagator")

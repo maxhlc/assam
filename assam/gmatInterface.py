@@ -121,10 +121,8 @@ class gmatInterface():
 
         Returns
         -------
-        satellite_state : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite state in the GCRS reference frame.
-        satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite reference frame relative to the Earth's centre of mass
+        spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Spacecraft reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
 
         """
@@ -134,41 +132,30 @@ class gmatInterface():
 
         # Extract Modified Julian Dates, convert to Julian Dates,
         # and convert to astropy time
-        satellite_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                              + self.GMAT_MJD_OFFSET, format='jd')
+        spacecraft_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
+                               + self.GMAT_MJD_OFFSET, format='jd')
 
         # Add astropy units to position and velocity
-        satellite_position = CartesianRepresentation(
+        spacecraft_position = CartesianRepresentation(
             x=output_GMAT["Spacecraft.EarthICRF.X"].values,
             y=output_GMAT["Spacecraft.EarthICRF.Y"].values,
             z=output_GMAT["Spacecraft.EarthICRF.Z"].values,
             unit=u.km)
-        satellite_velocity = CartesianRepresentation(
+        spacecraft_velocity = CartesianRepresentation(
             x=output_GMAT["Spacecraft.EarthICRF.VX"].values,
             y=output_GMAT["Spacecraft.EarthICRF.VY"].values,
             z=output_GMAT["Spacecraft.EarthICRF.VZ"].values,
             unit=u.km/u.s)
 
-        # Generate satellite state assuming that the EarthICRF reference frame
-        # is equivalent to GCRS
-        # TODO: address error between astropy and GMAT frames
-        satellite_state = GCRS(
-            representation_type="cartesian",
-            obstime=satellite_time,
-            x=satellite_position.x,
-            y=satellite_position.y,
-            z=satellite_position.z)
-
-        # Generate satellite reference frame assuming that the EarthICRF
+        # Generate spacecraft reference frame assuming that the EarthICRF
         # reference frame is equivalent to GCRS
-        satellite_frame = GCRS(
+        spacecraft_frame = GCRS(
             representation_type="cartesian",
-            obstime=satellite_time,
-            obsgeoloc=satellite_position,
-            obsgeovel=satellite_velocity)
+            obstime=spacecraft_time,
+            obsgeoloc=spacecraft_position,
+            obsgeovel=spacecraft_velocity)
 
-        # Store outputs
-        self.satellite_state = satellite_state
-        self.satellite_frame = satellite_frame
+        # Store output
+        self.spacecraft_frame = spacecraft_frame
 
-        return satellite_state, satellite_frame
+        return spacecraft_frame

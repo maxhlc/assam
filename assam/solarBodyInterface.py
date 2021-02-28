@@ -10,14 +10,14 @@ from tqdm import tqdm
 from solarBody import solarBody
 
 
-def load(satellite_frame, ephem="jpl", num_workers=None):
+def load(spacecraft_frame, ephem="jpl", num_workers=None):
     """
     Function to get the coordinates of solar bodies.
 
     Parameters
     ----------
-    satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-        Satellite reference frame relative to the Earth's centre of mass
+    spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+        Spacecraft reference frame relative to the Earth's centre of mass
         with the same orientation as BCRS/ICRS.
     ephem : str, optional
         Ephemeris selection.
@@ -49,7 +49,7 @@ def load(satellite_frame, ephem="jpl", num_workers=None):
         raise ValueError("Empty solar bodies file")
 
     # Create list of included solar bodies to supply to multiprocessing
-    solar_bodies_list = [(solar_body_name, solar_body_info, satellite_frame)
+    solar_bodies_list = [(solar_body_name, solar_body_info, spacecraft_frame)
                          for solar_body_name, solar_body_info
                          in solar_bodies_dump.items()
                          if solar_body_info["included"]]
@@ -89,20 +89,18 @@ def load_worker(worker_params):
     """
 
     # Unpack worker parameter tuple
-    solar_body_name, solar_body_info, satellite_frame = worker_params
+    solar_body_name, solar_body_info, spacecraft_frame = worker_params
 
     # Calculate solar body coordinates from ephemeris data
-    solar_body_coords = get_body(solar_body_name, satellite_frame.obstime)
+    solar_body_coords = get_body(solar_body_name, spacecraft_frame.obstime)
 
-    # Convert to satellite frame coordinates
-    solar_body_coords = solar_body_coords.transform_to(satellite_frame)
+    # Convert to spacecraft frame coordinates
+    solar_body_coords = solar_body_coords.transform_to(spacecraft_frame)
 
     # Find slant range between satellite and solar body
     slant_range = solar_body_coords.distance
 
     # Calculate solar body angular radius
-    # TODO: implement more accurate calculation for close bodies
-    #       such as the Earth
     solar_body_radius = solar_body_info["radius"] * u.m
     solar_body_angular_radius = np.arcsin(
         solar_body_radius / slant_range)

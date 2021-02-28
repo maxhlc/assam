@@ -32,14 +32,14 @@ def unwrap_generate_bitmap(arg, **kwarg):
 
 class visualisationModule():
 
-    def __init__(self, satellite_frame, solar_bodies, targets, npix=(721, 361)):
+    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361)):
         """
         Initialisation function for the visualisation module.
 
         Parameters
         ----------
-        satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite reference frame relative to the Earth's centre of mass
+        spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Spacecraft reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
         solar_bodies : list
             Solar system bodies and their properties.
@@ -55,7 +55,7 @@ class visualisationModule():
         """
 
         # Import satellite frame, solar bodies, and targets
-        self.satellite_frame = satellite_frame
+        self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
         self.targets = targets
 
@@ -83,7 +83,7 @@ class visualisationModule():
         """
 
         # Generate coordinate grid at index time
-        frame = self.satellite_frame[index]
+        frame = self.spacecraft_frame[index]
         frame.representation_type = "spherical"
         coordinates_grid = SkyCoord(ra=self.theta_grid.ravel(),
                                     dec=self.phi_grid.ravel(),
@@ -171,7 +171,7 @@ class visualisationModule():
         target_bitmaps = []
 
         # Find number of timesteps
-        nindex = len(self.satellite_frame.obstime)
+        nindex = len(self.spacecraft_frame.obstime)
 
         # Generate bitmaps
         with multiprocessing.Pool(num_workers) as p:
@@ -206,7 +206,7 @@ class visualisationModule():
         """
 
         # Extract observation time and bitmaps
-        obstime = self.satellite_frame.obstime[index]
+        obstime = self.spacecraft_frame.obstime[index]
         solar_bitmap = self.solar_bitmaps[index]
         target_bitmap = self.target_bitmaps[index]
 
@@ -269,7 +269,7 @@ class visualisationModule():
         # TODO: date range input
 
         # Find number of timesteps
-        nindex = len(self.satellite_frame.obstime)
+        nindex = len(self.spacecraft_frame.obstime)
 
         # Iterate through timesteps
         # TODO: make parallel

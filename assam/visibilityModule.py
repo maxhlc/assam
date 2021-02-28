@@ -7,14 +7,14 @@ import astroTargetInterface
 
 class visibilityModule():
 
-    def __init__(self, satellite_frame, solar_bodies):
+    def __init__(self, spacecraft_frame, solar_bodies):
         """
         Initialisation function for the visibility module.
 
         Parameters
         ----------
-        satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-            Satellite reference frame relative to the Earth's centre of mass
+        spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+            Spacecraft reference frame relative to the Earth's centre of mass
             with the same orientation as BCRS/ICRS.
         solar_bodies : list
             Solar system bodies and their properties.
@@ -26,7 +26,7 @@ class visibilityModule():
         """
 
         # Load satellite reference frame and solar bodies
-        self.satellite_frame = satellite_frame
+        self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
 
     def get_targets(self):
@@ -41,7 +41,7 @@ class visibilityModule():
         """
 
         # Load targets
-        targets = astroTargetInterface.load(self.satellite_frame)
+        targets = astroTargetInterface.load(self.spacecraft_frame)
 
         # Store output
         self.targets = targets
