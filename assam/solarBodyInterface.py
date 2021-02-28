@@ -104,7 +104,7 @@ def load_worker(worker_params):
     # TODO: implement more accurate calculation for close bodies
     #       such as the Earth
     solar_body_radius = solar_body_info["radius"] * u.m
-    solar_body_angular_radius = np.arctan(
+    solar_body_angular_radius = np.arcsin(
         solar_body_radius / slant_range)
 
     # Load soft radius constraints
