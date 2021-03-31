@@ -38,7 +38,8 @@ def main():
     # Plot telescope visibility
     visualisation = visualisationModule(propagator.spacecraft_frame,
                                         visibility.solar_bodies,
-                                        visibility.targets)
+                                        visibility.targets,
+                                        cuda=True)
     visualisation.generate_bitmaps()
     visualisation.plot_bitmaps()
 

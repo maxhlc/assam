@@ -9,6 +9,9 @@ from matplotlib.colors import ListedColormap
 import multiprocessing
 
 
+from cudaMethods import separation_cuda as separation_cuda
+
+
 def unwrap_generate_bitmap(arg, **kwarg):
     """
     Wrapper function to enable multiprocessing of the generate_bitmap method,
@@ -32,7 +35,7 @@ def unwrap_generate_bitmap(arg, **kwarg):
 
 class visualisationModule():
 
-    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361)):
+    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361), cuda=False):
         """
         Initialisation function for the visualisation module.
 
@@ -47,6 +50,8 @@ class visualisationModule():
             Targets and their properties.
         npix : tuple, optional
             Number of sample points in RA and DEC. The default is (721, 361).
+        cuda : boolean, optional
+            Flag to use CUDA. The default is False.
 
         Returns
         -------
@@ -58,6 +63,9 @@ class visualisationModule():
         self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
         self.targets = targets
+
+        # Import CUDA functions
+        self.cuda = cuda
 
         # Create angle vectors and mesh
         self.theta = np.linspace(-180, 180, npix[0]) * u.deg
@@ -102,7 +110,12 @@ class visualisationModule():
             solar_body_coordinates = solar_body.coordinates[index]
 
             # Calculate separation vector
-            separation = solar_body_coordinates.separation(coordinates_grid)
+            if self.cuda:
+                separation = separation_cuda(solar_body_coordinates,
+                                             coordinates_grid)
+            else:
+                separation = solar_body_coordinates.separation(
+                    coordinates_grid)
 
             # Reshape to separation array
             separation_array = separation.reshape(self.theta_grid.shape)
@@ -136,7 +149,12 @@ class visualisationModule():
                 subtarget_coordinates = subtarget.coordinates[index]
 
                 # Calculate separation vector
-                separation = subtarget_coordinates.separation(coordinates_grid)
+                if self.cuda:
+                    separation = separation_cuda(subtarget_coordinates,
+                                                 coordinates_grid)
+                else:
+                    separation = subtarget_coordinates.separation(
+                        coordinates_grid)
 
                 # Reshape to separation array
                 separation_array = separation.reshape(self.theta_grid.shape)
