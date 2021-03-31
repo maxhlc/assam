@@ -178,17 +178,17 @@ class astroSubtarget():
         visibility.append((angular_separation
                            - self.angular_radius
                            - solar_body.angular_radius) >= 0)
-
+		
         # Calculate soft radius restrictions
         for radius_inner, radius_outer in solar_body.soft_radius:
             # Inner visibility (true if violating)
             visibility_inner = (angular_separation
-                                - self.angular_radius
-                                - radius_inner) >= 0
+                                + self.angular_radius
+                                - radius_inner) > 0
             # Outer visibility (true if violating)
             visibility_outer = (angular_separation
-                                + self.angular_radius
-                                - radius_outer) <= 0
+                                - self.angular_radius
+                                - radius_outer) < 0
 
             # Combine and invert, append to visibility list
             visibility_soft = np.logical_not(
