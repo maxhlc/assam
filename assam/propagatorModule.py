@@ -6,7 +6,7 @@ import solarBodyInterface
 
 class propagatorModule():
 
-    def __init__(self, start_time, end_time, keplerian_elements, propagator="gmat"):
+    def __init__(self, start_time, end_time, time_step, keplerian_elements, propagator="gmat"):
         """
         Initialisation function for propagator module.
 
@@ -16,6 +16,8 @@ class propagatorModule():
             Mission start time.
         end_time : astropy.time.core.Time
             Mission end time.
+        time_step : astropy.time.core.TimeDelta
+            Time step for output state.
         keplerian_elements : dict
             Earth-centered Keplerian elements of the satellite.
         propagator : str, optional
@@ -30,6 +32,7 @@ class propagatorModule():
         # Load parameters
         self.start_time = start_time
         self.end_time = end_time
+        self.time_step = time_step
         self.keplerian_elements = keplerian_elements
         self.propagator = propagator
 
@@ -55,10 +58,14 @@ class propagatorModule():
             # Run orbit propagation
             gmat = gmatInterface(self.start_time,
                                  self.end_time,
+                                 self.time_step,
                                  self.keplerian_elements)
             gmat.generate_script()
             gmat.execute_script()
             gmat.load_state()
+
+            # Store GMAT object
+            self.gmat = gmat
 
             # Extract spacecraft frame
             spacecraft_frame = gmat.spacecraft_frame

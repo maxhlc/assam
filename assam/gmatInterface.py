@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import numpy as np
 import pandas as pd
 from astropy.time import Time
 from astropy import units as u
@@ -10,7 +11,7 @@ from tqdm import tqdm
 
 class gmatInterface():
 
-    def __init__(self, start_time, end_time, keplerian_elements):
+    def __init__(self, start_time, end_time, time_step, keplerian_elements):
         """
         Initialisation function of GMAT interface.
 
@@ -20,6 +21,8 @@ class gmatInterface():
             Mission start time.
         end_time : astropy.time.core.Time
             Mission end time.
+        time_step : astropy.time.core.TimeDelta
+            Time step for output state.
         keplerian_elements : dict
             Earth-centered Keplerian elements of the satellite.
 
@@ -32,9 +35,11 @@ class gmatInterface():
         # Define state variables
         self.start_time = start_time
         self.end_time = end_time
+        self.time_step = time_step
         self.keplerian_elements = keplerian_elements
 
         # Retrieve current directory path
+        # TODO: replace path definitions to os joins
         dir_path = os.path.dirname(os.path.realpath(__file__))
         # Define paths for GMAT files as GMAT requires absolute paths
         self.template_path = f"{dir_path}\\GMAT\\GMAT_template.script"
@@ -130,22 +135,44 @@ class gmatInterface():
         # Import GMAT output
         output_GMAT = pd.read_fwf(self.output_path)
 
-        # Extract Modified Julian Dates, convert to Julian Dates,
-        # and convert to astropy time
-        spacecraft_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                               + self.GMAT_MJD_OFFSET, format='jd')
+        # Calculate time vector for interpolation
+        nstep = np.rint((self.end_time-self.start_time)/self.time_step) + 1
+        spacecraft_time = self.start_time + \
+            self.time_step * np.arange(0, nstep)
+
+        # Calculate GMAT time
+        GMAT_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
+                         + self.GMAT_MJD_OFFSET, format='jd')
+
+        # Interpolate spacecraft state
+        x = np.interp(spacecraft_time.jd,
+                      GMAT_time.jd,
+                      output_GMAT["Spacecraft.EarthICRF.X"].values)
+        y = np.interp(spacecraft_time.jd,
+                      GMAT_time.jd,
+                      output_GMAT["Spacecraft.EarthICRF.Y"].values)
+        z = np.interp(spacecraft_time.jd,
+                      GMAT_time.jd,
+                      output_GMAT["Spacecraft.EarthICRF.Z"].values)
+        vx = np.interp(spacecraft_time.jd,
+                       GMAT_time.jd,
+                       output_GMAT["Spacecraft.EarthICRF.VX"].values)
+        vy = np.interp(spacecraft_time.jd,
+                       GMAT_time.jd,
+                       output_GMAT["Spacecraft.EarthICRF.VY"].values)
+        vz = np.interp(spacecraft_time.jd,
+                       GMAT_time.jd,
+                       output_GMAT["Spacecraft.EarthICRF.VZ"].values)
 
         # Add astropy units to position and velocity
-        spacecraft_position = CartesianRepresentation(
-            x=output_GMAT["Spacecraft.EarthICRF.X"].values,
-            y=output_GMAT["Spacecraft.EarthICRF.Y"].values,
-            z=output_GMAT["Spacecraft.EarthICRF.Z"].values,
-            unit=u.km)
-        spacecraft_velocity = CartesianRepresentation(
-            x=output_GMAT["Spacecraft.EarthICRF.VX"].values,
-            y=output_GMAT["Spacecraft.EarthICRF.VY"].values,
-            z=output_GMAT["Spacecraft.EarthICRF.VZ"].values,
-            unit=u.km/u.s)
+        spacecraft_position = CartesianRepresentation(x=x,
+                                                      y=y,
+                                                      z=z,
+                                                      unit=u.km)
+        spacecraft_velocity = CartesianRepresentation(x=vx,
+                                                      y=vy,
+                                                      z=vz,
+                                                      unit=u.km/u.s)
 
         # Generate spacecraft reference frame assuming that the EarthICRF
         # reference frame is equivalent to GCRS

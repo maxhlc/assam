@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-from astropy.time import Time
+from astropy.time import Time, TimeDelta
+from astropy import units as u
 import inspect
 
 from propagatorModule import propagatorModule
@@ -17,6 +18,7 @@ def main():
     # Set parameters
     start_time = Time("2021-03-20 12:00")
     end_time = Time("2021-03-20 13:00")
+    time_step = TimeDelta(5*u.min)
     keplerian_elements = {"SMA": 7000,
                           "ECC": 0,
                           "INC": 98.6,
@@ -25,7 +27,10 @@ def main():
                           "TA": 0}
 
     # Run orbit propagation
-    propagator = propagatorModule(start_time, end_time, keplerian_elements)
+    propagator = propagatorModule(start_time,
+                                  end_time,
+                                  time_step,
+                                  keplerian_elements)
     propagator.propagate_spacecraft()
     propagator.get_solar_bodies()
 
