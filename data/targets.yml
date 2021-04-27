@@ -1,18 +1,4255 @@
-# example_target:
-#     category: examples
-#     priority: 1
-#     subtargets:
-#         subtarget_a:
-#             frame: icrs
-#             centre: [5, 5]
-#             shape: rectangular
-#             width: 5
-#             height: 5
-#             angular_radius:
-#         subtarget_b:
-#             frame: icrs
-#             centre: [10, 3]
-#             shape: circular
-#             width:
-#             height:
-#             angular_radius: 5
+galactic_centre:
+    category: galactic_centre
+    priority: 1
+    subtargets:
+        region_1:
+            frame: galactic
+            centre: [0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+        region_2:
+            frame: galactic
+            centre: [-0.65, 0.15]
+            shape: rectangular
+            width: 2.7
+            height: 0.3
+            angular_radius:
+
+midplane_-180:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-180.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-170:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-170.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-160:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-160.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-150:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-150.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-140:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-140.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-130:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-130.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-120:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-120.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-110:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-110.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-100:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-100.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-90:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-90.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-80:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-80.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-70:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-70.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-60:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-60.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-50:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-50.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-40:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-40.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-30:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-30.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-20:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-20.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_-10:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [-10.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_0:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [0.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_10:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [10.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_20:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [20.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_30:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [30.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_40:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [40.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_50:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [50.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_60:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [60.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_70:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [70.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_80:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [80.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_90:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [90.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_100:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [100.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_110:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [110.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_120:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [120.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_130:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [130.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_140:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [140.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_150:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [150.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_160:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [160.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+    
+midplane_170:
+    category: galactic_midplane
+    priority: 2
+    subtargets:
+        region:
+            frame: galactic
+            centre: [170.0, 0]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.7
+                
+00045753-1709369:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [1.2398172, -17.1602658]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00064325-0732147:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [1.679958, -7.5380623]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00085512+4918561:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [2.2306785, 49.3156445]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00113182+5908400:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [2.8788798, 59.1444124]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00182549+4401376:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [4.6124197, 44.0272488]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00202922+3305081:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [5.123431, 33.0851189]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00331349-4733165:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [8.3068622, -47.554588]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00355557+1028352:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [8.9814154, 10.4765317]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00361617+1821104:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [9.067341, 18.3528589]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00432603-4117337:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [10.8576478, -41.2927854]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00492565+6518038:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [12.3519379, 65.3010292]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+00513516-2254307:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [12.8968407, -22.9085875]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01015952+5410577:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [15.4969642, 54.1826976]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01025100-3737438:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [15.7143748, -37.6288257]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01031971+6221557:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [15.8362797, 62.3655088]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01040695-6522272:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [16.0271229, -65.3742184]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01045368-1807292:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [16.2244697, -18.124619]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01053732+2829339:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [16.4079956, 28.4926643]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01095117-0343264:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [17.4633464, -3.7239975]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01123052-1659570:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [18.1278903, -16.9989893]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01392170-3936088:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [24.8407233, -39.6024918]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+01510405-0607047:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [27.7670994, -6.1180532]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02001278+1303112:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [30.0541093, 13.0519504]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02003830-5558047:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [30.1599193, -55.9679508]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02021620+1020136:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [30.5676289, 10.3372094]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02054859-3010361:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [31.4519548, -30.176639]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02141251-0357434:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [33.5523498, -3.962106]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02150802-3040011:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [33.7840486, -30.6670547]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02162977+1335136:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [34.1244449, 13.5868879]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02170993+3526330:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [34.2922822, 35.4423756]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02172845-5922435:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [34.3674784, -59.3788015]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02333717+2455392:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [38.4049191, 24.927137]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02363244-5928057:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [39.1376462, -59.4682071]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02411510-0432177:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [40.3130759, -4.5382845]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02460224-7024062:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [41.5112645, -70.4017388]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02463486+1625115:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [41.6444899, 16.4195029]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02530084+1652532:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [43.2543788, 16.88129]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+02534448-7959133:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [43.4368924, -79.9870169]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03020638-3950516:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [45.5257732, -39.8477529]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03061159-3647528:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [46.5481457, -36.7980146]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03090015+1001257:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [47.2507158, 10.0237926]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03132299+0446293:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [48.3455158, 4.7748178]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03141241+2840411:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [48.5521396, 28.6776549]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03205965+1854233:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [50.2488814, 18.9063256]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03230175+4200269:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [50.7577481, 42.0074582]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03304890+5413551:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [52.7032454, 54.231989]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03313025-3042383:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [52.8761044, -30.7107841]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03353849-0829223:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [53.9109661, -8.4896648]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03355969-4430453:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [54.0000397, -44.5127016]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03385590-5234107:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [54.7333813, -52.5696136]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03393521-3525440:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [54.8971877, -35.4287857]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03472091+0841464:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [56.8370607, 8.6964198]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03504432-0605400:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [57.6845274, -6.0948972]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03510004-0052452:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [57.750114, -0.8791442]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03524169+1701056:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [58.1740512, 17.017826]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03544620+2416246:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [58.6924406, 24.273508]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+03571999+4107426:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [59.3329561, 41.1285105]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04063732+7916012:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [61.6603871, 79.2670641]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04102815-5336078:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [62.6147461, -53.6022608]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04121693+6443560:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [63.0737448, 64.7321182]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04195212+4233304:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [64.9680305, 42.5584518]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04201249-7005594:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [65.054341, -70.0996165]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04261992+0336359:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [66.5830844, 3.6100484]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04302527+3951000:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [67.6057391, 39.8498413]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04333393+2044461:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [68.39165, 20.7460672]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04351612-1606574:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [68.8173092, -16.1159039]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04393163+1615447:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [69.881745, 16.2619325]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04402325-0530082:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [70.0969905, -5.5022581]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04505083+2207224:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [72.7124095, 22.1226479]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04513734-5818519:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [72.9048962, -58.3144561]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+04520400-1058218:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [73.0167225, -10.9727826]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05011802+2237015:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [75.3250511, 22.6169209]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05015746-0656459:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [75.4892579, -6.9462144]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05041476+1103238:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [76.0614874, 11.0566289]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05050591+4414037:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [76.2748277, 44.2343696]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05051443-4756154:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [76.3099794, -47.937647]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05102012+2714032:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [77.5835881, 27.2338531]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05153094+5911184:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [78.8794461, 59.1881738]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05165345+5640195:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [79.2233092, 56.6720048]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05173766-3349027:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [79.4074682, -33.8175201]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05273058-5129158:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [81.8772787, -51.4877249]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05280015+0938382:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [82.000619, 9.6439318]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05392474+4038437:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [84.8542398, 40.6452329]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05405390+0854183:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [85.2245721, 8.9050702]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05421271-0527567:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [85.5529005, -5.4654335]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05532643-7133502:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [88.3603332, -71.5638308]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+05565722+1144333:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [89.2385191, 11.7425453]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06022918+4951561:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [90.6218037, 49.865599]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06023045+3910592:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [90.6271444, 39.1829407]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06025422-0915030:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [90.7259893, -9.2510378]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06045215-3433360:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [91.2173101, -34.5599367]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06210665-4905379:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [95.277698, -49.0938757]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06244132+2325585:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [96.1722336, 23.4330382]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06422703-6707193:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [100.6178398, -67.1221575]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06464109-2150161:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [101.6711155, -21.8378051]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+06592868+1920577:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [104.8703035, 19.3488495]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07035565+5242075:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [105.9841226, 52.7018296]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07073776+4841138:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [106.9072244, 48.6870867]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07110095-3824460:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [107.7545394, -38.4129851]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07140394+3702459:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [108.5163288, 37.0461181]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07171706-0501031:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [109.3212305, -5.0176512]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07200325-0846499:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [110.0135417, -8.7803028]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07235966-8015179:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [110.9896373, -80.2550106]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07304280+4811599:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [112.6778099, 48.1996085]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07401183-4257406:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [115.0484337, -42.9611914]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07401922-1724449:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [115.0809536, -17.4127531]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07410681+1738459:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [115.278247, 17.6457904]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07515465-0000117:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [117.9777977, -0.0034049]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07545484-3809381:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [118.7284215, -38.1604938]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+07581269+4118134:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [119.5532339, 41.3036991]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08115757+0846220:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [122.9898866, 8.7730509]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08151117-2344157:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [123.7966974, -23.7376792]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08224787-5726451:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [125.6981009, -57.4458664]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08255285+6902016:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [126.4647623, 69.0336579]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08294949+2646348:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [127.4550608, 26.7760075]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08303256+0947153:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [127.6356783, 9.787621]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08354256-0819237:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [128.9271935, -8.3231637]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08380224-5855583:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [129.5087987, -58.9328887]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08402975+1824091:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [130.1234773, 18.4024241]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08412013+5929505:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [130.3327828, 59.4973458]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08533619-0329321:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [133.4006657, -3.4922782]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+08561956+1239500:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [134.081436, 12.6638277]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09002359+2150054:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [135.0979406, 21.834694]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09003254+4635117:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [135.1343921, 46.5864166]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09032096+0540145:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [135.8373333, 5.6705694]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09141746-4134383:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [138.5718252, -41.5771807]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09170532-7749233:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [139.2824283, -77.823162]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09174599+5825224:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [139.4417231, 58.4226243]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09230296-2300415:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [140.7623333, -23.0114028]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09312228-1717425:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [142.8429276, -17.2950902]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09332510-4353384:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [143.3542654, -43.8939679]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09410199+2201291:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [145.2587106, 22.0245397]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09424635-6853060:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [145.6925144, -68.8850011]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09424960-6337560:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [145.7094037, -63.6321875]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09432994-3833560:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [145.874675, -38.5655861]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09455843-3253299:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [146.4932185, -32.8916677]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+09535523+2056460:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [148.4797804, 20.9463334]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10360869+1923314:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [159.0363748, 19.3918484]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10381517-4933446:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [159.5625329, -49.562368]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10413809+3736397:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [160.4061702, 37.6108779]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10424135-2416050:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [160.6723574, -24.267806]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10430293-0912410:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [160.761792, -9.2113667]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10442131-6112384:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [161.086867, -61.2097954]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10442927-1838063:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [161.121495, -18.6353283]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10481258-1120082:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [162.052609, -11.3360026]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10481463-3956062:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [162.0591783, -39.9352344]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10494561+3532515:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [162.4394347, 35.5475388]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10521423+0555098:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [163.059357, 5.9193984]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10551532-7356091:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [163.8156192, -73.9358376]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+10562886+0700527:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [164.1207917, 7.0144444]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11053133+4331170:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [166.3716066, 43.5216374]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11193058+4641437:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [169.8781499, 46.6953156]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11214924-1313084:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [170.4548283, -13.2190913]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11224274+3755484:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [170.6785184, 37.930102]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11310835-1457201:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [172.7850096, -14.9559029]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11412152-3624346:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [175.3401778, -36.4096003]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11463269-4029476:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [176.6341265, -40.4965566]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11505787+4822395:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [177.7371417, 48.3773789]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11535267+0659561:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [178.4694894, 6.9989606]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11540788+0948227:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [178.532867, 9.8063359]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11554286-2224586:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [178.9284157, -22.4163315]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+11592743-5247188:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [179.8609974, -52.7885865]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12140866-2345172:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [183.5361754, -23.7546981]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12141654+0037263:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [183.5689563, 0.6239906]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12185939+1107338:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [184.7473949, 11.1260473]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12212673+3038376:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [185.3612261, 30.6437867]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12253211-1559418:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [186.3833052, -15.9949487]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12362870+3512007:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [189.1189708, 35.2002362]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12384914-3822527:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [189.7037869, -38.3815755]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12393641-2658111:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [189.9015118, -26.969712]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12404633-4333595:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [190.191593, -43.5663881]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12455254-5506502:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [191.4699754, -55.1139276]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+12590470-4336243:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [194.7716813, -43.6067842]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13003350+0541081:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [195.139651, 5.6855565]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13065025+3050549:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [196.7097346, 30.8483259]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13092185-2330350:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [197.3410781, -23.5099329]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13093495+2859065:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [197.3955061, 28.9851007]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13101268+4745190:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [197.5512874, 47.7551866]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13464607-3149258:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [206.6916007, -31.8237581]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13481341+2336486:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [207.0553009, 23.6135289]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13525060+6649064:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [208.2073967, 66.8183351]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13580529-3937545:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [209.5247525, -39.6319826]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+13581392+1234438:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [209.5579721, 12.5788635]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14035157-4241528:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [210.9641867, -42.6980571]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14115998-4132211:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [212.9985981, -41.5394612]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14221943-7023371:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [215.5743781, -70.3936155]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14253465+2540050:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [216.3943995, 25.6680604]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14270858+6056283:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [216.7862508, 60.9411498]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14280419+1356137:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [217.0172682, 13.9370335]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14284323+3310391:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [217.1798228, 33.1775683]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14303787+5943249:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [217.6540373, 59.7235751]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14320849+0811313:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [218.0354271, 8.1920135]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14441717+3002145:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [221.0715084, 30.037284]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14563831-2809473:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [224.159151, -28.1635063]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+14575374+5639242:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [224.4748729, 56.6567968]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15010818+2250020:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [225.2840972, 22.8339224]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15210103+5053230:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [230.2545118, 50.8896649]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15221293-2749436:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [230.5543287, -27.828494]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15235112+1727569:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [230.9629907, 17.4659542]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15242475+2925318:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [231.1031275, 29.4254282]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15303032+0926014:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [232.6263558, 9.4337315]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15345704-1418486:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [233.7370902, -14.3136812]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15352039+1743045:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [233.8344508, 17.717893]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15363450-3754223:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [234.1433076, -37.906375]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15402966-2613422:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [235.122812, -26.2285975]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15404341-5101357:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [235.1863548, -51.0266584]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15420677-1928167:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [235.5267412, -19.4717406]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15464185-5534468:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [236.6728709, -55.5798574]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+15524460-2623134:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [238.185987, -26.3871417]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16025098+2035218:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [240.711986, 20.5891751]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16063390+4054216:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [241.6398146, 40.9061205]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16073123-0442091:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [241.8801585, -4.7026741]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16105843-0631325:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [242.7434588, -6.5257128]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16142520-0251009:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [243.604992, -2.8502104]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16265168-3812326:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [246.7149919, -38.2090526]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16311879+4051516:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [247.8280887, 40.8643625]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16334976-6808488:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [248.4528664, -68.146726]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16334976-6808488:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [248.4557327, -68.1468704]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16353720-5202008:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [248.9044845, -52.0335612]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16400599+0042188:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [250.0249349, 0.7052367]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16463154+3434554:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [251.6310126, 34.5819942]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16505794+2227058:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [252.7414161, 22.451573]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16552527-0819207:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [253.8550525, -8.3225837]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16553529-0823401:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [253.8968627, -8.3946536]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16563362-2046373:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [254.1399835, -20.7771052]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+16570570-0420559:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [254.2739074, -4.3489771]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17032384+5124219:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [255.8498383, 51.4063526]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17072343-0558249:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [256.847629, -5.9736717]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17174408+1140117:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [259.4336828, 11.6701181]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17185456-4131395:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [259.7269774, -41.5278015]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17311725+8205198:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [262.8138264, 82.0889051]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17312974+2721233:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [262.8738781, 27.3564541]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17340869-0849514:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [263.5361708, -8.8310416]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17464063-3214045:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [266.6695735, -32.234584]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+17513557+3749347:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [267.8980454, 37.826466]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18021660+6415445:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [270.5702859, 64.2622886]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18024624+3731048:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [270.6929584, 37.5174915]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18054038-2758568:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [271.4138828, -27.9798247]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18054470-1422425:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [271.4360088, -14.3784682]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18073292-1557464:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [271.8867172, -15.9630741]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18180345+3846359:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [274.5137075, 38.7761821]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18185725+6611332:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [274.7412344, 66.1925838]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18242359-0536488:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [276.0982862, -5.6136806]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18353790+3259545:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [278.9077745, 32.998142]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18373180+2030424:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [279.3825709, 20.511676]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18393308+2952164:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [279.8878684, 29.8712448]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18410977-4347327:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [280.2895827, -43.792428]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18413741+3942123:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [280.4054957, 39.7033742]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18430697-5436481:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [280.7786301, -54.6134351]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18431237-3322313:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [280.8014334, -33.3753672]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18432213+4040209:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [280.8420245, 40.6725942]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18450541-6357475:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [281.2860999, -63.9631851]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18481752+0741210:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [282.0730857, 7.689216]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18495449+1840295:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [282.4769168, 18.6746271]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+18554792-6914153:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [283.9530614, -69.2374802]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19095098+1740074:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [287.4618354, 17.6684468]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19123922-3614555:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [288.1643598, -36.2490445]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19162483+8413411:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [289.1018786, 84.2280277]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19165762+0509021:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [289.2400326, 5.1504413]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19203346-0739435:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [290.1394077, -7.6621547]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19204795-4533283:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [290.2011468, -45.5582304]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19212977-2915507:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [290.3744225, -29.2640393]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19213867+2052028:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [290.4109587, 20.8675751]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19220206+0702310:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [290.5086034, 7.041754]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19241634+7533121:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [291.0727285, 75.55329]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19253089+0938235:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [291.3787992, 9.6398039]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19535508+4424550:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [298.4777692, 44.4142616]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19535508+4424550:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [298.4803488, 44.4150401]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+19542064-2356398:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [298.5859536, -23.9445982]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20000565+3057300:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [300.0240136, 30.958917]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20091824-0113377:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [302.3260305, -1.2273103]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20161129-7531044:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [304.0501097, -75.5179271]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20260528+5834224:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [306.5231236, 58.5729665]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20280382-7640164:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [307.0259362, -76.6710724]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20291194+5750317:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [307.2999193, 57.8421269]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20294834+0941202:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [307.4513664, 9.6890529]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20392378-2926335:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [309.8494584, -29.4429643]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20403364+1529572:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [310.1413101, 15.499647]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20432387+0445552:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [310.8494521, 4.765351]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20443743+1517352:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [311.1562162, 15.2929935]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20490993-4012062:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [312.2914193, -40.2016737]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20492745+3336512:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [312.3641553, 33.6141574]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20501615-3424424:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [312.5676401, -34.4118333]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20533304+1037020:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [313.3877305, 10.617278]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+20553706-1403545:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [313.9048361, -14.0652447]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21010483+0307047:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [315.2699628, 3.1180481]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21243234+4003599:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [321.1353694, 40.0665815]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21272531+5553150:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [321.856592, 55.8875087]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21462206+3813047:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [326.5921578, 38.2180486]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21471744-0444406:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [326.82273, -4.7446378]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21510510+2328088:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [327.7712326, 23.4693356]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+21565513-0154100:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [329.2301981, -1.9025936]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22060961-0723353:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [331.540124, -7.3932234]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22112417+4059587:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [332.8505576, 40.9996392]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22134277-1741081:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [333.4287781, -17.6857435]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22135048-6342100:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [333.4608973, -63.7027805]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22171870-0848186:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [334.3278794, -8.8053627]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22171899-0848122:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [334.3290142, -8.8034065]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22230696-1736250:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [335.7792198, -17.607315]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22285440-1325178:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [337.226414, -13.4220719]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22401895-4931013:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [340.0789463, -49.517912]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22401895-4931013:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [340.0800866, -49.517007]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22415815-6910089:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [340.4947642, -69.1689781]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22415937-7500329:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [340.4964305, -75.0091829]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22480446-2422075:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [342.0188586, -24.3688119]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+22562466-6003490:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [344.1005592, -60.0636801]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23062928-0502285:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [346.6223839, -5.0413977]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23095781+5506472:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [347.4923996, 55.1131619]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23301612-4736459:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [352.5661971, -47.6125234]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23303802-8455189:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [352.6470116, -84.9219224]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23312174-2749500:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [352.8406513, -27.8304464]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23351050-0223214:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [353.7935953, -2.3890597]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23365227-3628518:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [354.2191629, -36.4810247]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23373601+1622031:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [354.4000015, 16.3675801]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23415498+4410407:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [355.4795085, 44.1774514]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23425274+3049219:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [355.7195402, 30.8227092]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
+23430628+3632132:
+    category: m_dwarf
+    priority: 3
+    subtargets:
+        star:
+            frame: icrs
+            centre: [355.7772894, 36.5369832]
+            shape: circular
+            width:
+            height:
+            angular_radius: 0.3
+    
