@@ -3,6 +3,39 @@
 import numpy as np
 
 
+def rle(inarray):
+    """
+    Function to convert arrays to run-length encoding scheme, as found at:
+        https://stackoverflow.com/a/32681075
+
+    Parameters
+    ----------
+    inarray
+        Array of values.
+
+    Returns
+    -------
+    np.ndarray
+        Array of lengths.
+    np.ndarray
+        Array of start indicies.
+    np.ndarray
+        Array of run values.
+
+    """
+
+    ia = np.asarray(inarray)                # force numpy
+    n = len(ia)
+    if n == 0:
+        return (None, None, None)
+    else:
+        y = ia[1:] != ia[:-1]               # pairwise unequal (string safe)
+        i = np.append(np.where(y), n - 1)   # must include last element posi
+        z = np.diff(np.append(-1, i))       # run lengths
+        p = np.cumsum(np.append(0, z))[:-1]  # positions
+        return(z, p, ia[i])
+
+
 class AstroTarget():
 
     def __init__(self, name, priority, category):
@@ -88,6 +121,10 @@ class AstroTarget():
 
         # Declare visibility list
         visibility = []
+        
+        # Store time vector
+        # TODO: consider scenario of mismatching times between subtargets
+        self.obstime = self.subtargets[0].coordinates.obstime
 
         # Iterate through subtargets and solar bodies to calculate visibility
         for subtarget in self.subtargets:
@@ -106,6 +143,34 @@ class AstroTarget():
         self.visibility = visibility
 
         return visibility
+
+    def calculate_contacts(self):
+        
+        # Calculate run-length encoding
+        ilength, istart, ivalue = rle(self.visibility)
+        
+        # Calculate end index and clip
+        iend = istart + ilength
+        iend = np.clip(iend, 0, len(self.visibility)-1)
+        
+        # Remove runs where target is not visible, or if it starts at the end
+        ix = np.where((ivalue == True) & (istart != len(self.visibility)-1))
+        ilength = ilength[ix]
+        istart = istart[ix]
+        iend = iend[ix]
+        
+        # Calculate times
+        start = self.obstime[istart]
+        end = self.obstime[iend]
+        
+        # Create list of contacts
+        contacts = [TargetContact(self, s, e) for s, e in zip(start, end)]
+        
+        # Store contacts
+        self.contacts = contacts
+        
+        # Return contacts
+        return contacts
 
 
 class AstroSubtarget():
@@ -205,3 +270,21 @@ class AstroSubtarget():
         visibility = np.all(visibility, axis=0)
 
         return visibility, angular_separation
+
+
+class TargetContact():
+
+    def __init__(self, target, start, end):
+        # TODO: docstring
+
+        # Store target and target priority
+        self.target = target
+        self.priority = target.priority
+        
+        self.benefit = 1/self.priority
+
+        # Store start/end times and contact duration
+        # TODO: address memory issues when using full time object
+        self.start = start
+        self.end = end
+        self.duration = end - start

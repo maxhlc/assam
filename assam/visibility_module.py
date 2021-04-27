@@ -61,3 +61,10 @@ class VisibilityModule():
         # Iterate through targets to calculate visibility
         for target in tqdm(self.targets, desc="Target Visibility"):
             target.calculate_visibility(self.solar_bodies)
+            
+    def calculate_contacts(self):
+        # TODO: docstring
+        
+        # Iterate through targets to calculate contacts
+        for target in tqdm(self.targets, desc="Target Contacts"):
+            target.calculate_contacts()       
