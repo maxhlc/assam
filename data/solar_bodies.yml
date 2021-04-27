@@ -13,7 +13,7 @@ venus:
 earth:
     included: True
     radius: 6371000
-    soft_radius: []
+    soft_radius: [[0,90]]
 moon:
     included: True
     radius: 1737100
