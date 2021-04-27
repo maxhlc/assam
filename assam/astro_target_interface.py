@@ -6,7 +6,7 @@ import yaml
 import numpy as np
 from tqdm import tqdm
 
-from astroTarget import astroTarget, astroSubtarget
+from astro_target import AstroTarget, AstroSubtarget
 
 
 def load(satellite_frame):
@@ -49,7 +49,7 @@ def load(satellite_frame):
         target_category = target_info["category"]
 
         # Create empty target with general properties
-        target = astroTarget(target_name, target_priority, target_category)
+        target = AstroTarget(target_name, target_priority, target_category)
 
         # Generate subtargets and add to target object
         for subtarget_name, subtarget_info in target_info["subtargets"].items():
@@ -78,7 +78,7 @@ def load(satellite_frame):
                     f"Invalid subtarget shape: {target_name}, {subtarget_name}")
 
             # Create subtarget object
-            subtarget = astroSubtarget(subtarget_name,
+            subtarget = AstroSubtarget(subtarget_name,
                                        frame,
                                        centre,
                                        shape,

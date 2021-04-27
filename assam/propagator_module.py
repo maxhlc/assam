@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from gmatInterface import gmatInterface
-import solarBodyInterface
+from gmat_interface import GMATInterface
+import solar_body_interface
 
 
-class propagatorModule():
+class PropagatorModule():
 
     def __init__(self, start_time, end_time, time_step, keplerian_elements, propagator="gmat"):
         """
@@ -56,7 +56,7 @@ class propagatorModule():
         # Propagate spacecraft
         if self.propagator == "gmat":
             # Run orbit propagation
-            gmat = gmatInterface(self.start_time,
+            gmat = GMATInterface(self.start_time,
                                  self.end_time,
                                  self.time_step,
                                  self.keplerian_elements)
@@ -90,7 +90,7 @@ class propagatorModule():
         """
 
         # Load solar bodies
-        solar_bodies = solarBodyInterface.load(self.spacecraft_frame)
+        solar_bodies = solar_body_interface.load(self.spacecraft_frame)
 
         # Store output
         self.solar_bodies = solar_bodies

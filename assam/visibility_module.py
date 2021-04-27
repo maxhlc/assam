@@ -2,10 +2,10 @@
 
 from tqdm import tqdm
 
-import astroTargetInterface
+import astro_target_interface
 
 
-class visibilityModule():
+class VisibilityModule():
 
     def __init__(self, spacecraft_frame, solar_bodies):
         """
@@ -41,7 +41,7 @@ class visibilityModule():
         """
 
         # Load targets
-        targets = astroTargetInterface.load(self.spacecraft_frame)
+        targets = astro_target_interface.load(self.spacecraft_frame)
 
         # Store output
         self.targets = targets

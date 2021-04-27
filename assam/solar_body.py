@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-class solarBody():
+class SolarBody():
 
     def __init__(self, name, coordinates, radius, angular_radius, soft_radius):
         """

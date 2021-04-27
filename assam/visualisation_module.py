@@ -9,19 +9,20 @@ from matplotlib.colors import ListedColormap
 import multiprocessing
 
 
-from cudaMethods import separation_cuda as separation_cuda
+from cuda_methods import separation_cuda as separation_cuda
 
 
 def unwrap_generate_bitmap(arg, **kwarg):
     """
     Wrapper function to enable multiprocessing of the generate_bitmap method,
-    as found at http://www.rueckstiess.net/research/snippets/show/ca1d7d90
+    as found at:
+        http://www.rueckstiess.net/research/snippets/show/ca1d7d90
 
     Parameters
     ----------
-    arg :
+    arg
         Arguments.
-    **kwarg :
+    **kwarg
         Keyword arguments.
 
     Returns
@@ -30,12 +31,12 @@ def unwrap_generate_bitmap(arg, **kwarg):
         Unwrapped generate bitmap function.
 
     """
-    return visualisationModule.generate_bitmap(*arg, **kwarg)
+    return VisualisationModule.generate_bitmap(*arg, **kwarg)
 
 
-class visualisationModule():
+class VisualisationModule():
 
-    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(1441, 721), cuda=False):
+    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361), cuda=False):
         """
         Initialisation function for the visualisation module.
 

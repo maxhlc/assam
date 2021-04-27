@@ -4,9 +4,9 @@ from astropy.time import Time, TimeDelta
 from astropy import units as u
 import inspect
 
-from propagatorModule import propagatorModule
-from visibilityModule import visibilityModule
-from visualisationModule import visualisationModule
+from propagator_module import PropagatorModule
+from visibility_module import VisibilityModule
+from visualisation_module import VisualisationModule
 
 # Dictionary to store variables from main function
 # (allows viewing through the variable explorer)
@@ -17,8 +17,8 @@ local_vars = {}
 def main():
     # Set parameters
     start_time = Time("2021-03-20 12:00")
-    end_time = Time("2021-03-20 13:00")
-    time_step = TimeDelta(5*u.min)
+    end_time = Time("2021-03-20 12:20")
+    time_step = TimeDelta(20*u.min)
     keplerian_elements = {"SMA": 7000,
                           "ECC": 0,
                           "INC": 98.6,
@@ -27,7 +27,7 @@ def main():
                           "TA": 0}
 
     # Run orbit propagation
-    propagator = propagatorModule(start_time,
+    propagator = PropagatorModule(start_time,
                                   end_time,
                                   time_step,
                                   keplerian_elements)
@@ -35,13 +35,13 @@ def main():
     propagator.get_solar_bodies()
 
     # Calculate target visibility
-    visibility = visibilityModule(propagator.spacecraft_frame,
+    visibility = VisibilityModule(propagator.spacecraft_frame,
                                   propagator.solar_bodies)
     visibility.get_targets()
     visibility.calculate_visibility()
 
     # Plot telescope visibility
-    visualisation = visualisationModule(propagator.spacecraft_frame,
+    visualisation = VisualisationModule(propagator.spacecraft_frame,
                                         visibility.solar_bodies,
                                         visibility.targets,
                                         cuda=True)

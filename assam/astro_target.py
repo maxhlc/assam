@@ -3,7 +3,7 @@
 import numpy as np
 
 
-class astroTarget():
+class AstroTarget():
 
     def __init__(self, name, priority, category):
         """
@@ -108,7 +108,7 @@ class astroTarget():
         return visibility
 
 
-class astroSubtarget():
+class AstroSubtarget():
 
     def __init__(self, name, frame, centre, shape, width, height, angular_radius, coordinates):
         """
@@ -178,7 +178,7 @@ class astroSubtarget():
         visibility.append((angular_separation
                            - self.angular_radius
                            - solar_body.angular_radius) >= 0)
-		
+
         # Calculate soft radius restrictions
         for radius_inner, radius_outer in solar_body.soft_radius:
             # Inner visibility (true if violating)

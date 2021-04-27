@@ -7,7 +7,7 @@ import yaml
 import numpy as np
 from tqdm import tqdm
 
-from solarBody import solarBody
+from solar_body import SolarBody
 
 
 def load(spacecraft_frame, ephem="jpl", num_workers=None):
@@ -109,7 +109,7 @@ def load_worker(worker_params):
     solar_body_soft_radius = solar_body_info["soft_radius"] * u.deg
 
     # Create solar body object
-    solar_body_object = solarBody(solar_body_name,
+    solar_body_object = SolarBody(solar_body_name,
                                   solar_body_coords,
                                   solar_body_radius,
                                   solar_body_angular_radius,

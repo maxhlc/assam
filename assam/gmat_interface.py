@@ -9,7 +9,7 @@ from astropy.coordinates import GCRS, CartesianRepresentation
 from tqdm import tqdm
 
 
-class gmatInterface():
+class GMATInterface():
 
     def __init__(self, start_time, end_time, time_step, keplerian_elements):
         """
