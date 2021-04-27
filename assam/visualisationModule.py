@@ -35,7 +35,7 @@ def unwrap_generate_bitmap(arg, **kwarg):
 
 class visualisationModule():
 
-    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361), cuda=False):
+    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(1441, 721), cuda=False):
         """
         Initialisation function for the visualisation module.
 
@@ -238,12 +238,14 @@ class visualisationModule():
 
         # Plot target bitmap
         plt.contourf(self.theta_grid, self.phi_grid, target_bitmap,
-                     cmap=cmap_target)
+                     cmap=cmap_target,
+                     antialiased=False)
 
         # Plot solar bitmap
         plt.contourf(self.theta_grid, self.phi_grid, solar_bitmap,
                      cmap=cmap_solar,
-                     alpha=0.5)
+                     alpha=0.5,
+                     antialiased=False)
 
         # Reverse axes
         ax = plt.gca()
