@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pandas as pd
 from tqdm import tqdm
 
 import astro_target_interface
@@ -67,4 +68,24 @@ class VisibilityModule():
         
         # Iterate through targets to calculate contacts
         for target in tqdm(self.targets, desc="Target Contacts"):
-            target.calculate_contacts()       
+            target.calculate_contacts()
+            
+    def calculate_overall_stats(self):
+        # TODO: docstring
+        
+        # Declare overall statistics list
+        stats = []
+        
+        # Iterate through targets to calculate overall stats
+        for target in tqdm(self.targets, desc="Target Overall Statistics"):
+            target_stats = target.calculate_overall_stats()
+            stats.append(target_stats)
+            
+        # Convert statistics list into DataFrame
+        stats = pd.concat(stats, ignore_index=True)
+        
+        # Store statistics
+        self.stats = stats
+        
+        return stats
+        

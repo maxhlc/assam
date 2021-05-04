@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
+import pandas as pd
 
 
 def rle(inarray):
@@ -121,7 +122,7 @@ class AstroTarget():
 
         # Declare visibility list
         visibility = []
-        
+
         # Store time vector
         # TODO: consider scenario of mismatching times between subtargets
         self.obstime = self.subtargets[0].coordinates.obstime
@@ -145,32 +146,71 @@ class AstroTarget():
         return visibility
 
     def calculate_contacts(self):
-        
+        # TODO: docstring
+
         # Calculate run-length encoding
         ilength, istart, ivalue = rle(self.visibility)
-        
+
         # Calculate end index and clip
         iend = istart + ilength
         iend = np.clip(iend, 0, len(self.visibility)-1)
-        
+
         # Remove runs where target is not visible, or if it starts at the end
         ix = np.where((ivalue == True) & (istart != len(self.visibility)-1))
         ilength = ilength[ix]
         istart = istart[ix]
         iend = iend[ix]
-        
+
         # Calculate times
         start = self.obstime[istart]
         end = self.obstime[iend]
-        
+
         # Create list of contacts
         contacts = [TargetContact(self, s, e) for s, e in zip(start, end)]
-        
+
         # Store contacts
         self.contacts = contacts
-        
+
         # Return contacts
         return contacts
+
+    def calculate_overall_stats(self):
+        # TODO: docstring
+        # TODO: how to handle contact objects with verbose time?
+
+        # Create empty statistics dictionary
+        stats = dict()
+
+        # Target name
+        stats["name"] = self.name
+
+        # Target category
+        stats["category"] = self.category
+
+        # Extract contact durations into list
+        contact_durations = [contact.duration for contact in self.contacts]
+
+        # Calculate number of contacts
+        stats["n_contacts"] = len(contact_durations)
+
+        # Calculate total contact duration
+        stats["total_duration"] = np.sum(contact_durations)
+
+        # Calculate mean contact duration
+        stats["mean_duration"] = np.mean(contact_durations)
+
+        # Calculate contact duration standard deviation
+        stats["stddev_duration"] = np.std(contact_durations)
+
+        # Calculate mean coordinates
+
+        # Convert statistics dictionary into DataFrame
+        stats = pd.DataFrame([stats])
+
+        # Store overall stats
+        self.stats = stats
+
+        return stats
 
 
 class AstroSubtarget():
@@ -274,17 +314,26 @@ class AstroSubtarget():
 
 class TargetContact():
 
-    def __init__(self, target, start, end):
+    def __init__(self, target, start, end, verbose_time=False):
         # TODO: docstring
 
         # Store target and target priority
         self.target = target
         self.priority = target.priority
-        
+
         self.benefit = 1/self.priority
 
         # Store start/end times and contact duration
-        # TODO: address memory issues when using full time object
-        self.start = start
-        self.end = end
-        self.duration = end - start
+        #
+        # Verbose time stores the entire astropy.Time object, however this
+        # requires high amounts of memory and significantly reduces
+        # performance for following lookups and calculations
+        #
+        if verbose_time:
+            self.start = start
+            self.end = end
+        else:
+            self.start = start.jd
+            self.end = end.jd
+
+        self.duration = self.end - self.start

@@ -20,7 +20,7 @@ plot_bitmaps = False
 def main():
     # Set parameters
     start_time = Time("2021-03-20 12:00")
-    end_time = Time("2021-04-20 12:00")
+    end_time = Time("2021-03-20 12:10")
     time_step = TimeDelta(5*u.min)
     keplerian_elements = {"SMA": 7000,
                           "ECC": 0,
@@ -43,6 +43,7 @@ def main():
     visibility.get_targets()
     visibility.calculate_visibility()
     visibility.calculate_contacts()
+    visibility.calculate_overall_stats()
 
     # Plot telescope visibility
     visualisation = VisualisationModule(propagator.spacecraft_frame,
