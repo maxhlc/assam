@@ -60,6 +60,11 @@ class PropagatorModule():
         self.keplerian_elements = keplerian_elements
         self.propagator = propagator
 
+        # Declare empty variables
+        self.propagator_object = None
+        self.spacecraft_frame = None
+        self.solar_bodies = None
+
     def propagate_spacecraft(self):
         """
         Function to handle propagators for satellite frame generation.
@@ -88,8 +93,8 @@ class PropagatorModule():
             gmat.execute_script()
             gmat.load_state()
 
-            # Store GMAT object
-            self.gmat = gmat
+            # Store propagator object
+            self.propagator_object = gmat
 
             # Extract spacecraft frame
             spacecraft_frame = gmat.spacecraft_frame
