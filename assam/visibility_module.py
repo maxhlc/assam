@@ -53,6 +53,10 @@ class VisibilityModule():
         # Load satellite reference frame and solar bodies
         self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
+        
+        # Declare empty variables
+        self.targets = None
+        self.stats = None
 
     def get_targets(self):
         """
@@ -86,30 +90,44 @@ class VisibilityModule():
         # Iterate through targets to calculate visibility
         for target in tqdm(self.targets, desc="Target Visibility"):
             target.calculate_visibility(self.solar_bodies)
-            
+
     def calculate_contacts(self):
-        # TODO: docstring
-        
+        """
+        Function to calculate target contacts.
+
+        Returns
+        -------
+        None.
+
+        """
+
         # Iterate through targets to calculate contacts
         for target in tqdm(self.targets, desc="Target Contacts"):
             target.calculate_contacts()
-            
+
     def calculate_overall_stats(self):
-        # TODO: docstring
-        
+        """
+        Function to calculate target statistics.
+
+        Returns
+        -------
+        stats : pandas.core.frame.DataFrame
+            Overall statistics of target contacts.
+
+        """
+
         # Declare overall statistics list
         stats = []
-        
+
         # Iterate through targets to calculate overall stats
         for target in tqdm(self.targets, desc="Target Overall Statistics"):
             target_stats = target.calculate_overall_stats()
             stats.append(target_stats)
-            
+
         # Convert statistics list into DataFrame
         stats = pd.concat(stats, ignore_index=True)
-        
+
         # Store statistics
         self.stats = stats
-        
+
         return stats
-        
