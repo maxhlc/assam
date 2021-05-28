@@ -30,7 +30,23 @@ from astropy import units as u
 
 
 def separation_cuda(coord1, coord2):
-    # TODO: docstring
+    """
+    Function to calculate angular separation between two coordinates using
+    CUDA for the calculations. Based on Astropy's angle utilities.
+
+    Parameters
+    ----------
+    coord1 : astropy.coordinates.sky_coordinate.SkyCoord
+        Coordinates of first object.
+    coord2 : astropy.coordinates.sky_coordinate.SkyCoord
+        Coordindates of second object.
+
+    Returns
+    -------
+    angle : astropy.units.quantity.Quantity
+        Angular separation between the coordinates.
+
+    """
 
     # TODO: check equivalent reference frames
 
@@ -47,7 +63,7 @@ def separation_cuda(coord1, coord2):
     lat2 = cp.array(lat2.rad)
 
     # Calculate angle using Vincenty formula,
-    # as used by astropy angle utilities
+    # as used by Astropy angle utilities
     sdlon = cp.sin(lon2 - lon1)
     cdlon = cp.cos(lon2 - lon1)
     slat1 = cp.sin(lat1)
