@@ -25,12 +25,23 @@ SOFTWARE.
 """
 
 import os
+
 import numpy as np
 import pandas as pd
 from astropy.time import Time
 from astropy import units as u
 from astropy.coordinates import GCRS, CartesianRepresentation
 from tqdm import tqdm
+
+# Define paths for GMAT
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+TEMPLATE_PATH = os.path.join(DIR_PATH, "GMAT", "GMAT_template.script")
+MODIFIED_PATH = os.path.join(DIR_PATH, "GMAT", "GMAT_modified.script")
+OUTPUT_PATH = os.path.join(DIR_PATH, "GMAT", "GMAT_output.dat")
+
+# Define offset for Modified Julian Dates
+# (GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000)
+GMAT_MJD_OFFSET = 2430000.0
 
 
 class GMATInterface():
@@ -62,17 +73,8 @@ class GMATInterface():
         self.time_step = time_step
         self.keplerian_elements = keplerian_elements
 
-        # Retrieve current directory path
-        # TODO: replace path definitions to os joins
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        # Define paths for GMAT files as GMAT requires absolute paths
-        self.template_path = f"{dir_path}\\GMAT\\GMAT_template.script"
-        self.modified_path = f"{dir_path}\\GMAT\\GMAT_modified.script"
-        self.output_path = f"{dir_path}\\GMAT\\GMAT_output.dat"
-
-        # Define offset for Modified Julian Dates
-        # GMAT uses a non-standard offset, relative to 05 Jan 1941 12:00:00.000
-        self.GMAT_MJD_OFFSET = 2430000.0
+        # Declare empty variables
+        self.spacecraft_frame = None
 
     def generate_script(self):
         """
@@ -90,11 +92,11 @@ class GMATInterface():
         mission_keyword = "Propagate 'SpacecraftPropagate' SpacecraftProp(Spacecraft)"
 
         # Calculate times in GMAT MJD format
-        start_time_GMAT = self.start_time.jd - self.GMAT_MJD_OFFSET
-        end_time_GMAT = self.end_time.jd - self.GMAT_MJD_OFFSET
+        start_time = self.start_time.jd - GMAT_MJD_OFFSET
+        end_time = self.end_time.jd - GMAT_MJD_OFFSET
 
         # Load script template
-        with open(self.template_path, "r") as templatescript:
+        with open(TEMPLATE_PATH, "r") as templatescript:
             script = templatescript.readlines()
 
         # Update script by iterating through the lines
@@ -102,9 +104,9 @@ class GMATInterface():
         for iline, line in enumerate(script):
             # Update start and end time
             if spacecraft_keyword + "Epoch" in line:
-                script[iline] = f"{spacecraft_keyword}Epoch = '{start_time_GMAT}';\n"
+                script[iline] = f"{spacecraft_keyword}Epoch = '{start_time}';\n"
             if mission_keyword in line:
-                script[iline] = f"{mission_keyword} {{Spacecraft.UTCModJulian = {end_time_GMAT}}};\n"
+                script[iline] = f"{mission_keyword} {{Spacecraft.UTCModJulian = {end_time}}};\n"
 
             # Update spacecraft elements
             if spacecraft_keyword in line:
@@ -114,11 +116,11 @@ class GMATInterface():
 
             # Update output path
             if output_keyword in line:
-                script[iline] = f"{output_keyword} = '{self.output_path}';\n"
+                script[iline] = f"{output_keyword} = '{OUTPUT_PATH}';\n"
 
         # Output modified script
-        with open(self.modified_path, "w") as modifiedscript:
-            modifiedscript.writelines(script)
+        with open(MODIFIED_PATH, "w") as modified_script:
+            modified_script.writelines(script)
 
     def execute_script(self):
         """
@@ -131,16 +133,17 @@ class GMATInterface():
         """
 
         # Define command to run GMAT
-        GMAT_command = "GMAT"
+        command = "GMAT"
         # Define flags when running GMAT
         # (-r: run script, -m: run minimised, -x: exit when finished)
-        GMAT_flags = "-r -m -x"
+        flags = "-r -m -x"
+
+        full_command = f"""{command} {flags} "{MODIFIED_PATH}"  """
 
         # Display progress bar in terminal
         with tqdm(total=1, desc="GMAT Exectution") as pbar:
             # Run GMAT
-            os.system(
-                f"""{GMAT_command} {GMAT_flags} "{self.modified_path}"  """)
+            os.system(full_command)
             # Update progress bar
             pbar.update(1)
 
@@ -157,7 +160,7 @@ class GMATInterface():
         """
 
         # Import GMAT output
-        output_GMAT = pd.read_fwf(self.output_path)
+        output = pd.read_fwf(OUTPUT_PATH)
 
         # Calculate time vector for interpolation
         nstep = np.rint((self.end_time-self.start_time)/self.time_step) + 1
@@ -165,48 +168,47 @@ class GMATInterface():
             self.time_step * np.arange(0, nstep)
 
         # Calculate GMAT time
-        GMAT_time = Time(output_GMAT["Spacecraft.UTCModJulian"].values
-                         + self.GMAT_MJD_OFFSET, format='jd')
+        time = Time(output["Spacecraft.UTCModJulian"].values
+                    + GMAT_MJD_OFFSET, format='jd')
 
         # Interpolate spacecraft state
-        x = np.interp(spacecraft_time.jd,
-                      GMAT_time.jd,
-                      output_GMAT["Spacecraft.EarthICRF.X"].values)
-        y = np.interp(spacecraft_time.jd,
-                      GMAT_time.jd,
-                      output_GMAT["Spacecraft.EarthICRF.Y"].values)
-        z = np.interp(spacecraft_time.jd,
-                      GMAT_time.jd,
-                      output_GMAT["Spacecraft.EarthICRF.Z"].values)
-        vx = np.interp(spacecraft_time.jd,
-                       GMAT_time.jd,
-                       output_GMAT["Spacecraft.EarthICRF.VX"].values)
-        vy = np.interp(spacecraft_time.jd,
-                       GMAT_time.jd,
-                       output_GMAT["Spacecraft.EarthICRF.VY"].values)
-        vz = np.interp(spacecraft_time.jd,
-                       GMAT_time.jd,
-                       output_GMAT["Spacecraft.EarthICRF.VZ"].values)
+        pos_x = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.X"].values)
+        pos_y = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.Y"].values)
+        pos_z = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.Z"].values)
+        vel_x = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.VX"].values)
+        vel_y = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.VY"].values)
+        vel_z = np.interp(spacecraft_time.jd,
+                          time.jd,
+                          output["Spacecraft.EarthICRF.VZ"].values)
 
         # Add astropy units to position and velocity
-        spacecraft_position = CartesianRepresentation(x=x,
-                                                      y=y,
-                                                      z=z,
+        spacecraft_position = CartesianRepresentation(x=pos_x,
+                                                      y=pos_y,
+                                                      z=pos_z,
                                                       unit=u.km)
-        spacecraft_velocity = CartesianRepresentation(x=vx,
-                                                      y=vy,
-                                                      z=vz,
+        spacecraft_velocity = CartesianRepresentation(x=vel_x,
+                                                      y=vel_y,
+                                                      z=vel_z,
                                                       unit=u.km/u.s)
 
         # Generate spacecraft reference frame assuming that the EarthICRF
         # reference frame is equivalent to GCRS
-        spacecraft_frame = GCRS(
-            representation_type="cartesian",
-            obstime=spacecraft_time,
-            obsgeoloc=spacecraft_position,
-            obsgeovel=spacecraft_velocity)
+        spacecraft_frame = GCRS(representation_type="cartesian",
+                                obstime=spacecraft_time,
+                                obsgeoloc=spacecraft_position,
+                                obsgeovel=spacecraft_velocity)
 
-        # Store output
+        # Store spacecraft frame
         self.spacecraft_frame = spacecraft_frame
 
         return spacecraft_frame
