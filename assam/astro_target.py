@@ -26,6 +26,7 @@ SOFTWARE.
 
 import numpy as np
 import pandas as pd
+from astropy import units as u
 
 
 def rle(inarray):
@@ -190,7 +191,8 @@ class AstroTarget():
         end = self.obstime[iend]
 
         # Create list of contacts
-        contacts = [TargetContact(self, s, e) for s, e in zip(start, end)]
+        contacts = [TargetContact(self, s, e, 1/self.priority, differential_benefit=True)
+                    for s, e in zip(start, end)]
 
         # Store contacts
         self.contacts = contacts
@@ -338,14 +340,11 @@ class AstroSubtarget():
 
 class TargetContact():
 
-    def __init__(self, target, start, end, verbose_time=False):
+    def __init__(self, target, start, end, benefit, differential_benefit=False, verbose_time=False):
         # TODO: docstring
 
-        # Store target and target priority
+        # Store target object
         self.target = target
-        self.priority = target.priority
-
-        self.benefit = 1/self.priority
 
         # Store start/end times and contact duration
         #
@@ -354,10 +353,20 @@ class TargetContact():
         # performance for following lookups and calculations
         #
         if verbose_time:
+            # TODO: full implementation of verbose times
+            raise(NotImplementedError)
             self.start = start
             self.end = end
         else:
+            # TODO: consider use of astropy units to aid later calculations
             self.start = start.jd
             self.end = end.jd
 
         self.duration = self.end - self.start
+
+        # Calculate benefit
+        # TODO: benefit calculation when using verbose time
+        if differential_benefit:
+            self.benefit = benefit * self.duration
+        else:
+            self.benefit = benefit
