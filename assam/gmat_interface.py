@@ -25,7 +25,6 @@ SOFTWARE.
 """
 
 import os
-
 import numpy as np
 import pandas as pd
 from astropy.time import Time
