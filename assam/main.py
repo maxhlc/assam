@@ -19,7 +19,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, IARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
@@ -38,6 +38,7 @@ from scheduling_module import SchedulingModule
 local_vars = {}
 
 plot_bitmaps = False
+
 
 def main():
     # Set parameters
@@ -67,6 +68,11 @@ def main():
     visibility.calculate_contacts()
     visibility.calculate_overall_stats()
 
+    # Schedule observations
+    scheduling = SchedulingModule(visibility.targets)
+    scheduling.combine_contacts()
+    scheduling.simple_dynamic_schedule()
+
     # Plot telescope visibility
     visualisation = VisualisationModule(propagator.spacecraft_frame,
                                         visibility.solar_bodies,
@@ -75,11 +81,6 @@ def main():
     if plot_bitmaps:
         visualisation.generate_bitmaps()
         visualisation.plot_bitmaps()
-        
-    # Schedule observations
-    scheduling = SchedulingModule(visibility.targets)
-    scheduling.combine_contacts()
-    scheduling.simple_dynamic_schedule()
 
     # Store local variables
     global local_vars
