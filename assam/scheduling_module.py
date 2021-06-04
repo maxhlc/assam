@@ -26,6 +26,7 @@ SOFTWARE.
 
 import operator
 import numpy as np
+from tqdm import tqdm
 
 
 class SchedulingModule():
@@ -89,31 +90,28 @@ class SchedulingModule():
         # Calculate predecessors
         pred = np.zeros(len(contacts_shift), dtype="uintc")
         # Loop through each contact
-        for i, contact in enumerate(contacts_shift):
+        for i, contact in enumerate(tqdm(contacts_shift, "Calculating Predecessors")):
             # Skip dummy element
             if i == 0:
                 continue
 
-            # Loop through preceeding contacts
-            for j, second_contact in enumerate(contacts):
-                # Skip dummy element
-                if j == 0:
-                    continue
-
-                # Break the inner loop if both contacts are the same
-                if contact is second_contact:
-                    break
+            # Loop through preceeding contacts, working backwards from the
+            # current contact
+            for j in range(i-1, 0, -1):
+                # Extract second contact
+                second_contact = contacts_shift[j]
 
                 # Update predecessor if it does not intersect with the contact
                 if contact.start >= second_contact.end:
                     pred[i] = j
+                    break
 
         # Calculate schedule
         benefit = np.zeros(len(contacts_shift))
         optimal_contacts = [[]] + [None] * (len(contacts))
 
         # Iterate through subproblems
-        for i, contact in enumerate(contacts_shift):
+        for i, contact in enumerate(tqdm(contacts_shift, "Scheduling")):
             # Skip dummy element
             if i == 0:
                 continue
