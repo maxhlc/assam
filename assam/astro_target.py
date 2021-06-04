@@ -218,17 +218,22 @@ class AstroTarget():
 
         # Calculate number of contacts
         stats["n_contacts"] = len(contact_durations)
-
-        # Calculate total contact duration
-        stats["total_duration"] = np.sum(contact_durations)
-
-        # Calculate mean contact duration
-        stats["mean_duration"] = np.mean(contact_durations)
-
-        # Calculate contact duration standard deviation
-        stats["stddev_duration"] = np.std(contact_durations)
-
-        # Calculate mean coordinates
+        
+        # Check whether contacts occured
+        if stats["n_contacts"] == 0:
+            # Assign values if no contacts exist
+            stats["total_duration"] = 0
+            stats["mean_duration"] = np.nan
+            stats["stddev_duration"] = np.nan
+        else:
+            # Calculate total contact duration
+            stats["total_duration"] = np.sum(contact_durations)
+    
+            # Calculate mean contact duration
+            stats["mean_duration"] = np.mean(contact_durations)
+    
+            # Calculate contact duration standard deviation
+            stats["stddev_duration"] = np.std(contact_durations)
 
         # Convert statistics dictionary into DataFrame
         stats = pd.DataFrame([stats])
