@@ -24,9 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import numpy as np
-import cupy as cp
 from astropy import units as u
+import cupy as cp
+import numpy as np
 
 
 def separation_cuda(coord1, coord2):

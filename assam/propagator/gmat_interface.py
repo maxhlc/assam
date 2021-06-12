@@ -25,11 +25,12 @@ SOFTWARE.
 """
 
 import os
-import numpy as np
-import pandas as pd
-from astropy.time import Time
+
 from astropy import units as u
 from astropy.coordinates import GCRS, CartesianRepresentation
+from astropy.time import Time
+import numpy as np
+import pandas as pd
 from tqdm import tqdm
 
 # Define paths for GMAT

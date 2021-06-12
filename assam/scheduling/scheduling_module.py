@@ -25,6 +25,7 @@ SOFTWARE.
 """
 
 import operator
+
 import numpy as np
 from tqdm import tqdm
 

@@ -24,14 +24,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import numpy as np
-from astropy import units as u
-from astropy.coordinates import SkyCoord
-from tqdm import tqdm
-from matplotlib import pyplot as plt
-from matplotlib.colors import ListedColormap
 import multiprocessing
 
+from astropy import units as u
+from astropy.coordinates import SkyCoord
+from matplotlib import pyplot as plt
+from matplotlib.colors import ListedColormap
+import numpy as np
+from tqdm import tqdm
 
 from .cuda_methods import separation_cuda
 

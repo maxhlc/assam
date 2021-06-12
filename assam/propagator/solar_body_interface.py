@@ -25,9 +25,10 @@ SOFTWARE.
 """
 
 import multiprocessing
-from astropy.coordinates import solar_system_ephemeris, get_body
-from astropy import units as u
 import yaml
+
+from astropy import units as u
+from astropy.coordinates import solar_system_ephemeris, get_body
 import numpy as np
 from tqdm import tqdm
 

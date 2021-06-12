@@ -26,7 +26,6 @@ SOFTWARE.
 
 import numpy as np
 import pandas as pd
-from astropy import units as u
 
 
 def rle(inarray):
@@ -218,7 +217,7 @@ class AstroTarget():
 
         # Calculate number of contacts
         stats["n_contacts"] = len(contact_durations)
-        
+
         # Check whether contacts occured
         if stats["n_contacts"] == 0:
             # Assign values if no contacts exist
@@ -228,10 +227,10 @@ class AstroTarget():
         else:
             # Calculate total contact duration
             stats["total_duration"] = np.sum(contact_durations)
-    
+
             # Calculate mean contact duration
             stats["mean_duration"] = np.mean(contact_durations)
-    
+
             # Calculate contact duration standard deviation
             stats["stddev_duration"] = np.std(contact_durations)
 

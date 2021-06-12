@@ -27,7 +27,7 @@ SOFTWARE.
 import pandas as pd
 from tqdm import tqdm
 
-import visibility.astro_target_interface as astro_target_interface
+from . import astro_target_interface
 
 
 class VisibilityModule():
@@ -53,7 +53,7 @@ class VisibilityModule():
         # Load satellite reference frame and solar bodies
         self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
-        
+
         # Declare empty variables
         self.targets = None
         self.stats = None

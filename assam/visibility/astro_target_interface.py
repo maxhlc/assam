@@ -24,9 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from astropy.coordinates import SkyCoord
-from astropy import units as u
 import yaml
+
+from astropy import units as u
+from astropy.coordinates import SkyCoord
 import numpy as np
 from tqdm import tqdm
 

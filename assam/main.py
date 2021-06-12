@@ -24,14 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from astropy.time import Time, TimeDelta
-from astropy import units as u
 import inspect
 
+from astropy import units as u
+from astropy.time import Time, TimeDelta
+
 from propagator import PropagatorModule
+from scheduling import SchedulingModule
 from visibility import VisibilityModule
 from visualisation import VisualisationModule
-from scheduling import SchedulingModule
 
 # Dictionary to store variables from main function
 # (allows viewing through the variable explorer)
