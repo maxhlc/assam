@@ -27,7 +27,7 @@ SOFTWARE.
 import pandas as pd
 from tqdm import tqdm
 
-import astro_target_interface
+import visibility.astro_target_interface as astro_target_interface
 
 
 class VisibilityModule():

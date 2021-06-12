@@ -31,7 +31,7 @@ import yaml
 import numpy as np
 from tqdm import tqdm
 
-from solar_body import SolarBody
+from propagator.solar_body import SolarBody
 
 
 def load(spacecraft_frame, ephem="jpl", num_workers=None):

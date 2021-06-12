@@ -33,7 +33,7 @@ from matplotlib.colors import ListedColormap
 import multiprocessing
 
 
-from cuda_methods import separation_cuda as separation_cuda
+from .cuda_methods import separation_cuda
 
 
 def unwrap_generate_bitmap(arg, **kwarg):

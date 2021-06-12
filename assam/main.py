@@ -28,10 +28,10 @@ from astropy.time import Time, TimeDelta
 from astropy import units as u
 import inspect
 
-from propagator_module import PropagatorModule
-from visibility_module import VisibilityModule
-from visualisation_module import VisualisationModule
-from scheduling_module import SchedulingModule
+from propagator import PropagatorModule
+from visibility import VisibilityModule
+from visualisation import VisualisationModule
+from scheduling import SchedulingModule
 
 # Dictionary to store variables from main function
 # (allows viewing through the variable explorer)
@@ -43,7 +43,7 @@ plot_bitmaps = False
 def main():
     # Set parameters
     start_time = Time("2021-03-20 12:00")
-    end_time = Time("2021-04-20 12:00")
+    end_time = Time("2021-03-20 13:00")
     time_step = TimeDelta(5*u.min)
     keplerian_elements = {"SMA": 7000,
                           "ECC": 0,

@@ -24,8 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from gmat_interface import GMATInterface
-import solar_body_interface
+from propagator.gmat_interface import GMATInterface
+import propagator.solar_body_interface as solar_body_interface
 
 
 class PropagatorModule():

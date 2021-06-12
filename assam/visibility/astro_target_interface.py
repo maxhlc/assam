@@ -30,7 +30,7 @@ import yaml
 import numpy as np
 from tqdm import tqdm
 
-from astro_target import AstroTarget, AstroSubtarget
+from .astro_target import AstroTarget, AstroSubtarget
 
 
 def load(satellite_frame):
