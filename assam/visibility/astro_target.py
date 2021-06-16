@@ -243,6 +243,10 @@ class AstroTarget():
 
         # Target category
         stats["category"] = self.category
+        
+        # Store coordinates
+        stats["mean_ra"] = self.mean_coordinates.ra.deg
+        stats["mean_dec"] = self.mean_coordinates.dec.deg
 
         # Extract contact durations into list
         contact_durations = [contact.duration for contact in self.contacts]
@@ -256,6 +260,8 @@ class AstroTarget():
             stats["total_duration"] = 0
             stats["mean_duration"] = np.nan
             stats["stddev_duration"] = np.nan
+            stats["min_duration"] = np.nan
+            stats["max_duration"] = np.nan
         else:
             # Calculate total contact duration
             stats["total_duration"] = np.sum(contact_durations)
@@ -265,6 +271,12 @@ class AstroTarget():
 
             # Calculate contact duration standard deviation
             stats["stddev_duration"] = np.std(contact_durations)
+            
+            # Calculate minimum contact duration
+            stats["min_duration"] = np.min(contact_durations)
+            
+            # Calculate maximum contact duration
+            stats["max_duration"] = np.max(contact_durations)
 
         # Convert statistics dictionary into DataFrame
         stats = pd.DataFrame([stats])
