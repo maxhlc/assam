@@ -232,18 +232,7 @@ midplane_-10:
             width:
             height:
             angular_radius: 0.7
-    
-midplane_0:
-    category: galactic_midplane
-    priority: 2
-    subtargets:
-        region:
-            frame: galactic
-            centre: [0.0, 0]
-            shape: circular
-            width:
-            height:
-            angular_radius: 0.7
+
     
 midplane_10:
     category: galactic_midplane
