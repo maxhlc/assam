@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+from astropy.coordinates import SkyCoord
 import numpy as np
 import pandas as pd
 
@@ -90,6 +91,9 @@ class AstroTarget():
         # Create empty list for subtargets
         self.subtargets = []
 
+        # Declare empty attributes
+        self.mean_coordinates = None
+
     def add_subtarget(self, subtarget):
         """
         Function to add subtarget to the target.
@@ -108,6 +112,9 @@ class AstroTarget():
         # Add subtarget to dictionary
         self.subtargets.append(subtarget)
 
+        # Update properties
+        self.update_properties()
+
     def remove_subtarget(self, subtarget):
         """
         Function to remove subtarget from target.
@@ -125,6 +132,31 @@ class AstroTarget():
 
         # Remove subtarget from target
         self.subtargets.remove(subtarget)
+
+        # Update properties
+        self.update_properties()
+
+    def update_properties(self):
+        # TODO: docstring
+
+        # Extract subtarget coordinates
+        coordinates = [subtarget.icrs_coordinates
+                       for subtarget in self.subtargets]
+        lat = [coordinate.spherical.lat.rad for coordinate in coordinates]
+        lon = [coordinate.spherical.lon.rad for coordinate in coordinates]
+
+        # Calculate mean coordinates
+        mean_lat = np.arctan2(np.mean(np.sin(lat)), np.mean(np.cos(lat)))
+        mean_lon = np.arctan2(np.mean(np.sin(lon)), np.mean(np.cos(lon)))
+
+        # Create mean coordinate object
+        mean_coordinates = SkyCoord(mean_lon,
+                                    mean_lat,
+                                    unit="rad",
+                                    frame="icrs")
+
+        # Store mean_coordinates
+        self.mean_coordinates = mean_coordinates
 
     def calculate_visibility(self, solar_bodies):
         """
@@ -245,7 +277,7 @@ class AstroTarget():
 
 class AstroSubtarget():
 
-    def __init__(self, name, frame, centre, shape, width, height, angular_radius, coordinates):
+    def __init__(self, name, frame, centre, shape, width, height, angular_radius, coordinates, icrs_coordinates):
         """
         Initialisation function for astronomical subtargets.
 
@@ -267,6 +299,8 @@ class AstroSubtarget():
             Subtarget angular radius.
         coordinates : astropy.coordinates.sky_coordinate.SkyCoord
             Subtarget centre coordinates.
+        icrs_coordinates : astropy.coordinates.sky_coordinate.SkyCoord
+            Subtarget centre coordinates in ICRS.
 
         Returns
         -------
@@ -283,6 +317,7 @@ class AstroSubtarget():
         self.height = height
         self.angular_radius = angular_radius
         self.coordinates = coordinates
+        self.icrs_coordinates = icrs_coordinates
 
     def calculate_visibility(self, solar_body):
         """

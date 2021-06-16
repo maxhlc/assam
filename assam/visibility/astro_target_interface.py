@@ -81,8 +81,9 @@ def load(satellite_frame):
             # Create astropy state
             frame = subtarget_info["frame"]
             centre = subtarget_info["centre"] * u.deg
-            coordinates = SkyCoord(centre[0], centre[1], frame=frame)
-            coordinates = coordinates.transform_to(satellite_frame)
+            original_coordinates = SkyCoord(centre[0], centre[1], frame=frame)
+            icrs_coordinates = original_coordinates.transform_to("icrs")
+            coordinates = original_coordinates.transform_to(satellite_frame)
 
             # Calculate subtarget geometry
             shape = subtarget_info["shape"]
@@ -109,7 +110,8 @@ def load(satellite_frame):
                                        shape,
                                        width, height,
                                        angular_radius,
-                                       coordinates)
+                                       coordinates,
+                                       icrs_coordinates)
 
             # Add subtarget to target object
             target.add_subtarget(subtarget)
