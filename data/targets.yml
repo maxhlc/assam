@@ -1,5 +1,5 @@
 galactic_centre:
-    category: galactic_centre
+    category: Galactic Centre
     priority: 1
     subtargets:
         region_1:
@@ -18,7 +18,7 @@ galactic_centre:
             angular_radius:
 
 midplane_-180:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -30,7 +30,7 @@ midplane_-180:
             angular_radius: 0.7
     
 midplane_-170:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -42,7 +42,7 @@ midplane_-170:
             angular_radius: 0.7
     
 midplane_-160:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -54,7 +54,7 @@ midplane_-160:
             angular_radius: 0.7
     
 midplane_-150:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -66,7 +66,7 @@ midplane_-150:
             angular_radius: 0.7
     
 midplane_-140:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -78,7 +78,7 @@ midplane_-140:
             angular_radius: 0.7
     
 midplane_-130:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -90,7 +90,7 @@ midplane_-130:
             angular_radius: 0.7
     
 midplane_-120:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -102,7 +102,7 @@ midplane_-120:
             angular_radius: 0.7
     
 midplane_-110:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -114,7 +114,7 @@ midplane_-110:
             angular_radius: 0.7
     
 midplane_-100:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -126,7 +126,7 @@ midplane_-100:
             angular_radius: 0.7
     
 midplane_-90:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -138,7 +138,7 @@ midplane_-90:
             angular_radius: 0.7
     
 midplane_-80:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -150,7 +150,7 @@ midplane_-80:
             angular_radius: 0.7
     
 midplane_-70:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -162,7 +162,7 @@ midplane_-70:
             angular_radius: 0.7
     
 midplane_-60:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -174,7 +174,7 @@ midplane_-60:
             angular_radius: 0.7
     
 midplane_-50:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -186,7 +186,7 @@ midplane_-50:
             angular_radius: 0.7
     
 midplane_-40:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -198,7 +198,7 @@ midplane_-40:
             angular_radius: 0.7
     
 midplane_-30:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -210,7 +210,7 @@ midplane_-30:
             angular_radius: 0.7
     
 midplane_-20:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -222,7 +222,7 @@ midplane_-20:
             angular_radius: 0.7
     
 midplane_-10:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -235,7 +235,7 @@ midplane_-10:
 
     
 midplane_10:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -247,7 +247,7 @@ midplane_10:
             angular_radius: 0.7
     
 midplane_20:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -259,7 +259,7 @@ midplane_20:
             angular_radius: 0.7
     
 midplane_30:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -271,7 +271,7 @@ midplane_30:
             angular_radius: 0.7
     
 midplane_40:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -283,7 +283,7 @@ midplane_40:
             angular_radius: 0.7
     
 midplane_50:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -295,7 +295,7 @@ midplane_50:
             angular_radius: 0.7
     
 midplane_60:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -307,7 +307,7 @@ midplane_60:
             angular_radius: 0.7
     
 midplane_70:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -319,7 +319,7 @@ midplane_70:
             angular_radius: 0.7
     
 midplane_80:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -331,7 +331,7 @@ midplane_80:
             angular_radius: 0.7
     
 midplane_90:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -343,7 +343,7 @@ midplane_90:
             angular_radius: 0.7
     
 midplane_100:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -355,7 +355,7 @@ midplane_100:
             angular_radius: 0.7
     
 midplane_110:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -367,7 +367,7 @@ midplane_110:
             angular_radius: 0.7
     
 midplane_120:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -379,7 +379,7 @@ midplane_120:
             angular_radius: 0.7
     
 midplane_130:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -391,7 +391,7 @@ midplane_130:
             angular_radius: 0.7
     
 midplane_140:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -403,7 +403,7 @@ midplane_140:
             angular_radius: 0.7
     
 midplane_150:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -415,7 +415,7 @@ midplane_150:
             angular_radius: 0.7
     
 midplane_160:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -427,7 +427,7 @@ midplane_160:
             angular_radius: 0.7
     
 midplane_170:
-    category: galactic_midplane
+    category: Galactic Mid-plane
     priority: 2
     subtargets:
         region:
@@ -439,7 +439,7 @@ midplane_170:
             angular_radius: 0.7
                 
 00045753-1709369:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -451,7 +451,7 @@ midplane_170:
             angular_radius: 0.3
     
 00064325-0732147:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -463,7 +463,7 @@ midplane_170:
             angular_radius: 0.3
     
 00085512+4918561:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -475,7 +475,7 @@ midplane_170:
             angular_radius: 0.3
     
 00113182+5908400:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -487,7 +487,7 @@ midplane_170:
             angular_radius: 0.3
     
 00182549+4401376:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -499,7 +499,7 @@ midplane_170:
             angular_radius: 0.3
     
 00202922+3305081:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -511,7 +511,7 @@ midplane_170:
             angular_radius: 0.3
     
 00331349-4733165:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -523,7 +523,7 @@ midplane_170:
             angular_radius: 0.3
     
 00355557+1028352:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -535,7 +535,7 @@ midplane_170:
             angular_radius: 0.3
     
 00361617+1821104:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -547,7 +547,7 @@ midplane_170:
             angular_radius: 0.3
     
 00432603-4117337:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -559,7 +559,7 @@ midplane_170:
             angular_radius: 0.3
     
 00492565+6518038:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -571,7 +571,7 @@ midplane_170:
             angular_radius: 0.3
     
 00513516-2254307:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -583,7 +583,7 @@ midplane_170:
             angular_radius: 0.3
     
 01015952+5410577:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -595,7 +595,7 @@ midplane_170:
             angular_radius: 0.3
     
 01025100-3737438:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -607,7 +607,7 @@ midplane_170:
             angular_radius: 0.3
     
 01031971+6221557:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -619,7 +619,7 @@ midplane_170:
             angular_radius: 0.3
     
 01040695-6522272:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -631,7 +631,7 @@ midplane_170:
             angular_radius: 0.3
     
 01045368-1807292:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -643,7 +643,7 @@ midplane_170:
             angular_radius: 0.3
     
 01053732+2829339:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -655,7 +655,7 @@ midplane_170:
             angular_radius: 0.3
     
 01095117-0343264:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -667,7 +667,7 @@ midplane_170:
             angular_radius: 0.3
     
 01123052-1659570:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -679,7 +679,7 @@ midplane_170:
             angular_radius: 0.3
     
 01392170-3936088:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -691,7 +691,7 @@ midplane_170:
             angular_radius: 0.3
     
 01510405-0607047:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -703,7 +703,7 @@ midplane_170:
             angular_radius: 0.3
     
 02001278+1303112:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -715,7 +715,7 @@ midplane_170:
             angular_radius: 0.3
     
 02003830-5558047:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -727,7 +727,7 @@ midplane_170:
             angular_radius: 0.3
     
 02021620+1020136:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -739,7 +739,7 @@ midplane_170:
             angular_radius: 0.3
     
 02054859-3010361:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -751,7 +751,7 @@ midplane_170:
             angular_radius: 0.3
     
 02141251-0357434:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -763,7 +763,7 @@ midplane_170:
             angular_radius: 0.3
     
 02150802-3040011:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -775,7 +775,7 @@ midplane_170:
             angular_radius: 0.3
     
 02162977+1335136:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -787,7 +787,7 @@ midplane_170:
             angular_radius: 0.3
     
 02170993+3526330:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -799,7 +799,7 @@ midplane_170:
             angular_radius: 0.3
     
 02172845-5922435:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -811,7 +811,7 @@ midplane_170:
             angular_radius: 0.3
     
 02333717+2455392:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -823,7 +823,7 @@ midplane_170:
             angular_radius: 0.3
     
 02363244-5928057:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -835,7 +835,7 @@ midplane_170:
             angular_radius: 0.3
     
 02411510-0432177:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -847,7 +847,7 @@ midplane_170:
             angular_radius: 0.3
     
 02460224-7024062:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -859,7 +859,7 @@ midplane_170:
             angular_radius: 0.3
     
 02463486+1625115:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -871,7 +871,7 @@ midplane_170:
             angular_radius: 0.3
     
 02530084+1652532:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -883,7 +883,7 @@ midplane_170:
             angular_radius: 0.3
     
 02534448-7959133:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -895,7 +895,7 @@ midplane_170:
             angular_radius: 0.3
     
 03020638-3950516:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -907,7 +907,7 @@ midplane_170:
             angular_radius: 0.3
     
 03061159-3647528:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -919,7 +919,7 @@ midplane_170:
             angular_radius: 0.3
     
 03090015+1001257:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -931,7 +931,7 @@ midplane_170:
             angular_radius: 0.3
     
 03132299+0446293:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -943,7 +943,7 @@ midplane_170:
             angular_radius: 0.3
     
 03141241+2840411:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -955,7 +955,7 @@ midplane_170:
             angular_radius: 0.3
     
 03205965+1854233:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -967,7 +967,7 @@ midplane_170:
             angular_radius: 0.3
     
 03230175+4200269:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -979,7 +979,7 @@ midplane_170:
             angular_radius: 0.3
     
 03304890+5413551:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -991,7 +991,7 @@ midplane_170:
             angular_radius: 0.3
     
 03313025-3042383:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1003,7 +1003,7 @@ midplane_170:
             angular_radius: 0.3
     
 03353849-0829223:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1015,7 +1015,7 @@ midplane_170:
             angular_radius: 0.3
     
 03355969-4430453:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1027,7 +1027,7 @@ midplane_170:
             angular_radius: 0.3
     
 03385590-5234107:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1039,7 +1039,7 @@ midplane_170:
             angular_radius: 0.3
     
 03393521-3525440:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1051,7 +1051,7 @@ midplane_170:
             angular_radius: 0.3
     
 03472091+0841464:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1063,7 +1063,7 @@ midplane_170:
             angular_radius: 0.3
     
 03504432-0605400:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1075,7 +1075,7 @@ midplane_170:
             angular_radius: 0.3
     
 03510004-0052452:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1087,7 +1087,7 @@ midplane_170:
             angular_radius: 0.3
     
 03524169+1701056:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1099,7 +1099,7 @@ midplane_170:
             angular_radius: 0.3
     
 03544620+2416246:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1111,7 +1111,7 @@ midplane_170:
             angular_radius: 0.3
     
 03571999+4107426:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1123,7 +1123,7 @@ midplane_170:
             angular_radius: 0.3
     
 04063732+7916012:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1135,7 +1135,7 @@ midplane_170:
             angular_radius: 0.3
     
 04102815-5336078:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1147,7 +1147,7 @@ midplane_170:
             angular_radius: 0.3
     
 04121693+6443560:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1159,7 +1159,7 @@ midplane_170:
             angular_radius: 0.3
     
 04195212+4233304:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1171,7 +1171,7 @@ midplane_170:
             angular_radius: 0.3
     
 04201249-7005594:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1183,7 +1183,7 @@ midplane_170:
             angular_radius: 0.3
     
 04261992+0336359:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1195,7 +1195,7 @@ midplane_170:
             angular_radius: 0.3
     
 04302527+3951000:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1207,7 +1207,7 @@ midplane_170:
             angular_radius: 0.3
     
 04333393+2044461:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1219,7 +1219,7 @@ midplane_170:
             angular_radius: 0.3
     
 04351612-1606574:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1231,7 +1231,7 @@ midplane_170:
             angular_radius: 0.3
     
 04393163+1615447:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1243,7 +1243,7 @@ midplane_170:
             angular_radius: 0.3
     
 04402325-0530082:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1255,7 +1255,7 @@ midplane_170:
             angular_radius: 0.3
     
 04505083+2207224:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1267,7 +1267,7 @@ midplane_170:
             angular_radius: 0.3
     
 04513734-5818519:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1279,7 +1279,7 @@ midplane_170:
             angular_radius: 0.3
     
 04520400-1058218:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1291,7 +1291,7 @@ midplane_170:
             angular_radius: 0.3
     
 05011802+2237015:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1303,7 +1303,7 @@ midplane_170:
             angular_radius: 0.3
     
 05015746-0656459:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1315,7 +1315,7 @@ midplane_170:
             angular_radius: 0.3
     
 05041476+1103238:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1327,7 +1327,7 @@ midplane_170:
             angular_radius: 0.3
     
 05050591+4414037:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1339,7 +1339,7 @@ midplane_170:
             angular_radius: 0.3
     
 05051443-4756154:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1351,7 +1351,7 @@ midplane_170:
             angular_radius: 0.3
     
 05102012+2714032:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1363,7 +1363,7 @@ midplane_170:
             angular_radius: 0.3
     
 05153094+5911184:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1375,7 +1375,7 @@ midplane_170:
             angular_radius: 0.3
     
 05165345+5640195:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1387,7 +1387,7 @@ midplane_170:
             angular_radius: 0.3
     
 05173766-3349027:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1399,7 +1399,7 @@ midplane_170:
             angular_radius: 0.3
     
 05273058-5129158:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1411,7 +1411,7 @@ midplane_170:
             angular_radius: 0.3
     
 05280015+0938382:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1423,7 +1423,7 @@ midplane_170:
             angular_radius: 0.3
     
 05392474+4038437:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1435,7 +1435,7 @@ midplane_170:
             angular_radius: 0.3
     
 05405390+0854183:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1447,7 +1447,7 @@ midplane_170:
             angular_radius: 0.3
     
 05421271-0527567:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1459,7 +1459,7 @@ midplane_170:
             angular_radius: 0.3
     
 05532643-7133502:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1471,7 +1471,7 @@ midplane_170:
             angular_radius: 0.3
     
 05565722+1144333:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1483,7 +1483,7 @@ midplane_170:
             angular_radius: 0.3
     
 06022918+4951561:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1495,7 +1495,7 @@ midplane_170:
             angular_radius: 0.3
     
 06023045+3910592:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1507,7 +1507,7 @@ midplane_170:
             angular_radius: 0.3
     
 06025422-0915030:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1519,7 +1519,7 @@ midplane_170:
             angular_radius: 0.3
     
 06045215-3433360:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1531,7 +1531,7 @@ midplane_170:
             angular_radius: 0.3
     
 06210665-4905379:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1543,7 +1543,7 @@ midplane_170:
             angular_radius: 0.3
     
 06244132+2325585:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1555,7 +1555,7 @@ midplane_170:
             angular_radius: 0.3
     
 06422703-6707193:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1567,7 +1567,7 @@ midplane_170:
             angular_radius: 0.3
     
 06464109-2150161:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1579,7 +1579,7 @@ midplane_170:
             angular_radius: 0.3
     
 06592868+1920577:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1591,7 +1591,7 @@ midplane_170:
             angular_radius: 0.3
     
 07035565+5242075:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1603,7 +1603,7 @@ midplane_170:
             angular_radius: 0.3
     
 07073776+4841138:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1615,7 +1615,7 @@ midplane_170:
             angular_radius: 0.3
     
 07110095-3824460:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1627,7 +1627,7 @@ midplane_170:
             angular_radius: 0.3
     
 07140394+3702459:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1639,7 +1639,7 @@ midplane_170:
             angular_radius: 0.3
     
 07171706-0501031:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1651,7 +1651,7 @@ midplane_170:
             angular_radius: 0.3
     
 07200325-0846499:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1663,7 +1663,7 @@ midplane_170:
             angular_radius: 0.3
     
 07235966-8015179:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1675,7 +1675,7 @@ midplane_170:
             angular_radius: 0.3
     
 07304280+4811599:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1687,7 +1687,7 @@ midplane_170:
             angular_radius: 0.3
     
 07401183-4257406:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1699,7 +1699,7 @@ midplane_170:
             angular_radius: 0.3
     
 07401922-1724449:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1711,7 +1711,7 @@ midplane_170:
             angular_radius: 0.3
     
 07410681+1738459:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1723,7 +1723,7 @@ midplane_170:
             angular_radius: 0.3
     
 07515465-0000117:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1735,7 +1735,7 @@ midplane_170:
             angular_radius: 0.3
     
 07545484-3809381:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1747,7 +1747,7 @@ midplane_170:
             angular_radius: 0.3
     
 07581269+4118134:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1759,7 +1759,7 @@ midplane_170:
             angular_radius: 0.3
     
 08115757+0846220:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1771,7 +1771,7 @@ midplane_170:
             angular_radius: 0.3
     
 08151117-2344157:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1783,7 +1783,7 @@ midplane_170:
             angular_radius: 0.3
     
 08224787-5726451:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1795,7 +1795,7 @@ midplane_170:
             angular_radius: 0.3
     
 08255285+6902016:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1807,7 +1807,7 @@ midplane_170:
             angular_radius: 0.3
     
 08294949+2646348:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1819,7 +1819,7 @@ midplane_170:
             angular_radius: 0.3
     
 08303256+0947153:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1831,7 +1831,7 @@ midplane_170:
             angular_radius: 0.3
     
 08354256-0819237:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1843,7 +1843,7 @@ midplane_170:
             angular_radius: 0.3
     
 08380224-5855583:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1855,7 +1855,7 @@ midplane_170:
             angular_radius: 0.3
     
 08402975+1824091:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1867,7 +1867,7 @@ midplane_170:
             angular_radius: 0.3
     
 08412013+5929505:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1879,7 +1879,7 @@ midplane_170:
             angular_radius: 0.3
     
 08533619-0329321:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1891,7 +1891,7 @@ midplane_170:
             angular_radius: 0.3
     
 08561956+1239500:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1903,7 +1903,7 @@ midplane_170:
             angular_radius: 0.3
     
 09002359+2150054:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1915,7 +1915,7 @@ midplane_170:
             angular_radius: 0.3
     
 09003254+4635117:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1927,7 +1927,7 @@ midplane_170:
             angular_radius: 0.3
     
 09032096+0540145:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1939,7 +1939,7 @@ midplane_170:
             angular_radius: 0.3
     
 09141746-4134383:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1951,7 +1951,7 @@ midplane_170:
             angular_radius: 0.3
     
 09170532-7749233:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1963,7 +1963,7 @@ midplane_170:
             angular_radius: 0.3
     
 09174599+5825224:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1975,7 +1975,7 @@ midplane_170:
             angular_radius: 0.3
     
 09230296-2300415:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1987,7 +1987,7 @@ midplane_170:
             angular_radius: 0.3
     
 09312228-1717425:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -1999,7 +1999,7 @@ midplane_170:
             angular_radius: 0.3
     
 09332510-4353384:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2011,7 +2011,7 @@ midplane_170:
             angular_radius: 0.3
     
 09410199+2201291:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2023,7 +2023,7 @@ midplane_170:
             angular_radius: 0.3
     
 09424635-6853060:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2035,7 +2035,7 @@ midplane_170:
             angular_radius: 0.3
     
 09424960-6337560:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2047,7 +2047,7 @@ midplane_170:
             angular_radius: 0.3
     
 09432994-3833560:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2059,7 +2059,7 @@ midplane_170:
             angular_radius: 0.3
     
 09455843-3253299:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2071,7 +2071,7 @@ midplane_170:
             angular_radius: 0.3
     
 09535523+2056460:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2083,7 +2083,7 @@ midplane_170:
             angular_radius: 0.3
     
 10360869+1923314:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2095,7 +2095,7 @@ midplane_170:
             angular_radius: 0.3
     
 10381517-4933446:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2107,7 +2107,7 @@ midplane_170:
             angular_radius: 0.3
     
 10413809+3736397:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2119,7 +2119,7 @@ midplane_170:
             angular_radius: 0.3
     
 10424135-2416050:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2131,7 +2131,7 @@ midplane_170:
             angular_radius: 0.3
     
 10430293-0912410:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2143,7 +2143,7 @@ midplane_170:
             angular_radius: 0.3
     
 10442131-6112384:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2155,7 +2155,7 @@ midplane_170:
             angular_radius: 0.3
     
 10442927-1838063:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2167,7 +2167,7 @@ midplane_170:
             angular_radius: 0.3
     
 10481258-1120082:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2179,7 +2179,7 @@ midplane_170:
             angular_radius: 0.3
     
 10481463-3956062:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2191,7 +2191,7 @@ midplane_170:
             angular_radius: 0.3
     
 10494561+3532515:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2203,7 +2203,7 @@ midplane_170:
             angular_radius: 0.3
     
 10521423+0555098:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2215,7 +2215,7 @@ midplane_170:
             angular_radius: 0.3
     
 10551532-7356091:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2227,7 +2227,7 @@ midplane_170:
             angular_radius: 0.3
     
 10562886+0700527:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2239,7 +2239,7 @@ midplane_170:
             angular_radius: 0.3
     
 11053133+4331170:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2251,7 +2251,7 @@ midplane_170:
             angular_radius: 0.3
     
 11193058+4641437:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2263,7 +2263,7 @@ midplane_170:
             angular_radius: 0.3
     
 11214924-1313084:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2275,7 +2275,7 @@ midplane_170:
             angular_radius: 0.3
     
 11224274+3755484:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2287,7 +2287,7 @@ midplane_170:
             angular_radius: 0.3
     
 11310835-1457201:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2299,7 +2299,7 @@ midplane_170:
             angular_radius: 0.3
     
 11412152-3624346:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2311,7 +2311,7 @@ midplane_170:
             angular_radius: 0.3
     
 11463269-4029476:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2323,7 +2323,7 @@ midplane_170:
             angular_radius: 0.3
     
 11505787+4822395:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2335,7 +2335,7 @@ midplane_170:
             angular_radius: 0.3
     
 11535267+0659561:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2347,7 +2347,7 @@ midplane_170:
             angular_radius: 0.3
     
 11540788+0948227:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2359,7 +2359,7 @@ midplane_170:
             angular_radius: 0.3
     
 11554286-2224586:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2371,7 +2371,7 @@ midplane_170:
             angular_radius: 0.3
     
 11592743-5247188:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2383,7 +2383,7 @@ midplane_170:
             angular_radius: 0.3
     
 12140866-2345172:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2395,7 +2395,7 @@ midplane_170:
             angular_radius: 0.3
     
 12141654+0037263:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2407,7 +2407,7 @@ midplane_170:
             angular_radius: 0.3
     
 12185939+1107338:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2419,7 +2419,7 @@ midplane_170:
             angular_radius: 0.3
     
 12212673+3038376:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2431,7 +2431,7 @@ midplane_170:
             angular_radius: 0.3
     
 12253211-1559418:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2443,7 +2443,7 @@ midplane_170:
             angular_radius: 0.3
     
 12362870+3512007:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2455,7 +2455,7 @@ midplane_170:
             angular_radius: 0.3
     
 12384914-3822527:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2467,7 +2467,7 @@ midplane_170:
             angular_radius: 0.3
     
 12393641-2658111:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2479,7 +2479,7 @@ midplane_170:
             angular_radius: 0.3
     
 12404633-4333595:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2491,7 +2491,7 @@ midplane_170:
             angular_radius: 0.3
     
 12455254-5506502:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2503,7 +2503,7 @@ midplane_170:
             angular_radius: 0.3
     
 12590470-4336243:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2515,7 +2515,7 @@ midplane_170:
             angular_radius: 0.3
     
 13003350+0541081:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2527,7 +2527,7 @@ midplane_170:
             angular_radius: 0.3
     
 13065025+3050549:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2539,7 +2539,7 @@ midplane_170:
             angular_radius: 0.3
     
 13092185-2330350:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2551,7 +2551,7 @@ midplane_170:
             angular_radius: 0.3
     
 13093495+2859065:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2563,7 +2563,7 @@ midplane_170:
             angular_radius: 0.3
     
 13101268+4745190:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2575,7 +2575,7 @@ midplane_170:
             angular_radius: 0.3
     
 13464607-3149258:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2587,7 +2587,7 @@ midplane_170:
             angular_radius: 0.3
     
 13481341+2336486:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2599,7 +2599,7 @@ midplane_170:
             angular_radius: 0.3
     
 13525060+6649064:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2611,7 +2611,7 @@ midplane_170:
             angular_radius: 0.3
     
 13580529-3937545:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2623,7 +2623,7 @@ midplane_170:
             angular_radius: 0.3
     
 13581392+1234438:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2635,7 +2635,7 @@ midplane_170:
             angular_radius: 0.3
     
 14035157-4241528:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2647,7 +2647,7 @@ midplane_170:
             angular_radius: 0.3
     
 14115998-4132211:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2659,7 +2659,7 @@ midplane_170:
             angular_radius: 0.3
     
 14221943-7023371:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2671,7 +2671,7 @@ midplane_170:
             angular_radius: 0.3
     
 14253465+2540050:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2683,7 +2683,7 @@ midplane_170:
             angular_radius: 0.3
     
 14270858+6056283:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2695,7 +2695,7 @@ midplane_170:
             angular_radius: 0.3
     
 14280419+1356137:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2707,7 +2707,7 @@ midplane_170:
             angular_radius: 0.3
     
 14284323+3310391:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2719,7 +2719,7 @@ midplane_170:
             angular_radius: 0.3
     
 14303787+5943249:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2731,7 +2731,7 @@ midplane_170:
             angular_radius: 0.3
     
 14320849+0811313:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2743,7 +2743,7 @@ midplane_170:
             angular_radius: 0.3
     
 14441717+3002145:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2755,7 +2755,7 @@ midplane_170:
             angular_radius: 0.3
     
 14563831-2809473:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2767,7 +2767,7 @@ midplane_170:
             angular_radius: 0.3
     
 14575374+5639242:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2779,7 +2779,7 @@ midplane_170:
             angular_radius: 0.3
     
 15010818+2250020:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2791,7 +2791,7 @@ midplane_170:
             angular_radius: 0.3
     
 15210103+5053230:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2803,7 +2803,7 @@ midplane_170:
             angular_radius: 0.3
     
 15221293-2749436:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2815,7 +2815,7 @@ midplane_170:
             angular_radius: 0.3
     
 15235112+1727569:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2827,7 +2827,7 @@ midplane_170:
             angular_radius: 0.3
     
 15242475+2925318:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2839,7 +2839,7 @@ midplane_170:
             angular_radius: 0.3
     
 15303032+0926014:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2851,7 +2851,7 @@ midplane_170:
             angular_radius: 0.3
     
 15345704-1418486:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2863,7 +2863,7 @@ midplane_170:
             angular_radius: 0.3
     
 15352039+1743045:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2875,7 +2875,7 @@ midplane_170:
             angular_radius: 0.3
     
 15363450-3754223:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2887,7 +2887,7 @@ midplane_170:
             angular_radius: 0.3
     
 15402966-2613422:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2899,7 +2899,7 @@ midplane_170:
             angular_radius: 0.3
     
 15404341-5101357:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2911,7 +2911,7 @@ midplane_170:
             angular_radius: 0.3
     
 15420677-1928167:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2923,7 +2923,7 @@ midplane_170:
             angular_radius: 0.3
     
 15464185-5534468:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2935,7 +2935,7 @@ midplane_170:
             angular_radius: 0.3
     
 15524460-2623134:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2947,7 +2947,7 @@ midplane_170:
             angular_radius: 0.3
     
 16025098+2035218:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2959,7 +2959,7 @@ midplane_170:
             angular_radius: 0.3
     
 16063390+4054216:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2971,7 +2971,7 @@ midplane_170:
             angular_radius: 0.3
     
 16073123-0442091:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2983,7 +2983,7 @@ midplane_170:
             angular_radius: 0.3
     
 16105843-0631325:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -2995,7 +2995,7 @@ midplane_170:
             angular_radius: 0.3
     
 16142520-0251009:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3007,7 +3007,7 @@ midplane_170:
             angular_radius: 0.3
     
 16265168-3812326:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3019,7 +3019,7 @@ midplane_170:
             angular_radius: 0.3
     
 16311879+4051516:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3031,7 +3031,7 @@ midplane_170:
             angular_radius: 0.3
     
 16334976-6808488:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3043,7 +3043,7 @@ midplane_170:
             angular_radius: 0.3
     
 16334976-6808488:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3055,7 +3055,7 @@ midplane_170:
             angular_radius: 0.3
     
 16353720-5202008:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3067,7 +3067,7 @@ midplane_170:
             angular_radius: 0.3
     
 16400599+0042188:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3079,7 +3079,7 @@ midplane_170:
             angular_radius: 0.3
     
 16463154+3434554:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3091,7 +3091,7 @@ midplane_170:
             angular_radius: 0.3
     
 16505794+2227058:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3103,7 +3103,7 @@ midplane_170:
             angular_radius: 0.3
     
 16552527-0819207:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3115,7 +3115,7 @@ midplane_170:
             angular_radius: 0.3
     
 16553529-0823401:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3127,7 +3127,7 @@ midplane_170:
             angular_radius: 0.3
     
 16563362-2046373:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3139,7 +3139,7 @@ midplane_170:
             angular_radius: 0.3
     
 16570570-0420559:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3151,7 +3151,7 @@ midplane_170:
             angular_radius: 0.3
     
 17032384+5124219:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3163,7 +3163,7 @@ midplane_170:
             angular_radius: 0.3
     
 17072343-0558249:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3175,7 +3175,7 @@ midplane_170:
             angular_radius: 0.3
     
 17174408+1140117:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3187,7 +3187,7 @@ midplane_170:
             angular_radius: 0.3
     
 17185456-4131395:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3199,7 +3199,7 @@ midplane_170:
             angular_radius: 0.3
     
 17311725+8205198:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3211,7 +3211,7 @@ midplane_170:
             angular_radius: 0.3
     
 17312974+2721233:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3223,7 +3223,7 @@ midplane_170:
             angular_radius: 0.3
     
 17340869-0849514:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3235,7 +3235,7 @@ midplane_170:
             angular_radius: 0.3
     
 17464063-3214045:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3247,7 +3247,7 @@ midplane_170:
             angular_radius: 0.3
     
 17513557+3749347:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3259,7 +3259,7 @@ midplane_170:
             angular_radius: 0.3
     
 18021660+6415445:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3271,7 +3271,7 @@ midplane_170:
             angular_radius: 0.3
     
 18024624+3731048:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3283,7 +3283,7 @@ midplane_170:
             angular_radius: 0.3
     
 18054038-2758568:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3295,7 +3295,7 @@ midplane_170:
             angular_radius: 0.3
     
 18054470-1422425:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3307,7 +3307,7 @@ midplane_170:
             angular_radius: 0.3
     
 18073292-1557464:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3319,7 +3319,7 @@ midplane_170:
             angular_radius: 0.3
     
 18180345+3846359:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3331,7 +3331,7 @@ midplane_170:
             angular_radius: 0.3
     
 18185725+6611332:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3343,7 +3343,7 @@ midplane_170:
             angular_radius: 0.3
     
 18242359-0536488:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3355,7 +3355,7 @@ midplane_170:
             angular_radius: 0.3
     
 18353790+3259545:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3367,7 +3367,7 @@ midplane_170:
             angular_radius: 0.3
     
 18373180+2030424:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3379,7 +3379,7 @@ midplane_170:
             angular_radius: 0.3
     
 18393308+2952164:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3391,7 +3391,7 @@ midplane_170:
             angular_radius: 0.3
     
 18410977-4347327:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3403,7 +3403,7 @@ midplane_170:
             angular_radius: 0.3
     
 18413741+3942123:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3415,7 +3415,7 @@ midplane_170:
             angular_radius: 0.3
     
 18430697-5436481:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3427,7 +3427,7 @@ midplane_170:
             angular_radius: 0.3
     
 18431237-3322313:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3439,7 +3439,7 @@ midplane_170:
             angular_radius: 0.3
     
 18432213+4040209:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3451,7 +3451,7 @@ midplane_170:
             angular_radius: 0.3
     
 18450541-6357475:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3463,7 +3463,7 @@ midplane_170:
             angular_radius: 0.3
     
 18481752+0741210:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3475,7 +3475,7 @@ midplane_170:
             angular_radius: 0.3
     
 18495449+1840295:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3487,7 +3487,7 @@ midplane_170:
             angular_radius: 0.3
     
 18554792-6914153:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3499,7 +3499,7 @@ midplane_170:
             angular_radius: 0.3
     
 19095098+1740074:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3511,7 +3511,7 @@ midplane_170:
             angular_radius: 0.3
     
 19123922-3614555:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3523,7 +3523,7 @@ midplane_170:
             angular_radius: 0.3
     
 19162483+8413411:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3535,7 +3535,7 @@ midplane_170:
             angular_radius: 0.3
     
 19165762+0509021:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3547,7 +3547,7 @@ midplane_170:
             angular_radius: 0.3
     
 19203346-0739435:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3559,7 +3559,7 @@ midplane_170:
             angular_radius: 0.3
     
 19204795-4533283:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3571,7 +3571,7 @@ midplane_170:
             angular_radius: 0.3
     
 19212977-2915507:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3583,7 +3583,7 @@ midplane_170:
             angular_radius: 0.3
     
 19213867+2052028:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3595,7 +3595,7 @@ midplane_170:
             angular_radius: 0.3
     
 19220206+0702310:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3607,7 +3607,7 @@ midplane_170:
             angular_radius: 0.3
     
 19241634+7533121:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3619,7 +3619,7 @@ midplane_170:
             angular_radius: 0.3
     
 19253089+0938235:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3631,7 +3631,7 @@ midplane_170:
             angular_radius: 0.3
     
 19535508+4424550:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3643,7 +3643,7 @@ midplane_170:
             angular_radius: 0.3
     
 19535508+4424550:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3655,7 +3655,7 @@ midplane_170:
             angular_radius: 0.3
     
 19542064-2356398:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3667,7 +3667,7 @@ midplane_170:
             angular_radius: 0.3
     
 20000565+3057300:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3679,7 +3679,7 @@ midplane_170:
             angular_radius: 0.3
     
 20091824-0113377:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3691,7 +3691,7 @@ midplane_170:
             angular_radius: 0.3
     
 20161129-7531044:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3703,7 +3703,7 @@ midplane_170:
             angular_radius: 0.3
     
 20260528+5834224:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3715,7 +3715,7 @@ midplane_170:
             angular_radius: 0.3
     
 20280382-7640164:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3727,7 +3727,7 @@ midplane_170:
             angular_radius: 0.3
     
 20291194+5750317:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3739,7 +3739,7 @@ midplane_170:
             angular_radius: 0.3
     
 20294834+0941202:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3751,7 +3751,7 @@ midplane_170:
             angular_radius: 0.3
     
 20392378-2926335:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3763,7 +3763,7 @@ midplane_170:
             angular_radius: 0.3
     
 20403364+1529572:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3775,7 +3775,7 @@ midplane_170:
             angular_radius: 0.3
     
 20432387+0445552:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3787,7 +3787,7 @@ midplane_170:
             angular_radius: 0.3
     
 20443743+1517352:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3799,7 +3799,7 @@ midplane_170:
             angular_radius: 0.3
     
 20490993-4012062:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3811,7 +3811,7 @@ midplane_170:
             angular_radius: 0.3
     
 20492745+3336512:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3823,7 +3823,7 @@ midplane_170:
             angular_radius: 0.3
     
 20501615-3424424:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3835,7 +3835,7 @@ midplane_170:
             angular_radius: 0.3
     
 20533304+1037020:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3847,7 +3847,7 @@ midplane_170:
             angular_radius: 0.3
     
 20553706-1403545:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3859,7 +3859,7 @@ midplane_170:
             angular_radius: 0.3
     
 21010483+0307047:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3871,7 +3871,7 @@ midplane_170:
             angular_radius: 0.3
     
 21243234+4003599:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3883,7 +3883,7 @@ midplane_170:
             angular_radius: 0.3
     
 21272531+5553150:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3895,7 +3895,7 @@ midplane_170:
             angular_radius: 0.3
     
 21462206+3813047:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3907,7 +3907,7 @@ midplane_170:
             angular_radius: 0.3
     
 21471744-0444406:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3919,7 +3919,7 @@ midplane_170:
             angular_radius: 0.3
     
 21510510+2328088:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3931,7 +3931,7 @@ midplane_170:
             angular_radius: 0.3
     
 21565513-0154100:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3943,7 +3943,7 @@ midplane_170:
             angular_radius: 0.3
     
 22060961-0723353:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3955,7 +3955,7 @@ midplane_170:
             angular_radius: 0.3
     
 22112417+4059587:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3967,7 +3967,7 @@ midplane_170:
             angular_radius: 0.3
     
 22134277-1741081:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3979,7 +3979,7 @@ midplane_170:
             angular_radius: 0.3
     
 22135048-6342100:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -3991,7 +3991,7 @@ midplane_170:
             angular_radius: 0.3
     
 22171870-0848186:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4003,7 +4003,7 @@ midplane_170:
             angular_radius: 0.3
     
 22171899-0848122:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4015,7 +4015,7 @@ midplane_170:
             angular_radius: 0.3
     
 22230696-1736250:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4027,7 +4027,7 @@ midplane_170:
             angular_radius: 0.3
     
 22285440-1325178:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4039,7 +4039,7 @@ midplane_170:
             angular_radius: 0.3
     
 22401895-4931013:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4051,7 +4051,7 @@ midplane_170:
             angular_radius: 0.3
     
 22401895-4931013:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4063,7 +4063,7 @@ midplane_170:
             angular_radius: 0.3
     
 22415815-6910089:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4075,7 +4075,7 @@ midplane_170:
             angular_radius: 0.3
     
 22415937-7500329:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4087,7 +4087,7 @@ midplane_170:
             angular_radius: 0.3
     
 22480446-2422075:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4099,7 +4099,7 @@ midplane_170:
             angular_radius: 0.3
     
 22562466-6003490:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4111,7 +4111,7 @@ midplane_170:
             angular_radius: 0.3
     
 23062928-0502285:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4123,7 +4123,7 @@ midplane_170:
             angular_radius: 0.3
     
 23095781+5506472:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4135,7 +4135,7 @@ midplane_170:
             angular_radius: 0.3
     
 23301612-4736459:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4147,7 +4147,7 @@ midplane_170:
             angular_radius: 0.3
     
 23303802-8455189:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4159,7 +4159,7 @@ midplane_170:
             angular_radius: 0.3
     
 23312174-2749500:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4171,7 +4171,7 @@ midplane_170:
             angular_radius: 0.3
     
 23351050-0223214:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4183,7 +4183,7 @@ midplane_170:
             angular_radius: 0.3
     
 23365227-3628518:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4195,7 +4195,7 @@ midplane_170:
             angular_radius: 0.3
     
 23373601+1622031:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4207,7 +4207,7 @@ midplane_170:
             angular_radius: 0.3
     
 23415498+4410407:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4219,7 +4219,7 @@ midplane_170:
             angular_radius: 0.3
     
 23425274+3049219:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
@@ -4231,7 +4231,7 @@ midplane_170:
             angular_radius: 0.3
     
 23430628+3632132:
-    category: m_dwarf
+    category: M-type
     priority: 3
     subtargets:
         star:
