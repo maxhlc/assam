@@ -243,7 +243,7 @@ class AstroTarget():
 
         # Target category
         stats["category"] = self.category
-        
+
         # Store coordinates
         stats["mean_ra"] = self.mean_coordinates.ra.wrap_at("180d").deg
         stats["mean_dec"] = self.mean_coordinates.dec.deg
@@ -258,6 +258,7 @@ class AstroTarget():
         if stats["n_contacts"] == 0:
             # Assign values if no contacts exist
             stats["total_duration"] = 0
+            stats["percentage_duration"] = 0
             stats["mean_duration"] = np.nan
             stats["stddev_duration"] = np.nan
             stats["min_duration"] = np.nan
@@ -266,15 +267,19 @@ class AstroTarget():
             # Calculate total contact duration
             stats["total_duration"] = np.sum(contact_durations)
 
+            # Calculate percentage duration
+            stats["percentage_duration"] = 100*stats["total_duration"] / \
+                (self.obstime[-1].jd - self.obstime[0].jd)
+
             # Calculate mean contact duration
             stats["mean_duration"] = np.mean(contact_durations)
 
             # Calculate contact duration standard deviation
             stats["stddev_duration"] = np.std(contact_durations)
-            
+
             # Calculate minimum contact duration
             stats["min_duration"] = np.min(contact_durations)
-            
+
             # Calculate maximum contact duration
             stats["max_duration"] = np.max(contact_durations)
 
