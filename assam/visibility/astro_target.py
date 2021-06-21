@@ -245,7 +245,7 @@ class AstroTarget():
         stats["category"] = self.category
         
         # Store coordinates
-        stats["mean_ra"] = self.mean_coordinates.ra.deg
+        stats["mean_ra"] = self.mean_coordinates.ra.wrap_at("180d").deg
         stats["mean_dec"] = self.mean_coordinates.dec.deg
 
         # Extract contact durations into list
