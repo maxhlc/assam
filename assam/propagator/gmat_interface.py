@@ -141,7 +141,7 @@ class GMATInterface():
         full_command = f"""{command} {flags} "{MODIFIED_PATH}"  """
 
         # Display progress bar in terminal
-        with tqdm(total=1, desc="GMAT Exectution") as pbar:
+        with tqdm(total=1, desc="GMAT Execution") as pbar:
             # Run GMAT
             os.system(full_command)
             # Update progress bar
