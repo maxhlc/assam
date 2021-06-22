@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+import multiprocessing
 import yaml
 
 from astropy import units as u
@@ -34,15 +35,17 @@ from tqdm import tqdm
 from .astro_target import AstroTarget, AstroSubtarget
 
 
-def load(satellite_frame):
+def load(spacecraft_frame, num_workers=None):
     """
     Function to import targets and their subtargets.
 
     Parameters
     ----------
-    satellite_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
-        Satellite reference frame relative to the Earth's centre of mass
+    spacecraft_frame : astropy.coordinates.builtin_frames.gcrs.GCRS
+        Spacecraft reference frame relative to the Earth's geocentre
         with the same orientation as BCRS/ICRS.
+    num_workers : int, optional
+        Number of workers for multiprocessing.
 
     Raises
     ------
@@ -65,61 +68,105 @@ def load(satellite_frame):
     if targets_dump is None:
         raise ValueError("Empty target file")
 
+    # Create list of worker parameters
+    worker_params = [(target_dump, spacecraft_frame)
+                     for target_dump in targets_dump.items()]
+
     # Generate target objects
     # TODO: value checking
     targets = []
-    for target_name, target_info in tqdm(targets_dump.items(), desc="Target Generation"):
-        # Extract general properties
-        target_priority = target_info["priority"]
-        target_category = target_info["category"]
+    # Create worker pool
+    with multiprocessing.Pool(num_workers) as p:
+        # Create progress bar
+        with tqdm(total=len(targets_dump), desc="Target Generation") as pbar:
+            # Iterate through targets
+            for target in p.imap(load_worker, worker_params):
+                # Store in target list
+                targets.append(target)
 
-        # Create empty target with general properties
-        target = AstroTarget(target_name, target_priority, target_category)
-
-        # Generate subtargets and add to target object
-        for subtarget_name, subtarget_info in target_info["subtargets"].items():
-            # Create astropy state
-            frame = subtarget_info["frame"]
-            centre = subtarget_info["centre"] * u.deg
-            original_coordinates = SkyCoord(centre[0], centre[1], frame=frame)
-            icrs_coordinates = original_coordinates.transform_to("icrs")
-            coordinates = original_coordinates.transform_to(satellite_frame)
-
-            # Calculate subtarget geometry
-            shape = subtarget_info["shape"]
-            if shape == "rectangular":
-                # Assign width and height
-                width = subtarget_info["width"] * u.deg
-                height = subtarget_info["height"] * u.deg
-                # Calculate bounding circle angular radius
-                angular_radius = 0.5*np.sqrt(width**2 + height**2)
-            elif shape == "circular":
-                # Assign nan width and height
-                width = np.nan
-                height = np.nan
-                # Assign angular
-                angular_radius = subtarget_info["angular_radius"] * u.deg
-            else:
-                raise ValueError(
-                    f"Invalid subtarget shape: {target_name}, {subtarget_name}")
-
-            # Create subtarget object
-            subtarget = AstroSubtarget(subtarget_name,
-                                       frame,
-                                       centre,
-                                       shape,
-                                       width, height,
-                                       angular_radius,
-                                       coordinates,
-                                       icrs_coordinates)
-
-            # Add subtarget to target object
-            target.add_subtarget(subtarget)
-
-        # Store in target list
-        targets.append(target)
+                # Update progress bar
+                pbar.update()
 
     return targets
+
+
+def load_worker(worker_params):
+    """
+    Worker function for loading targets.
+
+    Parameters
+    ----------
+    worker_params : tuple
+        Parameters for the worker including target information and the
+        spacecraft frame.
+
+    Raises
+    ------
+    ValueError
+        Error if the subtarget shape is invalid.
+
+    Returns
+    -------
+    target : AstroTarget
+        Target object containing its properties.
+
+    """
+
+    # Extract worker params
+    target_dump, spacecraft_frame = worker_params
+
+    # Extract target name and info
+    target_name, target_info = target_dump
+
+    # Extract general properties
+    target_priority = target_info["priority"]
+    target_category = target_info["category"]
+
+    # Create empty target with general properties
+    target = AstroTarget(target_name, target_priority, target_category)
+
+    # Generate subtargets and add to target object
+    for subtarget_name, subtarget_info in target_info["subtargets"].items():
+        # Import frame and coordinates
+        frame = subtarget_info["frame"]
+        centre = subtarget_info["centre"] * u.deg
+        original_coordinates = SkyCoord(centre[0], centre[1], frame=frame)
+
+        # Convert into ICRF and satellite frame
+        icrs_coordinates = original_coordinates.transform_to("icrs")
+        coordinates = original_coordinates.transform_to(spacecraft_frame)
+
+        # Calculate subtarget geometry
+        shape = subtarget_info["shape"]
+        if shape == "rectangular":
+            # Assign width and height
+            width = subtarget_info["width"] * u.deg
+            height = subtarget_info["height"] * u.deg
+            # Calculate bounding circle angular radius
+            angular_radius = 0.5*np.sqrt(width**2 + height**2)
+        elif shape == "circular":
+            # Assign nan width and height
+            width = np.nan
+            height = np.nan
+            # Assign angular
+            angular_radius = subtarget_info["angular_radius"] * u.deg
+        else:
+            raise ValueError(f"Invalid subtarget shape: {target_name}, {subtarget_name}")
+
+        # Create subtarget object
+        subtarget = AstroSubtarget(subtarget_name,
+                                   frame,
+                                   centre,
+                                   shape,
+                                   width, height,
+                                   angular_radius,
+                                   coordinates,
+                                   icrs_coordinates)
+
+        # Add subtarget to target object
+        target.add_subtarget(subtarget)
+
+    return target
 
 
 def save():
