@@ -31,6 +31,7 @@ from astropy.coordinates import SkyCoord
 from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
 import numpy as np
+import seaborn as sns
 from tqdm import tqdm
 
 from .cuda_methods import separation_cuda
@@ -60,7 +61,7 @@ def unwrap_generate_bitmap(arg, **kwarg):
 
 class VisualisationModule():
 
-    def __init__(self, spacecraft_frame, solar_bodies, targets, npix=(721, 361), cuda=False):
+    def __init__(self, spacecraft_frame, solar_bodies, targets, stats, npix=(721, 361), cuda=False):
         """
         Initialisation function for the visualisation module.
 
@@ -73,6 +74,8 @@ class VisualisationModule():
             Solar system bodies and their properties.
         targets : list
             Targets and their properties.
+        stats : pandas.core.frame.DataFrame
+            Overall statistics of target contacts.
         npix : tuple, optional
             Number of sample points in RA and DEC. The default is (721, 361).
         cuda : boolean, optional
@@ -84,10 +87,11 @@ class VisualisationModule():
 
         """
 
-        # Import satellite frame, solar bodies, and targets
+        # Import satellite frame, solar bodies, targets, and stats
         self.spacecraft_frame = spacecraft_frame
         self.solar_bodies = solar_bodies
         self.targets = targets
+        self.stats = stats
 
         # Import CUDA functions
         self.cuda = cuda
@@ -321,3 +325,149 @@ class VisualisationModule():
         for index in tqdm(range(nindex), desc="Bitmap Plotting"):
             # Plot bitmaps
             self.__plot_bitmap(index)
+
+    def plot_target_scatter(self, legend=False):
+        """
+        Function to plot a scatter of targets.
+
+        Parameters
+        ----------
+        legend : bool, optional
+            Flag for adding a legend. The default is False.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Plot targets with different colors and markers for each category
+        ax = sns.scatterplot(data=self.stats,
+                             x="mean_ra",
+                             y="mean_dec",
+                             style="category",
+                             hue="category",
+                             legend=legend)
+
+        # Set axis labels
+        ax.set(xlabel="Right Ascension [deg]", ylabel="Declination [deg]")
+
+        # Set ticks
+        plt.xticks(np.arange(-180, 181, step=60))
+        plt.yticks(np.arange(-90, 91, step=30))
+
+        # Set axis limits
+        plt.xlim(-180, 180)
+        plt.ylim(-90, 90)
+
+        # Invert x axis
+        ax.invert_xaxis()
+
+        # Enable grid
+        plt.grid()
+
+    def plot_target_duration_scatter(self, legend=False):
+        """
+        Function to plot a scatter of targets where their colour varies
+        depending on visibility.
+
+        Parameters
+        ----------
+        legend : bool, optional
+            Flag for adding a legend. The default is False.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Create colour bar by rounding the minimum and maximum values to
+        # the nearest 10%
+        percentage = self.stats["percentage_duration"]
+        percentage_min = int(np.floor(np.min(percentage))/10) * 10
+        percentage_max = int(np.ceil(np.max(percentage)/10)) * 10
+        norm = plt.Normalize(percentage_min, percentage_max)
+        sm = plt.cm.ScalarMappable(cmap="crest", norm=norm)
+        sm.set_array([])
+
+        # Plot targets with different markers for each category but a common
+        # palette depending on total duration
+        ax = sns.scatterplot(data=self.stats,
+                             x="mean_ra",
+                             y="mean_dec",
+                             style="category",
+                             hue="percentage_duration",
+                             palette="crest",
+                             hue_norm=norm,
+                             legend=legend)
+
+        # Add colour bar
+        clb = ax.figure.colorbar(sm)
+        clb.ax.set_ylabel("Visible Duration [%]")
+
+        # Set axis labels
+        ax.set(xlabel="Right Ascension [deg]", ylabel="Declination [deg]")
+
+        # Set ticks
+        plt.xticks(np.arange(-180, 181, step=60))
+        plt.yticks(np.arange(-90, 91, step=30))
+
+        # Set axis limits
+        plt.xlim(-180, 180)
+        plt.ylim(-90, 90)
+
+        # Invert x axis
+        ax.invert_xaxis()
+
+        # Enable grid
+        plt.grid()
+
+    def plot_target_duration_boxplot(self, buffer=5):
+        """
+        Function to plot box plot and scatter of target visibility.
+
+        Parameters
+        ----------
+        buffer : float, optional
+            X axis buffer value. The default is 5.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        # Plot box plots and overlay with data points
+        ax = sns.boxplot(data=self.stats,
+                         x="percentage_duration",
+                         y="category",
+                         color="white")
+        sns.stripplot(data=self.stats,
+                      x="percentage_duration",
+                      y="category",
+                      linewidth=0.5,
+                      alpha=0.75)
+
+        # Set axis labels
+        ax.set(xlabel="Visible Duration [%]", ylabel="Category [-]")
+
+        # Set axis limits by rounding to the nearest 10% and adding a buffer
+        # if the limits are too close
+        percentage = self.stats["percentage_duration"]
+
+        percentage_min = np.min(percentage)
+        percentage_min_floor = 10 * int(np.floor(percentage_min)/10)
+        if percentage_min - percentage_min_floor < buffer/2:
+            percentage_min_floor -= buffer
+
+        percentage_max = np.max(percentage)
+        percentage_max_ceil = 10 * int(np.ceil(percentage_max)/10)
+        if percentage_max_ceil - percentage_max < buffer/2:
+            percentage_max_ceil += buffer
+
+        plt.xlim(max(0, percentage_min_floor),
+                 min(100, percentage_max_ceil))
+
+        # Enable grid
+        plt.grid()
