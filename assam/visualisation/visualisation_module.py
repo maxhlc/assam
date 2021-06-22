@@ -284,8 +284,8 @@ class VisualisationModule():
         ax.set_aspect(aspect=1)
 
         # Add axis labels
-        plt.xlabel("RA [deg]")
-        plt.ylabel("DEC [deg]")
+        plt.xlabel("Right Ascension [deg]")
+        plt.ylabel("Declination [deg]")
 
         # Set ticks
         plt.xticks(np.arange(-180, 240, step=60))
