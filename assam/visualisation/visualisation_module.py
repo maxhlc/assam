@@ -258,8 +258,7 @@ class VisualisationModule():
         target_bitmap = self.target_bitmaps[index]
 
         # Create figure
-        plt.figure(figsize=((5.5, 4)),
-                   dpi=300)
+        plt.figure(figsize=((5.5, 4)), dpi=300)
 
         # Define colourmaps
         cmap_target = ListedColormap(["white", "green"])
@@ -340,6 +339,9 @@ class VisualisationModule():
         None.
 
         """
+        
+        # Create figure
+        plt.figure(figsize=((5.5, 4)), dpi=300)
 
         # Plot targets with different colors and markers for each category
         ax = sns.scatterplot(data=self.stats,
@@ -381,6 +383,9 @@ class VisualisationModule():
         None.
 
         """
+        
+        # Create figure
+        plt.figure(figsize=((5.5, 4)), dpi=300)
 
         # Create colour bar by rounding the minimum and maximum values to
         # the nearest 10%
@@ -437,12 +442,16 @@ class VisualisationModule():
         None.
 
         """
+        
+        # Create figure
+        plt.figure(figsize=((5.5, 4)), dpi=300)
 
         # Plot box plots and overlay with data points
         ax = sns.boxplot(data=self.stats,
                          x="percentage_duration",
                          y="category",
-                         color="white")
+                         color="white",
+                         whis=100)
         sns.stripplot(data=self.stats,
                       x="percentage_duration",
                       y="category",
@@ -457,17 +466,24 @@ class VisualisationModule():
         percentage = self.stats["percentage_duration"]
 
         percentage_min = np.min(percentage)
-        percentage_min_floor = 10 * int(np.floor(percentage_min)/10)
+        percentage_min_floor = 10 * int(np.floor(percentage_min/10))
         if percentage_min - percentage_min_floor < buffer/2:
             percentage_min_floor -= buffer
 
         percentage_max = np.max(percentage)
-        percentage_max_ceil = 10 * int(np.ceil(percentage_max)/10)
+        percentage_max_ceil = 10 * int(np.ceil(percentage_max/10))
         if percentage_max_ceil - percentage_max < buffer/2:
             percentage_max_ceil += buffer
+            
+        percentage_min_floor = max(0, percentage_min_floor)
+        percentage_max_ceil = min(100, percentage_max_ceil)
 
-        plt.xlim(max(0, percentage_min_floor),
-                 min(100, percentage_max_ceil))
-
+        plt.xlim(percentage_min_floor, percentage_max_ceil)
+        
+        # Set ticks
+        plt.xticks(np.arange(percentage_min_floor,
+                             percentage_max_ceil+buffer/2,
+                             step=buffer))
+        
         # Enable grid
         plt.grid()
