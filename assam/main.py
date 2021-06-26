@@ -24,8 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import inspect
-
 from astropy import units as u
 from astropy.time import Time, TimeDelta
 
@@ -34,18 +32,16 @@ from scheduling import SchedulingModule
 from visibility import VisibilityModule
 from visualisation import VisualisationModule
 
-# Dictionary to store variables from main function
-# (allows viewing through the variable explorer)
-local_vars = {}
-
-plot_bitmaps = False
+PLOT_BITMAPS = False
 
 
 def main():
+    # TODO: docstring
+
     # Set parameters
     start_time = Time("2021-03-20 12:00")
-    end_time = Time("2021-03-20 13:00")
-    time_step = TimeDelta(5*u.min)
+    end_time = Time("2021-03-20 18:00")
+    time_step = TimeDelta(15*u.min)
     keplerian_elements = {"SMA": 7000,
                           "ECC": 0,
                           "INC": 98.6,
@@ -58,36 +54,38 @@ def main():
                                   end_time,
                                   time_step,
                                   keplerian_elements)
-    propagator.propagate_spacecraft()
-    propagator.get_solar_bodies()
+    spacecraft_frame = propagator.propagate_spacecraft()
+    solar_bodies = propagator.get_solar_bodies()
 
     # Calculate target visibility
-    visibility = VisibilityModule(propagator.spacecraft_frame,
-                                  propagator.solar_bodies)
-    visibility.get_targets()
+    visibility = VisibilityModule(spacecraft_frame, solar_bodies)
+    targets = visibility.get_targets()
     visibility.calculate_visibility()
     visibility.calculate_contacts()
-    visibility.calculate_overall_stats()
+    stats = visibility.calculate_overall_stats()
 
     # Schedule observations
-    scheduling = SchedulingModule(visibility.targets)
+    scheduling = SchedulingModule(targets)
     scheduling.combine_contacts()
     scheduling.simple_dynamic_schedule()
 
     # Plot telescope visibility
-    visualisation = VisualisationModule(propagator.spacecraft_frame,
-                                        visibility.solar_bodies,
-                                        visibility.targets,
+    visualisation = VisualisationModule(spacecraft_frame,
+                                        solar_bodies,
+                                        targets,
+                                        stats,
                                         cuda=True)
-    if plot_bitmaps:
+    if PLOT_BITMAPS:
         visualisation.generate_bitmaps()
         visualisation.plot_bitmaps()
+    visualisation.plot_target_scatter()
+    visualisation.plot_target_duration_scatter()
+    visualisation.plot_target_duration_boxplot()
 
-    # Store local variables
-    global local_vars
-    local_vars = inspect.currentframe().f_locals
+    # Return modules
+    return propagator, visibility, scheduling, visualisation
 
 
-# Run if main file
 if __name__ == "__main__":
-    main()
+    # Exectute ASSAM main function
+    propagator, visibility, scheduling, visualisation = main()
