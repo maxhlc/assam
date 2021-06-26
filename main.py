@@ -27,10 +27,10 @@ SOFTWARE.
 from astropy import units as u
 from astropy.time import Time, TimeDelta
 
-from propagator import PropagatorModule
-from scheduling import SchedulingModule
-from visibility import VisibilityModule
-from visualisation import VisualisationModule
+from assam.propagator import PropagatorModule
+from assam.scheduling import SchedulingModule
+from assam.visibility import VisibilityModule
+from assam.visualisation import VisualisationModule
 
 PLOT_BITMAPS = False
 

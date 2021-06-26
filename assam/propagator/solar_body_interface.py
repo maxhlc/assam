@@ -32,7 +32,7 @@ from astropy.coordinates import solar_system_ephemeris, get_body
 import numpy as np
 from tqdm import tqdm
 
-from propagator.solar_body import SolarBody
+from .solar_body import SolarBody
 
 
 def load(spacecraft_frame, ephem="jpl", num_workers=None):
@@ -66,7 +66,7 @@ def load(spacecraft_frame, ephem="jpl", num_workers=None):
 
     # Load solar bodies of interest from config
     # TODO: implement default and optional paths
-    with open("../data/solar_bodies.yml", "r") as solar_bodies_file:
+    with open("data/solar_bodies.yml", "r") as solar_bodies_file:
         solar_bodies_dump = yaml.safe_load(solar_bodies_file)
 
     # Check for empty solar bodies file

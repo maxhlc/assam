@@ -61,7 +61,7 @@ def load(spacecraft_frame, num_workers=None):
 
     # Load targets from config file
     # TODO: implement default and optional paths
-    with open("../data/targets.yml", "r") as targets_file:
+    with open("data/targets.yml", "r") as targets_file:
         targets_dump = yaml.safe_load(targets_file)
 
     # Check for empty targets file
