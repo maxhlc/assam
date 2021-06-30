@@ -40,11 +40,11 @@ def main():
 
     # Set parameters
     start_time = Time("2021-03-20 12:00")
-    end_time = Time("2021-03-20 18:00")
-    time_step = TimeDelta(15*u.min)
-    keplerian_elements = {"SMA": 7000,
+    end_time = Time("2022-03-20 12:00")
+    time_step = TimeDelta(5*u.min)
+    keplerian_elements = {"SMA": 6921,
                           "ECC": 0,
-                          "INC": 98.6,
+                          "INC": 97.57,
                           "RAAN": 90,
                           "AOP": 0,
                           "TA": 0}
@@ -61,6 +61,15 @@ def main():
     visibility = VisibilityModule(spacecraft_frame, solar_bodies)
     targets = visibility.get_targets()
     visibility.calculate_visibility()
+    
+    import numpy as np
+    for target in targets:
+        if target.name == "galactic_centre":
+            continue
+        else:
+            target.visibility = np.logical_and(target.visibility,
+                                               np.logical_not(targets[0].visibility))
+    
     visibility.calculate_contacts()
     stats = visibility.calculate_overall_stats()
 
