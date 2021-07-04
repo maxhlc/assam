@@ -60,16 +60,7 @@ def main():
     # Calculate target visibility
     visibility = VisibilityModule(spacecraft_frame, solar_bodies)
     targets = visibility.get_targets()
-    visibility.calculate_visibility()
-    
-    import numpy as np
-    for target in targets:
-        if target.name == "galactic_centre":
-            continue
-        else:
-            target.visibility = np.logical_and(target.visibility,
-                                               np.logical_not(targets[0].visibility))
-    
+    visibility.calculate_visibility()   
     visibility.calculate_contacts()
     stats = visibility.calculate_overall_stats()
 
