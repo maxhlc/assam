@@ -428,12 +428,15 @@ class VisualisationModule():
         # Enable grid
         plt.grid()
 
-    def plot_target_duration_boxplot(self, buffer=5):
+    def plot_target_duration_boxplot(self, xlim=None, buffer=5):
         """
         Function to plot box plot and scatter of target visibility.
 
         Parameters
         ----------
+        xlim : list, optional
+            X limits. The default is None which uses automatic limits.
+        
         buffer : float, optional
             X axis buffer value. The default is 5.
 
@@ -461,29 +464,42 @@ class VisualisationModule():
         # Set axis labels
         ax.set(xlabel="Visible Duration [%]", ylabel="Category [-]")
 
-        # Set axis limits by rounding to the nearest 10% and adding a buffer
-        # if the limits are too close
-        percentage = self.stats["percentage_duration"]
-
-        percentage_min = np.min(percentage)
-        percentage_min_floor = 10 * int(np.floor(percentage_min/10))
-        if percentage_min - percentage_min_floor < buffer/2:
-            percentage_min_floor -= buffer
-
-        percentage_max = np.max(percentage)
-        percentage_max_ceil = 10 * int(np.ceil(percentage_max/10))
-        if percentage_max_ceil - percentage_max < buffer/2:
-            percentage_max_ceil += buffer
+        # Set axis limits either automatically or using the input values
+        if xlim is None:
+            # Extract percentages
+            percentage = self.stats["percentage_duration"]
             
-        percentage_min_floor = max(0, percentage_min_floor)
-        percentage_max_ceil = min(100, percentage_max_ceil)
-
-        plt.xlim(percentage_min_floor, percentage_max_ceil)
-        
-        # Set ticks
-        plt.xticks(np.arange(percentage_min_floor,
-                             percentage_max_ceil+buffer/2,
-                             step=buffer))
+            # Calculate minimum with buffer
+            percentage_min = np.min(percentage)
+            percentage_min_floor = 10 * int(np.floor(percentage_min/10))
+            if percentage_min - percentage_min_floor < buffer/2:
+                percentage_min_floor -= buffer
+            
+            # Calculate maximum with buffer
+            percentage_max = np.max(percentage)
+            percentage_max_ceil = 10 * int(np.ceil(percentage_max/10))
+            if percentage_max_ceil - percentage_max < buffer/2:
+                percentage_max_ceil += buffer
+            
+            # Clip values to 0 - 100
+            percentage_min_floor = max(0, percentage_min_floor)
+            percentage_max_ceil = min(100, percentage_max_ceil)
+            
+            # Set limits
+            plt.xlim(percentage_min_floor, percentage_max_ceil)
+            
+            # Set ticks
+            plt.xticks(np.arange(percentage_min_floor,
+                                 percentage_max_ceil+buffer/2,
+                                 step=buffer))
+        else:
+            # Set limits
+            plt.xlim(xlim[0], xlim[1])
+            
+            # Set ticks
+            plt.xticks(np.arange(xlim[0],
+                                 xlim[1]+buffer/2,
+                                 step=buffer))
         
         # Enable grid
         plt.grid()
