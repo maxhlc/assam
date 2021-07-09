@@ -129,5 +129,6 @@ class VisibilityModule():
 
         # Store statistics
         self.stats = stats
-
+        
+        # Return overall statistics
         return stats

@@ -90,6 +90,7 @@ def load(spacecraft_frame, ephem="jpl", num_workers=None):
             for solar_body_object in p.imap(load_worker, solar_bodies_list):
                 # Add solar body object to list
                 solar_bodies.append(solar_body_object)
+                
                 # Update progress bar
                 pbar.update()
 
@@ -127,8 +128,7 @@ def load_worker(worker_params):
 
     # Calculate solar body angular radius
     solar_body_radius = solar_body_info["radius"] * u.m
-    solar_body_angular_radius = np.arcsin(
-        solar_body_radius / slant_range)
+    solar_body_angular_radius = np.arcsin(solar_body_radius / slant_range)
 
     # Load soft radius constraints
     solar_body_soft_radius = solar_body_info["soft_radius"] * u.deg

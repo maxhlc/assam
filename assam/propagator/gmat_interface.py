@@ -144,6 +144,7 @@ class GMATInterface():
         with tqdm(total=1, desc="GMAT Execution") as pbar:
             # Run GMAT
             os.system(full_command)
+            
             # Update progress bar
             pbar.update(1)
 
@@ -164,8 +165,7 @@ class GMATInterface():
 
         # Calculate time vector for interpolation
         nstep = np.rint((self.end_time-self.start_time)/self.time_step) + 1
-        spacecraft_time = self.start_time + \
-            self.time_step * np.arange(0, nstep)
+        spacecraft_time = self.start_time + self.time_step * np.arange(0, nstep)
 
         # Calculate GMAT time
         time = Time(output["Spacecraft.UTCModJulian"].values

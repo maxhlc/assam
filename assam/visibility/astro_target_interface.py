@@ -86,7 +86,8 @@ def load(spacecraft_frame, num_workers=None):
 
                 # Update progress bar
                 pbar.update()
-
+    
+    # Return imported targets
     return targets
 
 
@@ -165,7 +166,8 @@ def load_worker(worker_params):
 
         # Add subtarget to target object
         target.add_subtarget(subtarget)
-
+    
+    # Return imported target
     return target
 
 

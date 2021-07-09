@@ -182,8 +182,7 @@ class VisualisationModule():
                     separation = separation_cuda(subtarget_coordinates,
                                                  coordinates_grid)
                 else:
-                    separation = subtarget_coordinates.separation(
-                        coordinates_grid)
+                    separation = subtarget_coordinates.separation(coordinates_grid)
 
                 # Reshape to separation array
                 separation_array = separation.reshape(self.theta_grid.shape)

@@ -77,5 +77,6 @@ def separation_cuda(coord1, coord2):
 
     # Convert angle to numpy array with astropy units
     angle = cp.asnumpy(angle) * u.rad
-
+    
+    # Return angular separation
     return angle

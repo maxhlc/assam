@@ -36,7 +36,21 @@ PLOT_BITMAPS = False
 
 
 def main():
-    # TODO: docstring
+    """
+    Main function to execute assam.
+
+    Returns
+    -------
+    propagator : assam.propagator.propagator_module.PropagatorModule
+        Propagator module.
+    visibility : assam.visibility.visibility_module.VisibilityModule
+        Visibility module.
+    scheduling : assam.scheduling.scheduling_module.SchedulingModule
+        Scheduling module.
+    visualisation : assam.visualisation.visualisation_module.VisualisationModule
+        Visualisation module.
+
+    """
 
     # Set parameters
     start_time = Time("2021-03-20 12:00")

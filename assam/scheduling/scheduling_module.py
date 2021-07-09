@@ -77,7 +77,18 @@ class SchedulingModule():
         return contacts
 
     def simple_dynamic_schedule(self):
-        # TODO: docstring
+        """
+        Function to schedule contacts using the simple dynamic linear
+        programming method.
+
+        Returns
+        -------
+        scheduled_contacts : list
+            List of scheduled contacts.
+        benefit_optimal : numpy.float64
+            Optimal benefit corresponding to the scheduled contacts.
+
+        """
 
         # Sort list of contacts by end time
         contacts = self.contacts
@@ -140,5 +151,6 @@ class SchedulingModule():
 
         # Store scheduled_contacts
         self.scheduled_contacts = scheduled_contacts
-
+        
+        # Return scheduled contacts and optimal benefit
         return scheduled_contacts, benefit_optimal

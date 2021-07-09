@@ -137,7 +137,14 @@ class AstroTarget():
         self.update_properties()
 
     def update_properties(self):
-        # TODO: docstring
+        """
+        Function to update target properties.
+
+        Returns
+        -------
+        None.
+
+        """
 
         # Extract subtarget coordinates
         coordinates = [subtarget.icrs_coordinates
@@ -198,11 +205,21 @@ class AstroTarget():
 
         # Store visibility
         self.visibility = visibility
-
+        
+        # Return visibility
         return visibility
 
     def calculate_contacts(self):
-        # TODO: docstring
+        """
+        Function to convert Boolean visibility into a series of
+        contact objects.
+
+        Returns
+        -------
+        contacts : list
+            List of contacts.
+
+        """
 
         # Calculate run-length encoding
         ilength, istart, ivalue = rle(self.visibility)
@@ -232,7 +249,15 @@ class AstroTarget():
         return contacts
 
     def calculate_overall_stats(self):
-        # TODO: docstring
+        """
+        Function to calculate overall target statistics.
+
+        Returns
+        -------
+        stats : pandas.core.frame.DataFrame
+            DataFrame containing target statistics.
+
+        """
         # TODO: how to handle contact objects with verbose time?
 
         # Create empty statistics dictionary
@@ -288,7 +313,8 @@ class AstroTarget():
 
         # Store overall stats
         self.stats = stats
-
+        
+        # Return overall stats
         return stats
 
 
@@ -390,14 +416,39 @@ class AstroSubtarget():
 
         # Flatten array into vector
         visibility = np.all(visibility, axis=0)
-
+        
+        # Return visibility and angular separation
         return visibility, angular_separation
 
 
 class TargetContact():
 
     def __init__(self, target, start, end, benefit, differential_benefit=False, verbose_time=False):
-        # TODO: docstring
+        """
+        Initialisation function for a target contact.
+
+        Parameters
+        ----------
+        target : assam.visibility.astro_target.AstroTarget
+            Corresponding target of the contact.
+        start : astropy.time.core.Time
+            Contact start time.
+        end : astropy.time.core.Time
+            Contact end time.
+        benefit : numpy.float64
+            Contact benefit.
+        differential_benefit : bool, optional
+            Option of whether to use the input benefit as a rate.
+            The default is False.
+        verbose_time : bool, optional
+            Option to use verbose time which stores the entire time object.
+            The default is False.
+
+        Returns
+        -------
+        None.
+
+        """
 
         # Store target object
         self.target = target
