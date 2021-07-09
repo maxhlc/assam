@@ -9,12 +9,12 @@ The Automated Sky Survey Analysis Methods (ASSAM) project is an effort to develo
 Python packages:
 * Astropy
 * CuPy
+* jplephem
 * matplotlib
 * numpy
 * pandas
 * seaborn
 * tqdm
-* jplephem
 
 Other:
 * GMAT
