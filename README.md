@@ -1,6 +1,7 @@
 # ASSAM
 
 [![astropy](http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat)](http://www.astropy.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5085605.svg)](https://doi.org/10.5281/zenodo.5085605)
 
 The Automated Sky Survey Analysis Methods (ASSAM) project is an effort to develop an open, lightweight tool for space telescope scheduling, built primarily on Python packages. This repository contains the `assam` package.
 
