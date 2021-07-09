@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Prototyping folder
+prototyping/
+
+# Modified GMAT scripts and output
+GMAT_modified.script
+GMAT_output.dat
+
+# pylint files
+.pylint.d
